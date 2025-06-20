@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuna Universitaria del Gran Bilbao</title>
+    <style>
+        :root {
+            --primary: #8B0000;
+            --secondary: #F4A460;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            background: #f8f9fa;
+        }
+
+        nav {
+            background: var(--primary);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        .hero {
+           -gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://picsum.photos/1200/400');
+            background-size: cover;
+            color: white;
+            padding: 8rem 1rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            margin: 4rem 0;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="miembros.html">Miembros</a>
+        <a href="galeria.html">Galería</a>
+    </nav>
+
+    <section class="hero">
+        <h1>Tuna Universitaria del Gran Bilbao</h1>
+        <p>Desde 1981 llevando la tradición musical universitaria por el mundo</p>
+        <a href="#contacto" class="btn">Únete a nosotros</a>
+    </section>
+
+    <div class="container">
+        <section class="grid">
+            <div class="card">
+                <h2>Nuestra Historia</h2>
+                <p>Fundada en 1981 por estudiantes de la Facultad de Ciencia y Tecnología de la UPV/EHU (Bizkaia), la Tuna Universitaria del Gran Bilbao representa la tradición musical, el espíritu universitario y la cultura tunantesca del País Vasco. Reactivada en 2024 tras 20 años de pausa, continúa su legado con nuevas generaciones.</p>
+            </div>
+
+            <div class="card">
+                <h2>Próximos Eventos</h2>
+                <p>Certamen en Espinosa de los Monteros (Burgos) - 26 al 28 de septiembre de 2025</p>
+                <a href="#" class="btn">Ver calendario</a>
+            </div>
+
+            <div class="card" id="contacto">
+                <h2>Contacto</h2>
+                <p>Email: tunabilbao@gmail.com</p>
+                https://www.instagram.com/tunabilbao
+            </div>
+        </section>
+    </div>
+</body>
+</html>
