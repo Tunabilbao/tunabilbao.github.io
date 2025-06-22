@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia - Tuna de Bilbao</title>
+    <style>
+        :root {
+            --azul-tuna: #1a237e;
+            --dorado: #ffd700;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* --- Menú de navegación mejorado --- */
+        nav {
+            background: var(--azul-tuna);
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav a {
+            color: white;
+            margin: 0 1.2rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 0.8rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        nav a[href="historia.html"] {
+            background-color: var(--dorado);
+            color: var(--azul-tuna);
+            font-weight: 700;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        h1 {
+            text-align: center;
+            color: var(--azul-tuna);
+            margin-bottom: 2.5rem;
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        h1::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--dorado);
+            border-radius: 2px;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 3px;
+            background: var(--azul-tuna);
+            transform: translateX(-50%);
+            opacity: 0.3;
+        }
+        
+        .timeline-item {
+            padding: 1.8rem;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            position: relative;
+            border-left: 5px solid var(--azul-tuna);
+            transition: transform 0.3s;
+        }
+        
+        .timeline-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .timeline-year {
+            font-weight: bold;
+            color: var(--azul-tuna);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-year::before {
+            content: '';
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background: var(--dorado);
+            border: 3px solid var(--azul-tuna);
+            border-radius: 50%;
+            margin-right: 0.8rem;
+        }
+        
+        .timeline-doc {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .timeline-doc img {
+            width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .timeline-doc img:hover {
+            transform: scale(1.03);
+        }
+        
+        .doc-details {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .doc-details ul {
+            padding-left: 1.5rem;
+            margin: 0.8rem 0;
+        }
+        
+        .doc-details li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .doc-button {
+            display: inline-block;
+            background: var(--azul-tuna);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            border: 2px solid var(--azul-tuna);
+            font-weight: 600;
+        }
+        
+        .doc-button:hover {
+            background: white;
+            color: var(--azul-tuna);
+        }
+        
+        blockquote {
+            background: #f8f9fa;
+            border-left: 4px solid var(--azul-tuna);
+            padding: 1.2rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #555;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+        
+        blockquote::before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--dorado);
+            position: absolute;
+            left: 10px;
+            top: -10px;
+            opacity: 0.3;
+        }
+        
+        @media (max-width: 768px) {
+            nav a {
+                margin: 0 0.5rem;
+                font-size: 1rem;
+                padding: 0.4rem 0.6rem;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                padding: 1.2rem;
+                margin-left: 2rem;
+            }
+            
+            .timeline-doc {
+                flex-direction: column;
+            }
+            
+            .timeline-doc img {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="historia.html">Historia</a>
+        <a href="miembros.html">Miembros</a>
+        <a href="galeria.html">Galería</a>
+    </nav>
+
+    <div class="container">
+        <h1>Historia de la Tuna de Bilbao</h1>
+
+        <div class="timeline-item">
+            <div class="timeline-year">1981-1992 - Trayectoria Internacional</div>
+            <p>Historia de la Tuna Universitaria del Gran Bilbao, formada por cinco amigos universitarios que transformaron sus reuniones informales en una de las agrupaciones musicales más viajeras del norte de España.</p>
+            
+            <div class="timeline-doc">
+                <img src="./documentos/historicos/miniaturas/tuna_gran_bilbao_1981.jpg" alt="Fundadores de la Tuna del Gran Bilbao" onclick="openPDF('./documentos/historicos/universitaiabilboko_saul.pdf')">
+                
+                <div class="doc-details">
+                    <p><strong>Fundación:</strong> 1981 en el bar de la Universidad del País Vasco</p>
+                    <p><strong>Origen:</strong> Grupo de 5 amigos tomando "mistelas"</p>
+                    <p><strong>Particularidad:</strong> Primera tuna con arraigo en el País Vasco</p>
+                    
+                    <div style="display: flex; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 250px;">
+                            <p><strong>Etapa fundacional (1981-1984):</strong></p>
+                            <ul>
+                                <li>1982: Primeras actuaciones en el restaurante Casa Vasca</li>
+                                <li>1984: Certamen de Tunas de Santander (Santurce)</li>
+                                <li>Superación de dificultades iniciales</li>
+                            </ul>
+                        </div>
+                        <div style="flex: 1; min-width: 250px;">
+                            <p><strong>Expansión nacional (1985):</strong></p>
+                            <ul>
+                                <li>Gira por Salou, Vitoria, Logroño</li>
+                                <li>Actuaciones en Zaragoza y Barcelona</li>
+                                <li>Programa "Suspiros de España" en TV</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Proyección internacional:</strong></p>
+                    <blockquote>
+                        "De las mistelas universitarias a los escenarios de Europa: Francia, Mónaco, Italia, Holanda, Bélgica y la Fiesta de la Cerveza en Múnich"
+                    </blockquote>
+                    
+                    <p><strong>Hitos destacados:</strong></p>
+                    <ul>
+                        <li><strong>1985:</strong> Primera salida internacional (Francia)</li>
+                        <li><strong>1986-1990:</strong> 
+                            <ul>
+                                <li>Congresos en Salamanca, Segovia y Eindhoven</li>
+                                <li>Gira mediterránea (Ibiza, Italia, Mónaco)</li>
+                                <li>Tour por Benelux (Holanda y Bélgica)</li>
+                            </ul>
+                        </li>
+                        <li><strong>1987:</strong> Doble participación en Eindhoven y Cáceres</li>
+                        <li><strong>1992:</strong> Fiesta de la Cerveza en Múnich</li>
+                    </ul>
+                    
+                    <p><strong>Actuaciones regulares actuales:</strong></p>
+                    <ul>
+                        <li>Fiesta anual de San Alberto</li>
+                        <li>Festivales en Medina Pomar (Burgos)</li>
+                        <li>Eventos en localidades cercanas</li>
+                    </ul>
+                    
+                    <p><strong>Legado:</strong></p>
+                    <ul>
+                        <li>Demostró que podía surgir tradición trovadoresca donde no la había</li>
+                        <li>Modelo de tuna viajera con proyección europea</li>
+                        <li>Puente cultural entre el País Vasco y otras regiones</li>
+                        <li>Mantenimiento de tradiciones 40 años después</li>
+                    </ul>
+                    
+                    <a href="./documentos/historicos/tunagranbilbao.pdf" target="_blank" class="doc-button">
+                        Ver documento completo (PDF)
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-year">1983 - I Premio Euskadi de Tunas</div>
+            <p>Primer certamen regional de tunas organizado por La Casa Vasca en Bilbao, con participación de agrupaciones de toda España y bases que marcarían estándares para futuros eventos.</p>
+            
+            <div class="timeline-doc">
+                <img src="./documentos/historicos/miniaturas/premio_euskadi_1983.jpg" alt="Cartel Premio Euskadi de Tunas 1983" onclick="openPDF('./documentos/historicos/Proyecto_Primer_Certamen_de_tunas_de_Euskadi_de_La_Casa_Vasca_1983.pdf')">
+                
+                <div class="doc-details">
+                    <p><strong>Evento:</strong> I Premio Euskadi de Tunas</p>
+                    <p><strong>Fechas:</strong> Eliminatorias: 15, 22, 29 abril 1983 | Final: 6 mayo 1983</p>
+                    <p><strong>Lugar:</strong> Sala de Fiestas "New Garden", Deusto (Bilbao)</p>
+                    
+                    <div style="display: flex; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 250px;">
+                            <p><strong>Bases destacadas:</strong></p>
+                            <ul>
+                                <li>Participación nacional (mínimo 12 miembros por tuna)</li>
+                                <li>Instrumentación tradicional exigida</li>
+                                <li>Obra inédita obligatoria + pieza libre</li>
+                                <li>Premios desde 200.000 pts (1º) hasta 25.000 pts (4º)</li>
+                            </ul>
+                        </div>
+                        <div style="flex: 1; min-width: 250px;">
+                            <p><strong>Trofeos especiales:</strong></p>
+                            <ul>
+                                <li>Mejor uniformidad</li>
+                                <li>Panderetero más espectacular</li>
+                                <li>Mayor representación femenina</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Jurado destacado:</strong></p>
+                    <ul>
+                        <li>Juan Cordero Castaños (Director del Conservatorio de Bilbao)</li>
+                        <li>Lourdes Mateos (Percusionista)</li>
+                        <li>M.C. Navarro (Locutora de Tele-Norte)</li>
+                        <li>Profesionales de música y medios</li>
+                    </ul>
+                    
+                    <p><strong>Criterios de evaluación:</strong></p>
+                    <blockquote>
+                        "Musicalidad, armonía, riqueza vocal, ritmo y simpatía"<br>
+                        - Bases oficiales del certamen
+                    </blockquote>
+                    
+                    <p><strong>Importancia histórica:</strong></p>
+                    <ul>
+                        <li>Primer certamen vasco de referencia para tunas</li>
+                        <li>Organizado en el emblemático local New Garden de Deusto</li>
+                        <li>Estableció estándares para futuros eventos tunantiles</li>
+                    </ul>
+                    
+                    <a href="./documentos/historicos/Proyecto_Primer_Certamen_de_tunas_de_Euskadi_de_La_Casa_Vasca_1983.pdf" target="_blank" class="doc-button">
+                        Ver documento completo (PDF)
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-year">1983 - Presupuesto Bandera Tuna</div>
+            <p>Documento histórico que detalla los costes de confección de una bandera ceremonial y su mástil para la Tuna Universitaria de Lejona, mostrando los materiales y técnicas artesanales empleadas en la indumentaria tunera.</p>
+            
+            <div class="timeline-doc">
+                <img src="./documentos/historicos/miniaturas/presupuesto_bandera_tuna_1983.jpg" alt="Diseño de bandera tunera 1983" onclick="openPDF('./documentos/historicos/Tuna_Presupuesto_de_la_Bandera.pdf')">
+                
+                <div class="doc-details">
+                    <p><strong>Institución:</strong> Tuna Universitaria de Lejona</p>
+                    <p><strong>Fecha:</strong> 4 mayo 1983</p>
+                    <p><strong>Ubicación:</strong> Bilbao, España</p>
+                    
+                    <div style="display: flex; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 250px;">
+                            <p><strong>Opciones de bandera:</strong></p>
+                            <ul>
+                                <li><strong>Versión premium (80,000 pts):</strong>
+                                    <ul>
+                                        <li>Cara 1: Raso blanco con letras doradas</li>
+                                        <li>Cara 2: Raso negro con bordados multicolor</li>
+                                        <li>Escudo en raso negro con galón dorado</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="flex: 1; min-width: 250px;">
+                            <ul>
+                                <li><strong>Versión estándar (70,000 pts):</strong>
+                                    <ul>
+                                        <li>Mismos materiales pero sin dorados</li>
+                                        <li>Letras en seda amarilla</li>
+                                        <li>Contornos en oro</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <p><strong>Responsable:</strong> "La Hermana Encargada de las Labores"</p>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Mástil ceremonial:</strong></p>
+                    <blockquote>
+                        "Tubo de latón cromado de 28mm y 2m de longitud, con remates fundidos - 8,975 pesetas (presupuestado por Construcciones en Metales El Zabala)"
+                    </blockquote>
+                    
+                    <p><strong>Detalles técnicos:</strong></p>
+                    <ul>
+                        <li><strong>Materiales nobles:</strong> Raso, sedas de colores, hilos de oro</li>
+                        <li><strong>Técnicas:</strong> Bordado artesanal, fundición a medida</li>
+                        <li><strong>Elementos heráldicos:</strong> Escudo tunero, símbolos musicales</li>
+                    </ul>
+                    
+                    <p><strong>Proveedores:</strong></p>
+                    <ul>
+                        <li><strong>Bandera:</strong> Taller de bordados no especificado (presupuesto manuscrito)</li>
+                        <li><strong>Mástil:</strong> Construcciones en Metales El Zabala (Bilbao)</li>
+                    </ul>
+                    
+                    <p><strong>Contexto histórico:</strong></p>
+                    <ul>
+                        <li>Ejemplo de artesanía textil y metalúrgica vasca</li>
+                        <li>Documento previo a la mecanización de estos procesos</li>
+                        <li>Reflejo del valor ceremonial de los estandartes tuneros</li>
+                        <li>Relación coste (80,000 pts) ≈ 480€ actuales (ajustado a inflación)</li>
+                    </ul>
+                    
+                    <a href="./documentos/historicos/Tuna_Presupuesto_de_la_Bandera.pdf" target="_blank" class="doc-button">
+                        Ver documento completo (PDF)
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-year">1987 - Participación en Aste Nagusia</div>
+            <p>Recorte de prensa que documenta la participación de la Tuna Universitaria en la Bajada de Fiestas de Bilbao durante la Aste Nagusia, mostrando su integración en las tradiciones festivas de la villa.</p>
+            
+            <div class="timeline-doc">
+                <img src="./documentos/historicos/miniaturas/aste_nagusia_1987.jpg" alt="Recorte prensa Aste Nagusia 1987" onclick="openPDF('./documentos/historicos/Recorte_Prensa_Aste_Nagusia_1987_Bajada_Fiestas_Bilbao.pdf')">
+                
+                <div class="doc-details">
+                    <p><strong>Evento:</strong> Bajada de Fiestas - Aste Nagusia 1987</p>
+                    <p><strong>Fecha:</strong> 16 de agosto de 1987</p>
+                    <p><strong>Lugar:</strong> Barrio Bilbao (centro de Bilbao)</p>
+                    
+                    <p><strong>Participación destacada:</strong></p>
+                    <ul>
+                        <li>Intervención junto a fanfarrias y comparsas tradicionales</li>
+                        <li>Mención específica: <em>"los más tunantes de la universidad vasca"</em></li>
+                        <li>Actuación con la fanfarria Aldafa Corra de Galafán</li>
+                        <li>Presencia en el desfile junto a grupos como Pirukutrak y Karmele Basauri</li>
+                    </ul>
+                    
+                    <p><strong>Contexto festivo:</strong></p>
+                    <blockquote>
+                        "Accionados, sudorosas de tanto bombo y platillo, nunca viene mal un abanico amigo"<br>
+                        - Descripción periodística del ambiente festivo
+                    </blockquote>
+                    
+                    <p><strong>Detalles históricos:</strong></p>
+                    <ul>
+                        <li>Documenta la temprana participación de la tuna en Aste Nagusia</li>
+                        <li>Muestra la convivencia con otras tradiciones bilbaínas</li>
+                        <li>Ejemplo de adaptación del repertorio tunantil al contexto festivo popular</li>
+                    </ul>
+                    
+                    <p><strong>Elementos característicos:</strong></p>
+                    <ul>
+                        <li>Fusión con grupos de danzas vascas</li>
+                        <li>Uso de instrumentación tradicional en espacio callejero</li>
+                        <li>Mención al carácter universitario dentro del contexto festivo</li>
+                    </ul>
+                    
+                    <a href="./documentos/historicos/Recorte_Prensa_Aste_Nagusia_1987_Bajada_Fiestas_Bilbao.pdf" target="_blank" class="doc-button">
+                        Ver documento completo (PDF)
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-year">1987 - Invitación al Congreso de Les Moines Pervers</div>
+                <p>Documento histórico que muestra la participación internacional de la Tuna Universitaria de Bilbao en eventos europeos, específicamente en un banquete tradicional belga organizado por la orden estudiantil "Les Moines Pervers" de Saint-Louis (Bruselas).</p>
+                
+                <div class="timeline-doc">
+                    <img src="./documentos/historicos/miniaturas/moines_pervers_1987.jpg" alt="Invitación Congreso Les Moines Pervers 1987" onclick="openPDF('./documentos/historicos/Invitacion_al_Cogreso_de_Les_Moins_Pervers_1987.pdf')">
+                    
+                    <div class="doc-details">
+                        <p><strong>Evento:</strong> Banquete anual de Les Moines Pervers</p>
+                        <p><strong>Fecha:</strong> 27 de febrero de 1987</p>
+                        <p><strong>Lugar:</strong> Centre Communautaire de Jolibois, Bruselas</p>
+                        
+                        <p><strong>Detalles destacados:</strong></p>
+                        <ul>
+                            <li>Invitación formal enviada desde Bélgica a la Tuna de Bilbao</li>
+                            <li>Menú gourmet especial: bisque de langosta, ostras, quesos belgas</li>
+                            <li>Semana de la cerveza belga previa al evento (18-27 feb)</li>
+                            <li>Confirmación de asistencia de 5-9 tunos de Bilbao</li>
+                            <li>Coordinación logística detallada (alojamiento, horarios)</li>
+                        </ul>
+                        
+                        <p><strong>Fragmento significativo:</strong></p>
+                        <blockquote>
+                            "Nous avons le plaisir de vous annoncer la venue d'invités d'honneur: une délégation de l'université de BILBAO (Espagne): LA TUNA UNIVERSITARIA DE BILBAO qui, malgré leurs examens, viennent spécialement en Belgique"
+                        </blockquote>
+                        
+                        <p><strong>Correspondencia:</strong> Cartas en 4 idiomas (francés, español, inglés, neerlandés) mostrando el carácter internacional del evento.</p>
+                        
+                        <a href="./documentos/historicos/Invitacion_al_Cogreso_de_Les_Moins_Pervers_1987.pdf" target="_blank" class="doc-button">
+                            Ver documento completo (PDF)
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1987 - IX Congreso Internacional de Tunas</div>
+                <p>Histórico evento organizado por la Tuna de Ingenieros Técnicos de Obras Públicas de Alicante que reunió a 2,200 tunos de España y otros países, revitalizando las tradiciones tuneras con competencias, grabaciones y eventos masivos.</p>
+                
+                <div class="timeline-doc">
+                    <img src="./documentos/historicos/miniaturas/congreso_tunas_alicante_1987.jpg" alt="Congreso de Tunas en Alicante 1987" onclick="openPDF('./documentos/historicos/Tuna_Asistencia_Certamen_ALicante_1987.pdf')">
+                    
+                    <div class="doc-details">
+                        <p><strong>Organizador:</strong> Tuna Universitaria de Ingenieros Técnicos de Obras Públicas de Alicante</p>
+                        <p><strong>Fechas:</strong> 24-26 abril 1987</p>
+                        <p><strong>Participantes:</strong> 2,200 tunos (récord histórico)</p>
+                        <p><strong>Presupuesto:</strong> 12,671,435 pesetas</p>
+                        
+                        <div style="display: flex; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap;">
+                            <div style="flex: 1; min-width: 250px;">
+                                <p><strong>Datos clave:</strong></p>
+                                <ul>
+                                    <li>40 tunas participantes (incluyendo internacionales)</li>
+                                    <li>25 premios en competencia</li>
+                                    <li>Grabación de doble LP en directo</li>
+                                    <li>Paella gigante para 2,000 personas</li>
+                                </ul>
+                            </div>
+                            <div style="flex: 1; min-width: 250px;">
+                                <p><strong>Participación internacional:</strong></p>
+                                <ul>
+                                    <li>Tuna Ciudad de Luz (Holanda)</li>
+                                    <li>Estudiantina Académica de Coimbra (Portugal)</li>
+                                    <li>Tuna Javierana de Bogotá (Colombia)</li>
+                                    <li>Orden de la Golondria (Italia)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <p><strong>Programa destacado:</strong></p>
+                        <blockquote>
+                            "Bautizo de pardillos en la Playa del Postiguet, pasacalles masivo por Alicante y ronda gigante nocturna frente al Ayuntamiento"
+                        </blockquote>
+                        
+                        <p><strong>Estructura financiera:</strong></p>
+                        <ul>
+                            <li>Cuota por tuna: 1,500 pesetas por miembro</li>
+                            <li>Principales gastos: alojamiento (5.2M pts), manutención (3.3M pts)</li>
+                            <li>Patrocinio: Ayuntamiento de Alicante y Universidad</li>
+                        </ul>
+                        
+                        <p><strong>Requisitos de participación:</strong></p>
+                        <ul>
+                            <li>Mínimo 20 miembros por tuna (máximo 25-26)</li>
+                            <li>Envío de foto grupal, anecdotario y comprobante de pago</li>
+                            <li>Fecha límite: 20 marzo 1987</li>
+                        </ul>
+                        
+                        <p><strong>Legado histórico:</strong></p>
+                        <ul>
+                            <li>Mayor congregación tunera hasta la fecha</li>
+                            <li>Primera grabación musical multitudinaria en directo</li>
+                            <li>Modelo para futuros congresos internacionales</li>
+                            <li>Demostración de capacidad organizativa estudiantil</li>
+                        </ul>
+                        
+                        <p><strong>Itinerario del pasacalles:</strong></p>
+                        <ul>
+                            <li>Parque de Canalejas → Explanada de España</li>
+                            <li>Calle Cervantes (bajo el arco) → Plaza Ayuntamiento</li>
+                            <li>Calle Altamira → Rambla Méndez Núñez</li>
+                            <li>Plaza de Toros (actuaciones finales)</li>
+                        </ul>
+                        
+                        <a href="./documentos/historicos/Tuna_Asistencia_Certamen_ALicante_1987.pdf" target="_blank" class="doc-button">
+                            Ver documento completo (PDF)
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1987 - Gira Escandinava</div>
+                <p>Reportaje de EL CORREO sobre el viaje internacional de la Tuna Universitaria del Gran Bilbao por 8 países europeos, destacando sus intercambios culturales y anécdotas de roadtrip musical.</p>
+                
+                <div class="timeline-doc">
+                    <img src="./documentos/historicos/miniaturas/gira_escandinava_1987.jpg" alt="Tuna en Eindhoven 1987" onclick="openPDF('./documentos/historicos/Recorte_Prensa_EL_CORREO_viaje_tuna_Escandinavia_1987.pdf')">
+                    
+                    <div class="doc-details">
+                        <p><strong>Publicación:</strong> EL CORREO Español - El Pueblo Vasco</p>
+                        <p><strong>Fecha:</strong> 16 de noviembre de 1987</p>
+                        <p><strong>Duración:</strong> 1 mes (octubre-noviembre 1987)</p>
+                        
+                        <div style="display: flex; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap;">
+                            <div style="flex: 1; min-width: 250px;">
+                                <p><strong>Ruta realizada:</strong></p>
+                                <ul>
+                                    <li>Francia</li>
+                                    <li>Luxemburgo</li>
+                                    <li>Bélgica</li>
+                                    <li>Holanda (Eindhoven/Amsterdam)</li>
+                                    <li>Alemania (Hamburgo)</li>
+                                    <li>Dinamarca (Århus)</li>
+                                    <li>Noruega (Bergen/Kristiansand)</li>
+                                    <li>Suecia (Estocolmo)</li>
+                                </ul>
+                            </div>
+                            <div style="flex: 1; min-width: 250px;">
+                                <p><strong>Distancia:</strong> 9.200 km</p>
+                                <p><strong>Financiación:</strong></p>
+                                <ul>
+                                    <li>Actuaciones en hoteles y pubs</li>
+                                    <li>Eventos privados (despedida del alcalde de Eindhoven)</li>
+                                    <li>Convención médica en Oslo (2.000 coronas)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <p><strong>Conexiones internacionales:</strong></p>
+                        <blockquote>
+                            "En Eindhoven son conocidos y respetados... mantienen relación con 'La Tuna de la Ciudad de la Luz' y la 'Tunita' (una de las pocas tunas femeninas del mundo)"
+                        </blockquote>
+                        
+                        <p><strong>Anécdotas destacadas:</strong></p>
+                        <ul>
+                            <li>Intervención policial en Amsterdam tras una ronda espontánea</li>
+                            <li>Invitación a Venezuela por el cónsul en Hamburgo</li>
+                            <li>Registro con perros en Kristiansand (Noruega)</li>
+                            <li>Multas por aparcamiento en Estocolmo</li>
+                            <li>Señora danesa bailando descalza en un restaurante</li>
+                        </ul>
+                        
+                        <p><strong>Repertorio musical:</strong></p>
+                        <ul>
+                            <li>Clásicos de ronda española</li>
+                            <li>Folklore vasco (en euskera)</li>
+                            <li>Pasodobles y pasacalles</li>
+                            <li>Adaptaciones de temas sudamericanos</li>
+                        </ul>
+                        
+                        <a href="./documentos/historicos/Recorte_Prensa_EL_CORREO_viaje_tuna_Escandinavia_1987.pdf" target="_blank" class="doc-button">
+                            Ver documento completo (PDF)
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1990s - Reportaje "Cuando la tuna te dé serenata"</div>
+                <p>Artículo periodístico sobre las tunas de Bilbao (Tuna del Gran Bilbao y Tuna Universitaria de Deusto) y su tradición en la ciudad.</p>
+                
+                <div class="timeline-doc">
+                    <img src="./documentos/historicos/miniaturas/cuandolatuna00.jpg" alt="Reportaje sobre tunas bilbaínas" onclick="openPDF('./documentos/historicos/Cuandolatunatedesernata_saul.pdf')">
+                    
+                    <div class="doc-details">
+                        <p><strong>Publicación:</strong> Periódico local (autor: Santi Oliván / José J. Gamboa)</p>
+                        <p><strong>Temas destacados:</strong></p>
+                        <ul>
+                            <li>Definición y esencia de la tuna según sus miembros</li>
+                            <li>Tradiciones: serenatas, vestuario (becas bordadas), novatos</li>
+                            <li>Repertorio musical y anécdotas de rondas</li>
+                            <li>Declive de interés en tunas universitarias (años 90)</li>
+                            <li>Curiosa analogía con el último tonelero de Bilbao</li>
+                        </ul>
+                        
+                        <p><strong>Frases icónicas:</strong></p>
+                        <blockquote>
+                            "Para ser tuno hay que tener simpatía, encanto personal, gusto por la juerga... lo de tocar un instrumento es secundario"
+                        </blockquote>
+                        
+                        <a href="./documentos/historicos/Cuandolatunatedesernata_saul.pdf" target="_blank" class="doc-button">
+                            Ver documento completo (PDF)
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">1995 - II Certamen Nacional</div>
+                <p>Participación de la Tuna Universitaria del Gran Bilbao en el certamen de Cuenca, junto a tunas de toda España.</p>
+                
+                <div class="timeline-doc">
+                    <img src="./documentos/historicos/miniaturas/certamencuenca1995.JPG" alt="Certamen de Cuenca 1995" onclick="openPDF('./documentos/historicos/Certamen_Tunas_Cuenca_1995.pdf')">
+                    
+                    <div class="doc-details">
+                        <p><strong>Evento:</strong> II Certamen Nacional de Tunas - Ciudad de Cuenca</p>
+                        <p><strong>Fecha:</strong> 23 de septiembre de 1995</p>
+                        <p><strong>Tunas participantes:</strong></p>
+                        <ul>
+                            <li>Tuna de Económicas de Valladolid</li>
+                            <li>Tuna Universitaria del Gran Bilbao</li>
+                            <li>Tuna de Derecho de Oviedo</li>
+                            <li>Tuna Universitaria de Almería</li>
+                            <li>Tuna de Medicina de Murcia</li>
+                            <li>Tuna de Telecomunicaciones de Valencia</li>
+                            <li>Tuna de Industriales de Valencia</li>
+                        </ul>
+                        <p><strong>Organizador:</strong> Tuna Universitaria de Cuenca</p>
+                        <p><strong>Lugar:</strong> Teatro Auditorio de Cuenca</p>
+                        
+                        <a href="./documentos/historicos/Certamen_Tunas_Cuenca_1995.pdf" target="_blank" class="doc-button">
+                            Ver documento completo (PDF)
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1997 - I Certamen Nacional de Tunas de Ciencias</div>
+                <p>Participación histórica de la Tuna Universitaria del Gran Bilbao en el primer certamen exclusivo para tunas de ciencias, celebrado en Barcelona.</p>
+                
+                <div class="timeline-doc">
+                    <img src="./documentos/historicos/miniaturas/certamen_ciencias_1997.jpg" alt="Certamen Tunas de Ciencias 1997" onclick="openPDF('./documentos/historicos/Primer_Certamen_Nacional_Tunas_de_Ciencias_1997-combined.pdf')">
+                    
+                    <div class="doc-details">
+                        <p><strong>Evento:</strong> I Certamen Nacional de Tunas de Ciencias</p>
+                        <p><strong>Organizador:</strong> Ilustrísima Tuna de Ciencias de Barcelona</p>
+                        <p><strong>Localización:</strong> Barcelona, 1997</p>
+                        
+                        <div style="display: flex; gap: 2rem; margin: 1.5rem 0;">
+                            <div style="flex: 1;">
+                                <p><strong>Cartel oficial:</strong></p>
+                                <ul>
+                                    <li>Primer certamen especializado en ciencias</li>
+                                    <li>Diseño gráfico representativo de la época</li>
+                                    <li>Muestra el creciente prestigio de las tunas científicas</li>
+                                </ul>
+                            </div>
+                            <div style="flex: 1;">
+                                <p><strong>Presentación institucional:</strong></p>
+                                <ul>
+                                    <li>Historia desde 1300 (Don Diego López de Haro V)</li>
+                                    <li>Adscripción a la UPV/EHU desde 1981</li>
+                                    <li>Logros internacionales y locales</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <p><strong>Logros destacados de la Tuna:</strong></p>
+                        <ul>
+                            <li>35 años como banda en la Plaza de Toros de Vista Alegre</li>
+                            <li>43 apariciones en televisiones internacionales</li>
+                            <li>Premio "Tuna U.E." de la Unión Europea</li>
+                            <li>Grabación de 3 discos, incluyendo bilbainadas</li>
+                            <li>Visita a los 5,654 bares de Bilbao (récord documentado)</li>
+                        </ul>
+                        
+                        <p><strong>Fragmento histórico:</strong></p>
+                        <blockquote>
+                            "Fago on Bilbao de parte de nuestra Señora Begojía la tuna denominada del Gran Bilbao"<br>
+                            - Carta fundacional de 1300, citada en la presentación oficial
+                        </blockquote>
+                        
+                        <p><strong>Curiosidades:</strong></p>
+                        <ul>
+                            <li>Capa histórica de Txomin de Amorebieta en el Museo Etnológico</li>
+                            <li>Tradición de la "merke mozkorra" (juerga bilbaína)</li>
+                            <li>Madrina honorífica: A. Gobelas Leica</li>
+                        </ul>
+                        
+                        <a href="./documentos/historicos/Primer_Certamen_Nacional_Tunas_de_Ciencias_1997-combined.pdf" target="_blank" class="doc-button">
+                            Ver documento completo (PDF)
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1997 - Gira Sudamericana</div>
+                <p>Recorte del diario DEIA que documenta el regreso de tres miembros de la Tuna Universitaria del Gran Bilbao tras una gira de seis meses por América, financiada con sus propias actuaciones.</p>
+                
+                <div class="timeline-doc">
+                    <img src="./documentos/historicos/miniaturas/gira_sudamerica_1997.jpg" alt="Recorte DEIA gira sudamericana 1997" onclick="openPDF('./documentos/historicos/Recorte_Prensa_DEIA_viaje_tuna_sudamerica.pdf')">
+                    
+                    <div class="doc-details">
+                        <p><strong>Publicación:</strong> DEIA, 17 de junio de 1997</p>
+                        <p><strong>Duración:</strong> 6 meses (enero-junio 1997)</p>
+                        <p><strong>Miembros participantes:</strong> Gatista, Pubs y Carpentia (seudónimos tunantescos)</p>
+                        
+                        <div style="display: flex; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap;">
+                            <div style="flex: 1; min-width: 250px;">
+                                <p><strong>Países visitados:</strong></p>
+                                <ul>
+                                    <li>Bolivia (incluyendo el Lago Titicaca)</li>
+                                    <li>Perú</li>
+                                    <li>Argentina</li>
+                                    <li>Brasil</li>
+                                    <li>República Dominicana</li>
+                                    <li>Miami (EE.UU.)</li>
+                                </ul>
+                            </div>
+                            <div style="flex: 1; min-width: 250px;">
+                                <p><strong>Modelo de financiación:</strong></p>
+                                <ul>
+                                    <li>Autogestión mediante actuaciones</li>
+                                    <li>Actuaciones en universidades y locales</li>
+                                    <li>Intercambios culturales</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <p><strong>Contexto institucional:</strong></p>
+                        <blockquote>
+                            "La Tuna Universitaria del Gran Bilbao es la estudiantina oficial del Campus de Bizkaia... aunque surgió en Ciencias (por el azul de su beca), acoge a cualquier estudiante de la UPV/EHU"
+                        </blockquote>
+                        
+                        <p><strong>Detalles históricos:</strong></p>
+                        <ul>
+                            <li>Primera gira documentada de larga duración en América</li>
+                            <li>Menciona la escasez de miembros y el proceso de relevo generacional</li>
+                            <li>Detalla los instrumentos tradicionales de la tuna (bandurrias, guitarro, contrabajo)</li>
+                            <li>Requisitos para ingresar: ser estudiante UPV/EHU y residir en Bizkaia</li>
+                        </ul>
+                        
+                        <p><strong>Testimonio:</strong></p>
+                        <ul>
+                            <li>"Con la tuna se viaja" - Frase destacada del reportaje</li>
+                            <li>Los trajes tunantescos costaban ~40.000 pts (240€)</li>
+                            <li>Lugar de ensayos: Sarriko (actual Facultad de Economía y Empresa)</li>
+                        </ul>
+                        
+                        <a href="./documentos/historicos/Recorte_Prensa_DEIA_viaje_tuna_sudamerica.pdf" target="_blank" class="doc-button">
+                            Ver documento completo (PDF)
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1997 - Gira Sudamericana (40,000 km)</div>
+                <p>Reportaje especial sobre la odisea de tres tuneros del Gran Bilbao que recorrieron América durante seis meses, financiando su viaje con actuaciones espontáneas y contratos musicales.</p>
+                
+                <div class="timeline-doc">
+                    <img src="./documentos/historicos/miniaturas/pebo_sudamerica_1997.jpg" alt="Alberto Baños en Chile 1997" onclick="openPDF('./documentos/historicos/Recorte_Prensa_EL_SOCIAL_viaje_tuna_sudamerica.pdf')">
+                    
+                    <div class="doc-details">
+                        <p><strong>Publicación:</strong> EL SOCIAL (julio-agosto 1997)</p>
+                        <p><strong>Protagonistas:</strong> "Pebo" (Alberto Baños, Basauritarra), Gaizka y Carpania</p>
+                        <p><strong>Duración:</strong> 12 octubre 1996 - 17 abril 1997 (6 meses)</p>
+                        
+                        <div style="display: flex; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap;">
+                            <div style="flex: 1; min-width: 250px;">
+                                <p><strong>Ruta épica:</strong></p>
+                                <ul>
+                                    <li>Colombia, Perú, Bolivia</li>
+                                    <li>Chile (Casa Vasca Santiago)</li>
+                                    <li>Argentina, Paraguay, Brasil</li>
+                                    <li>Florida, Puerto Rico, Rep. Dominicana</li>
+                                    <li>Nueva York (EE.UU.)</li>
+                                </ul>
+                            </div>
+                            <div style="flex: 1; min-width: 250px;">
+                                <p><strong>Datos clave:</strong></p>
+                                <ul>
+                                    <li>45 ciudades visitadas</li>
+                                    <li>40,000 km recorridos</li>
+                                    <li>Instrumentos: bandurria, guitarra, pandereta</li>
+                                    <li>Presupuesto inicial: ahorros universitarios</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <p><strong>Estrategia de supervivencia:</strong></p>
+                        <blockquote>
+                            "De lunes a jueves buscábamos contratos, fines de semana actuábamos. Nos alojamos hasta en hoteles 5 estrellas... todo con nuestra música"
+                        </blockquote>
+                        
+                        <p><strong>Adaptación musical:</strong></p>
+                        <ul>
+                            <li>Repertorio ampliado con canciones locales</li>
+                            <li>Éxitos inesperados: "pachangas" y temas de inmigrantes</li>
+                            <li>Actuación en elección de Miss Latinoamérica</li>
+                            <li>Apariciones en radio/TV chilena</li>
+                        </ul>
+                        
+                        <p><strong>Anécdotas reveladoras:</strong></p>
+                        <ul>
+                            <li>Conocieron a Ramón García (presentador) y Julio Iglesias</li>
+                            <li>En Bolivia descubrieron que "la tuna alucina" al público</li>
+                            <li>Dificultad para encontrar canciones que conectaran en todos los países</li>
+                            <li>Cambio semanal de ciudad para optimizar ganancias</li>
+                        </ul>
+                        
+                        <p><strong>Legado:</strong></p>
+                        <ul>
+                            <li>Demostró la viabilidad del modelo autogestionario</li>
+                            <li>Inspiró futuras giras internacionales de la tuna</li>
+                            <li>Documentó conexiones con la diáspora vasca (Casas Vascas)</li>
+                        </ul>
+                        
+                        <a href="./documentos/historicos/Recorte_Prensa_EL_SOCIAL_viaje_tuna_sudamerica.pdf" target="_blank" class="doc-button">
+                            Ver documento completo (PDF)
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2006 - XXV Aniversario</div>
+                <p>Con motivo del 25º aniversario de la Tuna Universitaria del Gran Bilbao, se realiza un llamamiento a todos los exmiembros para celebrar este hito musical.</p>
+                
+                <div class="timeline-doc">
+                    <img src="./documentos/historicos/miniaturas/XXV_Aniversario_de_la_Tuna.jpg" alt="Sonrisas casándose con hermanos tunos" onclick="openPDF('./documentos/historicos/Recorte_Prensa_con_la_musica_por_montera.pdf')">
+                    
+                    <div class="doc-details">
+                        <p><strong>Publicación:</strong> Periódico no especificado</p>
+                        <p><strong>Fecha de recorte:</strong> 14 noviembre 2006</p>
+                        <p><strong>Evento:</strong> Celebración XXV Aniversario</p>
+                        
+                        <div style="display: flex; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap;">
+                            <div style="flex: 1; min-width: 250px;">
+                                <p><strong>Detalles del evento:</strong></p>
+                                <ul>
+                                    <li>Fecha: Sábado (día no especificado)</li>
+                                    <li>Hora: Desde las 12:00 horas</li>
+                                    <li>Lugar: Bilbao</li>
+                                    <li>Participantes: Todos los exmiembros de la tuna</li>
+                                </ul>
+                            </div>
+                            <div style="flex: 1; min-width: 250px;">
+                                <p><strong>Memorias destacadas:</strong></p>
+                                <ul>
+                                    <li>Concierto en Estambul</li>
+                                    <li>Participación en boda de un miembro</li>
+                                    <li>25 años de historia musical</li>
+                                </ul>
+                            </div>
+                        </div>
+                                                
+                        <p><strong>Significado histórico:</strong></p>
+                        <ul>
+                            <li>Cuarto de siglo manteniendo tradiciones universitarias</li>
+                            <li>Reunión generacional de tunos</li>
+                            <li>Oportunidad para revivir anécdotas y canciones</li>
+                        </ul>
+                        
+                        <p><strong>Legado:</strong></p>
+                        <ul>
+                            <li>Demostración de la permanencia de la tradición tunera</li>
+                            <li>Importancia de la tuna en eventos personales de sus miembros</li>
+                            <li>Proyección internacional (ejemplo: Estambul)</li>
+                        </ul>
+                        
+                        <a href="./documentos/historicos/Recorte Prensa XXV Aniversario de la Tuna.pdf" target="_blank" class="doc-button">
+                            Ver documento completo (PDF)
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <!-- Puedes añadir más eventos históricos aquí -->
+        </div>
+    </div>
+
+    <script>
+        function openPDF(pdfPath) {
+            window.open(pdfPath, '_blank');
+        }
+        
+        // Resaltar el enlace activo en el menú
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('nav a');
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
