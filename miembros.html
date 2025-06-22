@@ -2,15 +2,95 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Miembros - Tuna Universitaria del Gran Bilbao</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miembros - Tuna de Bilbao</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #f8f9fa; margin: 0; }
-        nav { background: #00008B; padding: 1rem; text-align: center; }
-        nav a { color: white; margin: 0 1rem; text-decoration: none; font-weight: bold; }
-        .container { max-width: 1000px; margin: auto; padding: 2rem; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
-        .member { background: white; padding: 1rem; text-align: center; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .member img { width: 100%; border-radius: 50%; max-width: 120px; }
+        :root {
+            --azul-tuna: #1a237e;
+            --dorado: #ffd700;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            margin: 0;
+            color: #333;
+        }
+        nav {
+            background: var(--azul-tuna);
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: white;
+            margin: 0 1.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        h1 {
+            text-align: center;
+            color: var(--azul-tuna);
+            margin-bottom: 2rem;
+        }
+        .filter-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        select {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 2px solid var(--azul-tuna);
+            font-size: 1rem;
+            background: white;
+            cursor: pointer;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+        .member {
+            background: white;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .member:hover {
+            transform: translateY(-5px);
+        }
+        .member img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--dorado);
+            margin-bottom: 1rem;
+        }
+        .member h3 {
+            margin: 0.5rem 0;
+            color: var(--azul-tuna);
+        }
+        .alias {
+            font-style: italic;
+            color: #666;
+        }
+        .instruments {
+            margin-top: 0.8rem;
+            font-size: 1.4rem;
+        }
+        .join-date {
+            font-size: 0.8rem;
+            color: #777;
+        }
     </style>
 </head>
 <body>
@@ -20,21 +100,66 @@
         <a href="galeria.html">Galería</a>
     </nav>
     <div class="container">
-        <h1>Miembros</h1>
-        <div class="grid">
-            <div class="member">
-                <img src="foto1.jpg" alt="Miembro 1">
-                <p>Nombre 1</p>
+        <h1>La Familia Tunantesca</h1>
+        
+        <!-- Selector de filtro -->
+        <div class="filter-container">
+            <label for="filter">Ordenar por: </label>
+            <select id="filter" onchange="filterMembers()">
+                <option value="name">Nombre (A-Z)</option>
+                <option value="alias">Alias</option>
+                <option value="date">Fecha de ingreso</option>
+                <option value="instruments">Instrumentos</option>
+            </select>
+        </div>
+
+        <!-- Grid de miembros -->
+        <div class="grid" id="members-grid">
+            <!-- Miembro 1 -->
+            <div class="member" data-name="Pedro Pérez" data-alias="Físico Loco" data-date="2023-11" data-instruments="guitarra,voz">
+                <img src="./fotos/miembros/pedro.jpg" alt="Pedro Pérez">
+                <h3>Pedro Pérez</h3>
+                <p class="alias">"El Físico Loco"</p>
+                <p class="join-date">Ingreso: Nov 2023</p>
+                <div class="instruments">🎸 🎤</div>
             </div>
-            <div class="member">
-                <img src="foto2.jpg" alt="Miembro 2">
-                <p>Nombre 2</p>
+            
+            <!-- Miembro 2 -->
+            <div class="member" data-name="Federico López" data-alias="La Química" data-date="2023-12" data-instruments="violín,pandereta">
+                <img src="./fotos/miembros/federico.jpg" alt="Ana López">
+                <h3>Federico López</h3>
+                <p class="alias">"El Químico"</p>
+                <p class="join-date">Ingreso: Dic 2023</p>
+                <div class="instruments">🎻 🥁</div>
             </div>
-            <div class="member">
-                <img src="foto3.jpg" alt="Miembro 3">
-                <p>Nombre 3</p>
-            </div>
+            
+            <!-- Añade más miembros aquí -->
         </div>
     </div>
+
+    <script>
+        function filterMembers() {
+            const filterValue = document.getElementById("filter").value;
+            const membersGrid = document.getElementById("members-grid");
+            const members = Array.from(membersGrid.getElementsByClassName("member"));
+            
+            members.sort((a, b) => {
+                const aValue = a.getAttribute(`data-${filterValue}`).toLowerCase();
+                const bValue = b.getAttribute(`data-${filterValue}`).toLowerCase();
+                
+                if (filterValue === "date") {
+                    // Ordenar por fecha (formato YYYY-MM)
+                    return aValue.localeCompare(bValue);
+                } else {
+                    // Ordenar por texto (nombre, alias, instrumentos)
+                    return aValue.localeCompare(bValue);
+                }
+            });
+
+            // Reorganiza el grid
+            membersGrid.innerHTML = "";
+            members.forEach(member => membersGrid.appendChild(member));
+        }
+    </script>
 </body>
 </html>
