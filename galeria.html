@@ -7,6 +7,81 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos específicos para la galería */
+        .gallery-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .gallery-modal.active {
+            display: flex;
+        }
+        
+        .gallery-modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .gallery-modal-img {
+            max-height: 80vh;
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        
+        .gallery-modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        
+        .gallery-modal-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+            transform: translateY(-50%);
+        }
+        
+        .gallery-modal-nav button {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .gallery-modal-nav button:hover {
+            background: #00008B;
+        }
+        
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 2rem;
+            color: #333;
+            font-style: italic;
+            display: none; /* Oculto por defecto */
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -16,93 +91,68 @@
         <a href="galeria.html" class="active">Galería</a>
     </nav>
 
-    <div class="container">
+    <div class="hero">
         <h1>Galería de Imágenes</h1>
+        <p>La tuna en imágenes: del aula al mundo</p>
         
         <div class="gallery-section">
             <div class="gallery-filters">
                 <button class="gallery-filter-btn active" data-filter="all">Todas</button>
                 <button class="gallery-filter-btn" data-filter="antiguas">Antiguas</button>
-                <button class="gallery-filter-btn" data-filter="year-2024">2024</button>
                 <button class="gallery-filter-btn" data-filter="year-2023">2023</button>
-                <button class="gallery-filter-btn" data-filter="event-conciertos">Conciertos</button>
-                <button class="gallery-filter-btn" data-filter="event-giras">Giras</button>
-                <button class="gallery-filter-btn" data-filter="event-universidad">Eventos Universitarios</button>
+                <button class="gallery-filter-btn" data-filter="year-2024">2024</button>
+                <button class="gallery-filter-btn" data-filter="conciertos">Conciertos</button>
+                <button class="gallery-filter-btn" data-filter="giras">Giras</button>
+                <button class="gallery-filter-btn" data-filter="universidad">Eventos Universitarios</button>
             </div>
             
             <div class="gallery-grid" id="galleryGrid">
-                <div class="gallery-item" data-year="1980" data-event="antiguas">
-                    <img src="fotos/galeria/ant00.jpg" alt="Antiguas">
-                    <div class="gallery-item-info">
-                        <span class="gallery-item-year">No year</span>
-                        <h3 class="gallery-item-event">No text</h3>
-                        <p>No text</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-year="1980" data-event="antiguas">
-                    <img src="fotos/galeria/ant01.jpeg" alt="Antiguas">
-                    <div class="gallery-item-info">
-                        <span class="gallery-item-year">No year</span>
-                        <h3 class="gallery-item-event">No text</h3>
-                        <p>No text</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-year="1980" data-event="antiguas">
-                    <img src="fotos/galeria/ant02.jpg" alt="Antiguas">
-                    <div class="gallery-item-info">
-                        <span class="gallery-item-year">No year</span>
-                        <h3 class="gallery-item-event">No text</h3>
-                        <p>No text</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-year="1980" data-event="antiguas">
-                    <img src="fotos/galeria/ant03.jpeg" alt="Antiguas">
-                    <div class="gallery-item-info">
-                        <span class="gallery-item-year">No year</span>
-                        <h3 class="gallery-item-event">No text</h3>
-                        <p>No text</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-year="1980" data-event="antiguas">
-                    <img src="fotos/galeria/ant04.jpeg" alt="Antiguas">
-                    <div class="gallery-item-info">
-                        <span class="gallery-item-year">No year</span>
-                        <h3 class="gallery-item-event">No text</h3>
-                        <p>No text</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-year="1980" data-event="antiguas">
-                    <img src="fotos/galeria/ant05.jpeg" alt="Antiguas">
-                    <div class="gallery-item-info">
-                        <span class="gallery-item-year">No year</span>
-                        <h3 class="gallery-item-event">No text</h3>
-                        <p>No text</p>
-                    </div>
-                </div>
-
-
-                <!-- Ejemplo de item de galería 
-                <div class="gallery-item" data-year="2024" data-event="conciertos">
-                    <img src="fotos/galeria/concierto-2024-1.jpg" alt="Concierto 2024">
-                    <div class="gallery-item-info">
-                        <span class="gallery-item-year">2024</span>
-                        <h3 class="gallery-item-event">Concierto de Primavera</h3>
-                        <p>Teatro Campos Elíseos, Bilbao</p>
-                    </div>
-                </div>
+                <!-- Mensaje de no resultados (oculto por defecto) -->
+                <div id="noResultsMessage" class="no-results">No hay imágenes que coincidan con este filtro</div>
                 
-                <div class="gallery-item" data-year="2023" data-event="giras">
-                    <img src="fotos/galeria/gira-2023-1.jpg" alt="Gira 2023">
+                <!-- Imágenes antiguas -->
+                <div class="gallery-item" data-year="1980" data-event="antiguas">
+                    <img src="fotos/galeria/ant00.jpg" alt="Foto antigua de la tuna">
                     <div class="gallery-item-info">
-                        <span class="gallery-item-year">2023</span>
-                        <h3 class="gallery-item-event">Gira por Castilla</h3>
-                        <p>Salamanca, Valladolid, Burgos</p>
+                        <span class="gallery-item-year">1980</span>
+                        <p>Archivos históricos</p>
                     </div>
-                </div>-->
-                
-                <!-- Añadir más imágenes siguiendo el mismo patrón -->
-                <!-- data-year: 2024, 2023, 2022, etc. -->
-                <!-- data-event: conciertos, giras, universidad, etc. -->
+                </div>
+                <div class="gallery-item" data-year="1980" data-event="antiguas">
+                    <img src="fotos/galeria/ant01.jpeg" alt="Foto antigua de la tuna">
+                    <div class="gallery-item-info">
+                        <span class="gallery-item-year">1980</span>
+                        <p>Archivos históricos</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-year="1980" data-event="antiguas">
+                    <img src="fotos/galeria/ant02.jpg" alt="Foto antigua de la tuna">
+                    <div class="gallery-item-info">
+                        <span class="gallery-item-year">1980</span>
+                        <p>Archivos históricos</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-year="1980" data-event="antiguas">
+                    <img src="fotos/galeria/ant03.jpeg" alt="Foto antigua de la tuna">
+                    <div class="gallery-item-info">
+                        <span class="gallery-item-year">1980</span>
+                        <p>Archivos históricos</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-year="1980" data-event="antiguas">
+                    <img src="fotos/galeria/ant04.jpeg" alt="Foto antigua de la tuna">
+                    <div class="gallery-item-info">
+                        <span class="gallery-item-year">1980</span>
+                        <p>Archivos históricos</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-year="1980" data-event="antiguas">
+                    <img src="fotos/galeria/ant05.jpeg" alt="Foto antigua de la tuna">
+                    <div class="gallery-item-info">
+                        <span class="gallery-item-year">1980</span>
+                        <p>Archivos históricos</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -129,98 +179,150 @@
     </footer>
 
     <script>
-        // Filtrado de galería
-        const filterButtons = document.querySelectorAll('.gallery-filter-btn');
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Actualizar botones activos
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elementos del DOM
+            const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const galleryGrid = document.getElementById('galleryGrid');
+            const noResultsMessage = document.getElementById('noResultsMessage');
+            const modal = document.getElementById('galleryModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalClose = document.getElementById('modalClose');
+            const modalPrev = document.getElementById('modalPrev');
+            const modalNext = document.getElementById('modalNext');
+            
+            // Variables de estado
+            let currentImageIndex = 0;
+            let filteredImages = Array.from(galleryItems); // Inicializar con todas las imágenes
+            
+            // 1. Función para filtrar las imágenes
+            function filterGallery(filterValue) {
+                let hasVisibleItems = false;
                 
-                const filterValue = button.dataset.filter;
-                
-                // Filtrar elementos
                 galleryItems.forEach(item => {
+                    const itemYear = item.getAttribute('data-year');
+                    const itemEvent = item.getAttribute('data-event');
+                    let shouldShow = false;
+                    
                     if (filterValue === 'all') {
-                        item.style.display = 'block';
-                    } else if (filterValue.startsWith('year-')) {
+                        shouldShow = true;
+                    } 
+                    else if (filterValue === 'antiguas') {
+                        shouldShow = itemEvent === 'antiguas';
+                    }
+                    else if (filterValue.startsWith('year-')) {
                         const year = filterValue.split('-')[1];
-                        item.style.display = item.dataset.year === year ? 'block' : 'none';
-                    } else if (filterValue.startsWith('event-')) {
-                        const event = filterValue.split('-')[1];
-                        item.style.display = item.dataset.event === event ? 'block' : 'none';
+                        shouldShow = itemYear === year;
+                    }
+                    else {
+                        shouldShow = itemEvent === filterValue;
+                    }
+                    
+                    item.style.display = shouldShow ? 'block' : 'none';
+                    
+                    if (shouldShow) {
+                        hasVisibleItems = true;
                     }
                 });
                 
-                // Mostrar mensaje si no hay resultados
-                const visibleItems = document.querySelectorAll('.gallery-item[style="display: block"]');
-                const noResults = document.getElementById('noResults');
+                // Mostrar u ocultar mensaje de no resultados
+                noResultsMessage.style.display = hasVisibleItems ? 'none' : 'block';
                 
-                if (visibleItems.length === 0) {
-                    if (!noResults) {
-                        const galleryGrid = document.getElementById('galleryGrid');
-                        const message = document.createElement('div');
-                        message.className = 'no-results';
-                        message.id = 'noResults';
-                        message.textContent = 'No hay imágenes que coincidan con este filtro.';
-                        galleryGrid.appendChild(message);
+                // Actualizar lista de imágenes filtradas
+                updateFilteredImages();
+            }
+            
+            // 2. Función para actualizar la lista de imágenes filtradas
+            function updateFilteredImages() {
+                filteredImages = Array.from(galleryItems).filter(item => {
+                    return item.style.display !== 'none';
+                });
+            }
+            
+            // 3. Función para abrir el modal
+            function openModal(index) {
+                if (filteredImages.length === 0 || index < 0 || index >= filteredImages.length) return;
+                
+                currentImageIndex = index;
+                const imgElement = filteredImages[currentImageIndex].querySelector('img');
+                modalImg.src = imgElement.src;
+                modalImg.alt = imgElement.alt;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            // 4. Función para navegar en el modal
+            function navigateModal(direction) {
+                if (direction === 'prev') {
+                    currentImageIndex = (currentImageIndex - 1 + filteredImages.length) % filteredImages.length;
+                } else {
+                    currentImageIndex = (currentImageIndex + 1) % filteredImages.length;
+                }
+                const imgElement = filteredImages[currentImageIndex].querySelector('img');
+                modalImg.src = imgElement.src;
+                modalImg.alt = imgElement.alt;
+            }
+            
+            // Event Listeners
+            
+            // Filtrado al hacer clic en los botones
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Reset active state
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filterValue = this.dataset.filter;
+                    filterGallery(filterValue);
+                });
+            });
+            
+            // Abrir modal al hacer clic en una imagen
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Encontrar el índice de esta imagen en las imágenes filtradas
+                    const index = filteredImages.indexOf(item);
+                    if (index !== -1) {
+                        openModal(index);
                     }
-                } else if (noResults) {
-                    noResults.remove();
-                }
+                });
             });
-        });
-        
-        // Modal de imagen
-        const modal = document.getElementById('galleryModal');
-        const modalImg = document.getElementById('modalImage');
-        const modalClose = document.getElementById('modalClose');
-        const modalPrev = document.getElementById('modalPrev');
-        const modalNext = document.getElementById('modalNext');
-        let currentImageIndex = 0;
-        let images = [];
-        
-        // Abrir modal al hacer clic en una imagen
-        galleryItems.forEach((item, index) => {
-            item.addEventListener('click', () => {
-                images = Array.from(galleryItems).filter(item => 
-                    getComputedStyle(item).display !== 'none'
-                );
-                currentImageIndex = images.indexOf(item);
-                
-                if (currentImageIndex !== -1) {
-                    modalImg.src = item.querySelector('img').src;
-                    modal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                }
-            });
-        });
-        
-        // Cerrar modal
-        modalClose.addEventListener('click', () => {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        });
-        
-        // Navegación del modal
-        modalPrev.addEventListener('click', () => {
-            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-            modalImg.src = images[currentImageIndex].querySelector('img').src;
-        });
-        
-        modalNext.addEventListener('click', () => {
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            modalImg.src = images[currentImageIndex].querySelector('img').src;
-        });
-        
-        // Cerrar al hacer clic fuera de la imagen
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
+            
+            // Cerrar modal
+            modalClose.addEventListener('click', () => {
                 modal.classList.remove('active');
                 document.body.style.overflow = 'auto';
-            }
+            });
+            
+            // Navegación en el modal
+            modalPrev.addEventListener('click', () => navigateModal('prev'));
+            modalNext.addEventListener('click', () => navigateModal('next'));
+            
+            // Cerrar al hacer clic fuera de la imagen
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Navegación con teclado
+            document.addEventListener('keydown', (e) => {
+                if (modal.classList.contains('active')) {
+                    if (e.key === 'Escape') {
+                        modal.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    } else if (e.key === 'ArrowLeft') {
+                        navigateModal('prev');
+                    } else if (e.key === 'ArrowRight') {
+                        navigateModal('next');
+                    }
+                }
+            });
+            
+            // Inicialización
+            noResultsMessage.style.display = 'none'; // Asegurar que está oculto al inicio
+            filterGallery('all'); // Mostrar todas las imágenes al cargar
         });
     </script>
 </body>
