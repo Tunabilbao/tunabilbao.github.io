@@ -3,104 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tuna Universitaria de Bilbao - Agrupación musical tradicional de la UPV/EHU. Música, viajes y tradición.">
-    <meta name="keywords" content="tuna, bilbao, universidad, UPV, música tradicional, tuna masculina">
-
-    <title>Tuna Universitaria del Gran Bilbao y sus pueblos...</title>
+    <title>Tuna Universitaria del Gran Bilbao</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Hay que pasarlos al styles.css -->
     <style>
-        :root {
-            --primary: #00008B;
-            --secondary: #5F9EA0;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        body {
-            line-height: 1.6;
-            background: #f8f9fa;
-        }
-
-        nav {
-            background: var(--primary);
-            padding: 1rem;
+        
+        
+        
+        
+       
+        
+       
+        
+        /* FOOTER */
+        footer {
+            background: #00008B;
+            color: white;
+            padding: 2rem 1rem;
             text-align: center;
         }
-
-        nav a {
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-links a {
             color: white;
-            margin: 0 1rem;
-            text-decoration: none;
-            font-weight: bold;
+            font-size: 1.5rem;
+            transition: all 0.3s;
         }
-
-        nav a:hover {
-            color: var(--secondary);
+        
+        .social-links a:hover {
+            color: #FFD700;
+            transform: translateY(-3px);
         }
-
-        .hero {
-           -gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://picsum.photos/1200/400');
-            background-size: cover;
-            color: #000000;
-            padding: 8rem 1rem;
-            text-align: center;
+        
+        .copyright {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .grid {
-            display: grid;
-            gap: 2rem;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            margin: 4rem 0;
-        }
-
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            margin-top: 1rem;
-            transition: background 0.3s;
-        }
-
-        .btn:hover {
-            background: var(--secondary);
-        }
-
+        
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .hero {
-                padding: 4rem 1rem;
+            .main-carrusel {
+                height: 400px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-carrusel {
+                height: 300px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            nav a {
+                margin: 0.3rem;
+                padding: 0.5rem;
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
     <nav>
-        <a href="index.html">Inicio</a>
+        <a href="index.html" class="active">Inicio</a>
         <a href="historia.html">Historia</a>
-        <a href="Videos.html">Videos (pendiente)</a>
         <a href="miembros.html">Miembros</a>
         <a href="galeria.html">Galería</a>
     </nav>
@@ -108,28 +88,130 @@
     <section class="hero">
         <h1>Tuna Universitaria del Gran Bilbao</h1>
         <p>Desde 1981 llevando la tradición musical universitaria por el mundo</p>
-        <a href="#contacto" class="btn">Únete a nosotros</a>
     </section>
+
+    <!-- CARRUSEL COMO ELEMENTO PRINCIPAL -->
+    <div class="main-carrusel">
+        <div class="carrusel-inner" id="carrusel">
+            <!-- Las imágenes se insertarán con JavaScript -->
+        </div>
+        <div class="carrusel-nav">
+            <button id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+            <button id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="carrusel-dots" id="dots-container">
+            <!-- Los puntos de navegación se generarán automáticamente -->
+        </div>
+    </div>
 
     <div class="container">
         <section class="grid">
             <div class="card">
                 <h2>Nuestra Historia</h2>
-                <p>Fundada en 1981 por estudiantes de la Facultad de Ciencia y Tecnología de la UPV/EHU (Bizkaia), la Tuna Universitaria del Gran Bilbao representa la tradición musical, el espíritu universitario y la cultura tunantesca del País Vasco. Reactivada en 2024 tras 20 años de pausa, continúa su legado con nuevas generaciones.</p>
+                <p>Fundada en 1981 por estudiantes de la Facultad de Ciencia y Tecnología de la UPV/EHU.</p>
+                <a href="historia.html" class="btn">Conoce más</a>
             </div>
-
             <div class="card">
                 <h2>Próximos Eventos</h2>
                 <p>Soria, allá vamos!</p>
                 <a href="#" class="btn">Ver calendario</a>
             </div>
-
             <div class="card" id="contacto">
                 <h2>Contacto</h2>
-                <p>Email:tunabilbao@gmail.com</p>
-                https://www.instagram.com/tunabilbao
+                <p>Email: tunabilbao@gmail.com</p>
+                <a href="https://www.instagram.com/tunabilbao" class="btn">Instagram</a>
             </div>
         </section>
     </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/tunabilbao" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.youtube.com/@TunaUniversitariadelGranBilbao"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="copyright">© 1981 Tuna Universitaria UPV/EHU del Gran Bilbao y sus pueblos. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // 1. CONFIGURACIÓN DE IMÁGENES - ¡MODIFICA ESTO!
+        const imagenes = [
+            'fotos/index/2006.jpg',
+            'fotos/index/2010.jpg',
+            'fotos/index/2024.jpg'
+            //'fotos/index/evento1.jpg'
+        ];
+        
+        // 2. Inicialización del carrusel
+        const carrusel = document.getElementById('carrusel');
+        const dotsContainer = document.getElementById('dots-container');
+        let currentIndex = 0;
+        let intervalId;
+
+        // 3. Cargar imágenes y crear puntos de navegación
+        imagenes.forEach((imgSrc, index) => {
+            // Crear elemento de imagen
+            const img = document.createElement('img');
+            img.src = imgSrc;
+            img.alt = `Imagen ${index + 1} de la Tuna`;
+            carrusel.appendChild(img);
+
+            // Crear punto de navegación
+            const dot = document.createElement('div');
+            dot.classList.add('carrusel-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        // 4. Funciones de control
+        function goToSlide(index) {
+            currentIndex = index;
+            updateCarrusel();
+            resetInterval();
+        }
+
+        function updateCarrusel() {
+            carrusel.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Actualizar puntos activos
+            document.querySelectorAll('.carrusel-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % imagenes.length;
+            updateCarrusel();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + imagenes.length) % imagenes.length;
+            updateCarrusel();
+        }
+
+        function resetInterval() {
+            clearInterval(intervalId);
+            intervalId = setInterval(nextSlide, 5000);
+        }
+
+        // 5. Event listeners
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            nextSlide();
+            resetInterval();
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            prevSlide();
+            resetInterval();
+        });
+
+        // 6. Iniciar el carrusel automático
+        resetInterval();
+
+        // 7. Pausar al interactuar
+        carrusel.addEventListener('mouseenter', () => clearInterval(intervalId));
+        carrusel.addEventListener('mouseleave', resetInterval);
+    </script>
 </body>
 </html>

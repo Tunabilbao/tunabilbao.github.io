@@ -2,30 +2,226 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Galería - Tuna Universitaria del Gran Bilbao</title>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #f8f9fa; margin: 0; }
-        nav { background: #00008B; padding: 1rem; text-align: center; }
-        nav a { color: white; margin: 0 1rem; text-decoration: none; font-weight: bold; }
-        .container { max-width: 1000px; margin: auto; padding: 2rem; }
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
-        .gallery img { width: 100%; border-radius: 10px; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería - Tuna de Bilbao</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <nav>
         <a href="index.html">Inicio</a>
         <a href="historia.html">Historia</a>
         <a href="miembros.html">Miembros</a>
-        <a href="galeria.html">Galería</a>
+        <a href="galeria.html" class="active">Galería</a>
     </nav>
+
     <div class="container">
-        <h1>Galería</h1>
-        <div class="gallery">
-            <img src="galeria1.jpg" alt="Foto 1">
-            <img src="galeria2.jpg" alt="Foto 2">
-            <img src="galeria3.jpg" alt="Foto 3">
+        <h1>Galería de Imágenes</h1>
+        
+        <div class="gallery-section">
+            <div class="gallery-filters">
+                <button class="gallery-filter-btn active" data-filter="all">Todas</button>
+                <button class="gallery-filter-btn" data-filter="antiguas">Antiguas</button>
+                <button class="gallery-filter-btn" data-filter="year-2024">2024</button>
+                <button class="gallery-filter-btn" data-filter="year-2023">2023</button>
+                <button class="gallery-filter-btn" data-filter="event-conciertos">Conciertos</button>
+                <button class="gallery-filter-btn" data-filter="event-giras">Giras</button>
+                <button class="gallery-filter-btn" data-filter="event-universidad">Eventos Universitarios</button>
+            </div>
+            
+            <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-item" data-year="1980" data-event="antiguas">
+                    <img src="fotos/galeria/ant00.jpg" alt="Antiguas">
+                    <div class="gallery-item-info">
+                        <span class="gallery-item-year">No year</span>
+                        <h3 class="gallery-item-event">No text</h3>
+                        <p>No text</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-year="1980" data-event="antiguas">
+                    <img src="fotos/galeria/ant01.jpeg" alt="Antiguas">
+                    <div class="gallery-item-info">
+                        <span class="gallery-item-year">No year</span>
+                        <h3 class="gallery-item-event">No text</h3>
+                        <p>No text</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-year="1980" data-event="antiguas">
+                    <img src="fotos/galeria/ant02.jpg" alt="Antiguas">
+                    <div class="gallery-item-info">
+                        <span class="gallery-item-year">No year</span>
+                        <h3 class="gallery-item-event">No text</h3>
+                        <p>No text</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-year="1980" data-event="antiguas">
+                    <img src="fotos/galeria/ant03.jpeg" alt="Antiguas">
+                    <div class="gallery-item-info">
+                        <span class="gallery-item-year">No year</span>
+                        <h3 class="gallery-item-event">No text</h3>
+                        <p>No text</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-year="1980" data-event="antiguas">
+                    <img src="fotos/galeria/ant04.jpeg" alt="Antiguas">
+                    <div class="gallery-item-info">
+                        <span class="gallery-item-year">No year</span>
+                        <h3 class="gallery-item-event">No text</h3>
+                        <p>No text</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-year="1980" data-event="antiguas">
+                    <img src="fotos/galeria/ant05.jpeg" alt="Antiguas">
+                    <div class="gallery-item-info">
+                        <span class="gallery-item-year">No year</span>
+                        <h3 class="gallery-item-event">No text</h3>
+                        <p>No text</p>
+                    </div>
+                </div>
+
+
+                <!-- Ejemplo de item de galería 
+                <div class="gallery-item" data-year="2024" data-event="conciertos">
+                    <img src="fotos/galeria/concierto-2024-1.jpg" alt="Concierto 2024">
+                    <div class="gallery-item-info">
+                        <span class="gallery-item-year">2024</span>
+                        <h3 class="gallery-item-event">Concierto de Primavera</h3>
+                        <p>Teatro Campos Elíseos, Bilbao</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-year="2023" data-event="giras">
+                    <img src="fotos/galeria/gira-2023-1.jpg" alt="Gira 2023">
+                    <div class="gallery-item-info">
+                        <span class="gallery-item-year">2023</span>
+                        <h3 class="gallery-item-event">Gira por Castilla</h3>
+                        <p>Salamanca, Valladolid, Burgos</p>
+                    </div>
+                </div>-->
+                
+                <!-- Añadir más imágenes siguiendo el mismo patrón -->
+                <!-- data-year: 2024, 2023, 2022, etc. -->
+                <!-- data-event: conciertos, giras, universidad, etc. -->
+            </div>
         </div>
     </div>
+
+    <!-- Modal para vista ampliada -->
+    <div class="gallery-modal" id="galleryModal">
+        <div class="gallery-modal-content">
+            <span class="gallery-modal-close" id="modalClose">&times;</span>
+            <img class="gallery-modal-img" id="modalImage" src="" alt="">
+            <div class="gallery-modal-nav">
+                <button id="modalPrev"><i class="fas fa-chevron-left"></i></button>
+                <button id="modalNext"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/tunabilbao" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.youtube.com/@TunaUniversitariadelGranBilbao"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="copyright">© 1981 Tuna Universitaria UPV/EHU del Gran Bilbao y sus pueblos. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Filtrado de galería
+        const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Actualizar botones activos
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const filterValue = button.dataset.filter;
+                
+                // Filtrar elementos
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all') {
+                        item.style.display = 'block';
+                    } else if (filterValue.startsWith('year-')) {
+                        const year = filterValue.split('-')[1];
+                        item.style.display = item.dataset.year === year ? 'block' : 'none';
+                    } else if (filterValue.startsWith('event-')) {
+                        const event = filterValue.split('-')[1];
+                        item.style.display = item.dataset.event === event ? 'block' : 'none';
+                    }
+                });
+                
+                // Mostrar mensaje si no hay resultados
+                const visibleItems = document.querySelectorAll('.gallery-item[style="display: block"]');
+                const noResults = document.getElementById('noResults');
+                
+                if (visibleItems.length === 0) {
+                    if (!noResults) {
+                        const galleryGrid = document.getElementById('galleryGrid');
+                        const message = document.createElement('div');
+                        message.className = 'no-results';
+                        message.id = 'noResults';
+                        message.textContent = 'No hay imágenes que coincidan con este filtro.';
+                        galleryGrid.appendChild(message);
+                    }
+                } else if (noResults) {
+                    noResults.remove();
+                }
+            });
+        });
+        
+        // Modal de imagen
+        const modal = document.getElementById('galleryModal');
+        const modalImg = document.getElementById('modalImage');
+        const modalClose = document.getElementById('modalClose');
+        const modalPrev = document.getElementById('modalPrev');
+        const modalNext = document.getElementById('modalNext');
+        let currentImageIndex = 0;
+        let images = [];
+        
+        // Abrir modal al hacer clic en una imagen
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                images = Array.from(galleryItems).filter(item => 
+                    getComputedStyle(item).display !== 'none'
+                );
+                currentImageIndex = images.indexOf(item);
+                
+                if (currentImageIndex !== -1) {
+                    modalImg.src = item.querySelector('img').src;
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+        
+        // Cerrar modal
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Navegación del modal
+        modalPrev.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            modalImg.src = images[currentImageIndex].querySelector('img').src;
+        });
+        
+        modalNext.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            modalImg.src = images[currentImageIndex].querySelector('img').src;
+        });
+        
+        // Cerrar al hacer clic fuera de la imagen
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
 </body>
 </html>

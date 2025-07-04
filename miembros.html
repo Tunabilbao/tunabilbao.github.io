@@ -4,106 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Miembros - Tuna de Bilbao</title>
-    <style>
-        :root {
-            --azul-tuna: #1a237e;
-            --dorado: #ffd700;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            margin: 0;
-            color: #333;
-        }
-        nav {
-            background: var(--azul-tuna);
-            padding: 1.5rem;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        nav a {
-            color: white;
-            margin: 0 1.5rem;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        h1 {
-            text-align: center;
-            color: var(--azul-tuna);
-            margin-bottom: 2rem;
-        }
-        .filter-container {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        select {
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            border: 2px solid var(--azul-tuna);
-            font-size: 1rem;
-            background: white;
-            cursor: pointer;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 2rem;
-            padding: 1rem;
-        }
-        .member {
-            background: white;
-            padding: 1.5rem;
-            text-align: center;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        .member:hover {
-            transform: translateY(-5px);
-        }
-        .member img {
-            width: 120px;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 3px solid var(--dorado);
-            margin-bottom: 1rem;
-        }
-        .member h3 {
-            margin: 0.5rem 0;
-            color: var(--azul-tuna);
-        }
-        .alias {
-            font-style: italic;
-            color: #666;
-        }
-        .instruments {
-            margin-top: 0.8rem;
-            font-size: 1.4rem;
-        }
-        .join-date {
-            font-size: 0.8rem;
-            color: #777;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <nav>
         <a href="index.html">Inicio</a>
         <a href="historia.html">Historia</a>
-        <a href="miembros.html">Miembros</a>
+        <a href="miembros.html" class="active">Miembros</a>
         <a href="galeria.html">Galería</a>
     </nav>
-    <div class="container">
-        <h1>La Familia Tunantesca</h1>
+
+    <div class="hero">
+        <h1>La Familia</h1>
+        <p>Porque la tuna no solo es música, es hermandad.</p>
         
-        <!-- Selector de filtro -->
         <div class="filter-container">
             <label for="filter">Ordenar por: </label>
             <select id="filter" onchange="filterMembers()">
@@ -114,9 +30,7 @@
             </select>
         </div>
 
-        <!-- Grid de miembros -->
-        <div class="grid" id="members-grid">
-            <!-- Miembro 1 -->
+        <div class="members-grid" id="members-grid">
             <div class="member" data-name="Pedro Pérez" data-alias="Físico Loco" data-date="2023-11" data-instruments="guitarra,voz">
                 <img src="./fotos/miembros/pedro.jpg" alt="Pedro Pérez">
                 <h3>Pedro Pérez</h3>
@@ -125,7 +39,6 @@
                 <div class="instruments">🎸 🎤</div>
             </div>
             
-            <!-- Miembro 2 -->
             <div class="member" data-name="Federico López" data-alias="La Química" data-date="2023-12" data-instruments="violín,pandereta">
                 <img src="./fotos/miembros/federico.jpg" alt="Ana López">
                 <h3>Federico López</h3>
@@ -133,10 +46,17 @@
                 <p class="join-date">Ingreso: Dic 2023</p>
                 <div class="instruments">🎻 🥁</div>
             </div>
-            
-            <!-- Añade más miembros aquí -->
         </div>
     </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/tunabilbao" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.youtube.com/@TunaUniversitariadelGranBilbao"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="copyright">© 1981 Tuna Universitaria UPV/EHU del Gran Bilbao y sus pueblos. Todos los derechos reservados.</p>
+    </footer>
 
     <script>
         function filterMembers() {
@@ -149,15 +69,12 @@
                 const bValue = b.getAttribute(`data-${filterValue}`).toLowerCase();
                 
                 if (filterValue === "date") {
-                    // Ordenar por fecha (formato YYYY-MM)
                     return aValue.localeCompare(bValue);
                 } else {
-                    // Ordenar por texto (nombre, alias, instrumentos)
                     return aValue.localeCompare(bValue);
                 }
             });
 
-            // Reorganiza el grid
             membersGrid.innerHTML = "";
             members.forEach(member => membersGrid.appendChild(member));
         }
