@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador Tuna de Bilbao</title>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        .editor, .result {
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: white;
+            width: 90%;
+            max-width: 500px;
+        }
+        .result {
+            position: relative;
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: white !important;
+            color: black;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 3;
+            margin-top: 20px;
+        }
+        .icon {
+            font-size: 3rem;
+            margin: 1rem 0;
+            position: relative;
+            z-index: 3;
+        }
+        p {
+            position: relative;
+            z-index: 3;
+            margin: 0.5rem 0;
+        }
+        .beca-v {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+            z-index: 1;
+            opacity: 1;
+            background-color: rgb(18, 37, 98);
+        }
+        .beca-v-small {
+            position: absolute;
+            width: 40%;
+            height: 40%;
+            top: 0;
+            left: 30%;
+            clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+            z-index: 2;
+            opacity: 1;
+            background-color: white;
+            transform-origin: top;
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        button {
+            background-color: #B22222;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            flex-grow: 1;
+        }
+        button.secondary {
+            background-color: #2A0C4E;
+        }
+        .color-picker {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .saved-designs {
+            margin-top: 20px;
+            width: 100%;
+        }
+        select, input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="editor">
+        <h2>Generador Tuna de Bilbao</h2>
+        <input type="text" id="title" placeholder="Nombre de la tuna" value="TUNA DE BILBAO">
+        <select id="icon">
+            <!-- Tradicionales -->
+            <option value="🎻">🎻 Violín</option>
+            <option value="🎸" selected>🎸 Guitarra</option>
+            <option value="🪕">🪕 Banjo</option>
+            <option value="🎺">🎺 Trompeta</option>
+            <option value="🥁">🥁 Tambor</option>
+            <option value="🎷">🎷 Saxofón</option>
+            <option value="📯">📯 Corneta</option>
+            
+            <!-- Creativas -->
+            <option value="🎹">🎹 Piano</option>
+            <option value="🎼">🎼 Partitura</option>
+            <option value="♫">♫ Clave de Sol</option>
+            
+            <!-- Divertidas -->
+            <option value="🍷">🍷 Copa de Vino</option>
+            <option value="🌹">🌹 Rosa</option>
+        </select>
+        <input type="text" id="schedule" placeholder="Horario" value="Martes 20:00h">
+        <input type="text" id="location" placeholder="Ubicación" value="Casco Viejo, Bilbao">
+        <textarea id="message" placeholder="Mensaje">¿Te unes a nuestra tradición?</textarea>
+        
+        <div class="color-picker">
+            <label for="beca-color">Color de la beca:</label>
+            <input type="color" id="beca-color" value="#122562">
+        </div>
+        
+        <div class="controls">
+            <button onclick="generateImage()">Generar</button>
+            <button onclick="saveDesign()" class="secondary">Guardar Diseño</button>
+        </div>
+
+        <div class="saved-designs">
+            <h3>Diseños guardados:</h3>
+            <select id="design-list" onchange="loadDesign()">
+                <option value="">Selecciona un diseño</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="result" id="poster">
+        <h1>TUNA DE BILBAO</h1>
+        <div class="icon">🎸</div>
+        <p>Ensayos: <strong>Martes 20:00h</strong></p>
+        <p>¿Te unes a nuestra tradición?</p>
+        <p>📍 Casco Viejo, Bilbao</p>
+        
+        <!-- Becas (se renderizan debajo del texto) -->
+        <div class="beca-v" id="beca-element"></div>
+        <div class="beca-v-small" id="beca-element-small"></div>
+    </div>
+
+    <div class="controls">
+        <button onclick="downloadImage()">Descargar Imagen</button>
+    </div>
+
+    <script>
+        let designs = JSON.parse(localStorage.getItem('tunaDesigns')) || [];
+        let currentDesignId = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateDesignList();
+            generateImage();
+        });
+
+        function generateImage() {
+            const design = getFormData();
+            applyDesign(design);
+        }
+
+        function getFormData() {
+            return {
+                title: document.getElementById('title').value,
+                icon: document.getElementById('icon').value,
+                schedule: document.getElementById('schedule').value,
+                location: document.getElementById('location').value,
+                message: document.getElementById('message').value,
+                becaColor: document.getElementById('beca-color').value,
+                timestamp: new Date().toISOString(),
+                id: currentDesignId || Date.now().toString()
+            };
+        }
+
+        function applyDesign(design) {
+            const poster = document.getElementById('poster');
+            
+            // 1. Aplicar colores de las becas (sin opacidad)
+            document.getElementById('beca-element').style.backgroundColor = design.becaColor;
+            document.getElementById('beca-element-small').style.backgroundColor = "white";
+            
+            // 2. Fondo blanco y texto negro (sin cálculos automáticos)
+            poster.style.backgroundColor = "white";
+            poster.style.color = "black";
+            
+            // 3. Actualizar contenido
+            poster.querySelector('h1').textContent = design.title.toUpperCase();
+            poster.querySelector('.icon').textContent = design.icon;
+            poster.querySelectorAll('p')[0].innerHTML = `Ensayos: <strong>${design.schedule}</strong>`;
+            poster.querySelectorAll('p')[1].textContent = design.message;
+            poster.querySelectorAll('p')[2].textContent = `📍 ${design.location}`;
+            
+            // 4. Asegurar que el texto sea visible
+            poster.querySelector('h1').style.color = "black";
+            poster.querySelector('.icon').style.color = "black";
+            Array.from(poster.querySelectorAll('p')).forEach(p => {
+                p.style.color = "black";
+            });
+        }
+
+        function saveDesign() {
+            const design = getFormData();
+            
+            if (currentDesignId) {
+                const index = designs.findIndex(d => d.id === currentDesignId);
+                if (index !== -1) designs[index] = design;
+            } else {
+                design.id = Date.now().toString();
+                designs.push(design);
+            }
+            
+            localStorage.setItem('tunaDesigns', JSON.stringify(designs));
+            updateDesignList();
+            alert('Diseño guardado correctamente');
+        }
+
+        function updateDesignList() {
+            const select = document.getElementById('design-list');
+            select.innerHTML = '<option value="">Selecciona un diseño</option>';
+            
+            designs.forEach(design => {
+                const option = document.createElement('option');
+                option.value = design.id;
+                option.textContent = `${design.title} (${new Date(design.timestamp).toLocaleDateString()})`;
+                select.appendChild(option);
+            });
+        }
+
+        function loadDesign() {
+            const designId = document.getElementById('design-list').value;
+            if (!designId) return;
+            
+            const design = designs.find(d => d.id === designId);
+            if (design) {
+                currentDesignId = design.id;
+                document.getElementById('title').value = design.title;
+                document.getElementById('icon').value = design.icon;
+                document.getElementById('schedule').value = design.schedule;
+                document.getElementById('location').value = design.location;
+                document.getElementById('message').value = design.message;
+                document.getElementById('beca-color').value = design.becaColor;
+                applyDesign(design);
+            }
+        }
+
+        function downloadImage() {
+            html2canvas(document.getElementById('poster')).then(canvas => {
+                const link = document.createElement('a');
+                link.download = `tuna-${document.getElementById('title').value.toLowerCase().replace(/\s+/g, '-')}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
+        }
+    </script>
+</body>
+</html>
