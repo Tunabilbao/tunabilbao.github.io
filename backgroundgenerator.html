@@ -22,6 +22,13 @@
             background: white;
             width: 90%;
             max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;  /* Centra verticalmente */
+            align-items: center;      /* Centra horizontalmente */
+            text-align: center;       /* Asegura que el texto interno esté centrado */
+            padding: 2rem;            /* Reduce el padding si es necesario */
+            min-height: 300px;        /* Ajusta la altura según necesites */
         }
         .result {
             position: relative;
@@ -52,6 +59,11 @@
             z-index: 3;
             margin: 0.5rem 0;
         }
+        .result h1, .result .icon, .result p {
+            width: 100%;
+            margin: 0.5rem 0;         /* Espaciado uniforme */
+            text-align: center;       /* Centrado adicional (por si acaso) */
+        }
         .beca-v {
             position: absolute;
             width: 100%;
@@ -61,7 +73,7 @@
             clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
             z-index: 1;
             opacity: 1;
-            background-color: rgb(18, 37, 98);
+            background-color: rgb(21, 65, 209);
         }
         .beca-v-small {
             position: absolute;
@@ -112,11 +124,11 @@
 <body>
     <div class="editor">
         <h2>Generador Tuna de Bilbao</h2>
-        <input type="text" id="title" placeholder="Nombre de la tuna" value="TUNA DE BILBAO">
+        <input type="text" id="title" placeholder="Nombre de la tuna" value="Tuna Universitaria UPV/EHU del Gran Bilbao">
         <select id="icon">
             <!-- Tradicionales -->
             <option value="🎻">🎻 Violín</option>
-            <option value="🎸" selected>🎸 Guitarra</option>
+            <option value="🎸">🎸 Guitarra</option>
             <option value="🪕">🪕 Banjo</option>
             <option value="🎺">🎺 Trompeta</option>
             <option value="🥁">🥁 Tambor</option>
@@ -125,16 +137,16 @@
             
             <!-- Creativas -->
             <option value="🎹">🎹 Piano</option>
-            <option value="🎼">🎼 Partitura</option>
+            <option value="🎼" selected>🎼 Partitura</option>
             <option value="♫">♫ Clave de Sol</option>
             
             <!-- Divertidas -->
             <option value="🍷">🍷 Copa de Vino</option>
             <option value="🌹">🌹 Rosa</option>
         </select>
-        <input type="text" id="schedule" placeholder="Horario" value="Martes 20:00h">
-        <input type="text" id="location" placeholder="Ubicación" value="Casco Viejo, Bilbao">
-        <textarea id="message" placeholder="Mensaje">¿Te unes a nuestra tradición?</textarea>
+        <input type="text" id="schedule" placeholder="Horario" value="Viernes laborales de 17:00 a 20:00">
+        <input type="text" id="location" placeholder="Ubicación" value="Bar La Caja, Calle Dr. Areilza (Bilbao)">
+        <textarea id="message" placeholder="Mensaje">GRUPO ENSAYOS</textarea>
         
         <div class="color-picker">
             <label for="beca-color">Color de la beca:</label>
