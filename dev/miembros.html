@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="site.webmanifest">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+
+    <meta name="msapplication-TileColor" content="#00008B">
+    <meta name="theme-color" content="#00008B">
+    <title>Miembros - Tuna de Bilbao</title>
+    
+    <!-- Fuentes y estilos -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Scripts de i18next -->
+    <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js"></script>
+    <script src="i18n-config.js"></script>
+</head>
+<body>
+    <nav>
+        <a href="index.html" id="nav-inicio">Inicio</a>
+        <a href="historia.html" id="nav-historia">Historia</a>
+        <a href="dochistoria.html" id="nav-documentos">Documentos</a>
+        <a href="miembros.html" class="active" id="nav-miembros">Miembros</a>
+        <a href="galeria.html" id="nav-galeria">Galería</a>
+        <div class="language-selector">
+            <button class="language-btn" data-lang="es">ES</button>
+            <button class="language-btn" data-lang="eu">EU</button>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1 id="family-title">La Familia</h1>
+        <p id="family-subtitle">Porque la tuna no solo es música, es hermandad.</p>
+        
+        <div class="filter-container">
+            <label id="filter-label" for="filter">Ordenar por: </label>
+            <select id="filter">
+                <option value="name" id="filter-name">Nombre (A-Z)</option>
+                <option value="alias" id="filter-alias">Alias</option>
+                <option value="date" id="filter-date">Fecha de ingreso</option>
+                <option value="instruments" id="filter-instruments">Instrumentos</option>
+            </select>
+        </div>
+
+        <div class="members-grid" id="members-grid">
+            <div class="member" data-name="Carlos" data-alias="Sonrisas" data-date="1981" data-instruments="guitarra,voz">
+                <img src="./fotos/miembros/sonrisas.jpg" alt="Sonrisas">
+                <h3>Sonrisas</h3>
+                <p class="instrument">Bandurria</p>
+                <p class="join-date"><span class="join-date-prefix">Ingreso: </span>A saber</p>
+                <div class="instruments"></div>
+            </div>
+            <div class="member" data-name="Pedro Pérez" data-alias="Físico Loco" data-date="2023-11" data-instruments="guitarra,voz">
+                <img src="./fotos/miembros/pedro.jpg" alt="Pedro Pérez">
+                <h3>Físico Loco</h3>
+                <p class="instrument">Guitarra</p>
+                <p class="join-date"><span class="join-date-prefix">Ingreso: </span>Nov 2023</p>
+                <div class="instruments"></div>
+            </div>
+            
+            <div class="member" data-name="Federico López" data-alias="La Química" data-date="2023-12" data-instruments="violín,pandereta">
+                <img src="./fotos/miembros/federico.jpg" alt="Federico López">
+                <h3>La Química</h3>
+                <p class="instrument">Violín</p>
+                <p class="join-date"><span class="join-date-prefix">Ingreso: </span>Dic 2023</p>
+                <div class="instruments"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/tunabilbao" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.youtube.com/@TunaUniversitariadelGranBilbao"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="copyright" id="copyright-text">© 1981 Tuna Universitaria UPV/EHU del Gran Bilbao y sus pueblos. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Función para actualizar el contenido traducido
+        function updateContent() {
+            // Navegación
+            document.getElementById('nav-inicio').textContent = i18next.t('nav_inicio');
+            document.getElementById('nav-historia').textContent = i18next.t('nav_historia');
+            document.getElementById('nav-documentos').textContent = i18next.t('nav_documentos');
+            document.getElementById('nav-miembros').textContent = i18next.t('nav_miembros');
+            document.getElementById('nav-galeria').textContent = i18next.t('nav_galeria');
+            
+            // Contenido principal
+            document.getElementById('family-title').textContent = i18next.t('family_title');
+            document.getElementById('family-subtitle').textContent = i18next.t('family_subtitle');
+            
+            // Filtro
+            document.getElementById('filter-label').textContent = i18next.t('filter_label');
+            document.getElementById('filter-name').textContent = i18next.t('filter_name');
+            document.getElementById('filter-alias').textContent = i18next.t('filter_alias');
+            document.getElementById('filter-date').textContent = i18next.t('filter_date');
+            document.getElementById('filter-instruments').textContent = i18next.t('filter_instruments');
+            
+            // Actualizar fechas de ingreso
+            document.querySelectorAll('.join-date-prefix').forEach(el => {
+                el.textContent = i18next.t('join_date');
+            });
+            
+            // Footer
+            document.getElementById('copyright-text').textContent = i18next.t('copyright');
+        }
+
+        // Función para cambiar idioma
+        function changeLanguage() {
+            const lang = this.dataset.lang;
+            i18next.changeLanguage(lang, () => {
+                localStorage.setItem('i18nextLng', lang);
+                updateContent();
+                updateLanguageButtons();
+            });
+        }
+
+        // Función para actualizar botones de idioma
+        function updateLanguageButtons() {
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === i18next.language);
+            });
+        }
+
+        // Función para filtrar miembros
+        function filterMembers() {
+            const filterValue = document.getElementById("filter").value;
+            const membersGrid = document.getElementById("members-grid");
+            const members = Array.from(membersGrid.getElementsByClassName("member"));
+            
+            members.sort((a, b) => {
+                const aValue = a.getAttribute(`data-${filterValue}`).toLowerCase();
+                const bValue = b.getAttribute(`data-${filterValue}`).toLowerCase();
+                
+                if (filterValue === "date") {
+                    return aValue.localeCompare(bValue);
+                } else {
+                    return aValue.localeCompare(bValue);
+                }
+            });
+
+            membersGrid.innerHTML = "";
+            members.forEach(member => membersGrid.appendChild(member));
+        }
+
+        // Inicialización
+        (async function() {
+            await initI18n();
+            
+            // Configurar botones de idioma
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.addEventListener('click', changeLanguage);
+                btn.classList.toggle('active', btn.dataset.lang === i18next.language);
+            });
+            
+            // Configurar filtro
+            document.getElementById('filter').addEventListener('change', filterMembers);
+            
+            // Actualizar contenido
+            updateContent();
+        })();
+    </script>
+</body>
+</html>

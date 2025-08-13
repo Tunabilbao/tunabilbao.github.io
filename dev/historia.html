@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="site.webmanifest">
+    <!-- Favicon para navegadores antiguos -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Favicon para navegadores modernos -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+
+    <!-- Para Apple devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+
+    <!-- Para Windows 8/10 -->
+    <meta name="msapplication-TileColor" content="#00008B">
+    <meta name="theme-color" content="#00008B">
+    <title>Historia - Tuna Universitaria del Gran Bilbao</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+     <!-- Scripts de i18next -->
+    <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js"></script>
+    <script src="i18n-config.js"></script>
+</head>
+<body>
+    <nav>
+        <a href="index.html" data-i18n="nav_inicio">Inicio</a>
+        <a href="historia.html" class="active" data-i18n="nav_historia">Historia</a>
+        <a href="dochistoria.html" data-i18n="nav_documentos">Documentos</a>
+        <a href="miembros.html" data-i18n="nav_miembros">Miembros</a>
+        <a href="galeria.html" data-i18n="nav_galeria">Galería</a>
+        <div class="language-selector">
+            <button class="language-btn" data-lang="es">ES</button>
+            <button class="language-btn" data-lang="eu">EU</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1 data-i18n="historia_titulo">Historia de la Tuna Universitaria del Gran Bilbao</h1>
+        <p data-i18n="historia_texto">Desde 1981 llevando la tradición musical universitaria por el mundo</p>
+    </section>
+
+    <div class="container">
+        <section class="history-wrapper">
+            <div class="history-main-content">
+                <div class="history-container">
+                    <aside class="sidebar">
+                        <nav class="sidebar-nav">
+                            <a href="#origenes" data-i18n="sidebar.origenes">Orígenes (1981)</a>
+                            <a href="#primeros-anos" data-i18n="sidebar.primeros_anos">Primeros años</a>
+                            <a href="#viajes" data-i18n="sidebar.viajes">Grandes viajes</a>
+                            <a href="#reconocimientos" data-i18n="sidebar.reconocimientos">Reconocimientos</a>
+                            <a href="#miembros" data-i18n="sidebar.miembros">Miembros fundadores</a>
+                        </nav>
+                    </aside>
+
+                    <main class="timeline">
+                        <article id="origenes" class="timeline-item">
+                            <h2 class="timeline-year" data-i18n="historia.origenes.titulo">1981 - Los orígenes</h2>
+                            <p data-i18n="historia.origenes.texto1">La Tuna Universitaria del Gran Bilbao y sus pueblos surge en octubre del año 1981 en el ámbito del Campus Universitario de Leioa de la UPV/EHU.</p>
+                            <p data-i18n="historia.origenes.texto2">En octubre del año 81 no había ninguna Tuna Universitaria en activo en toda Bizkaia, y nuestros únicos referentes eran el programa de TVE Gente Joven donde tunas de diferentes lugares de España competían entre sí.</p>
+                            <div class="timeline-doc">
+                                <img src="fotos/galeria/ant00.jpg" alt="Fundación de la Tuna en 1981">
+                                <div class="doc-details">
+                                    <p data-i18n="historia.origenes.texto3">No sería hasta ocho años después, en el 89, que apareciera una tuna hermana en Bilbao, la de Deusto.</p>
+                                    <p data-i18n="historia.origenes.texto4">Corrían los primeros días del inicio del curso 81-82, a finales de septiembre, cuando a un grupo de estudiantes de la Facultad de Ciencias, tomando unas mistelas en la cafetería del campus, se les ocurrió la genial idea de montar una Tuna Universitaria.</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article id="primeros-anos" class="timeline-item">
+                            <h2 class="timeline-year" data-i18n="historia.primeros_anos.titulo">1981-1983 - Primeros años</h2>
+                            <p data-i18n="historia.primeros_anos.texto1">El 18 de octubre del 81, en la cafetería del campus y coincidiendo con la festividad de San Lucas (patrono de los médicos), un ilusionado grupo de 12 jóvenes alumnos universitarios de las facultades de ciencias y periodismo se dispusieron a poner en marcha lo que sería nuestra agrupación.</p>
+                            <p data-i18n="historia.primeros_anos.texto2">El 15 de noviembre de ese mismo año, ataviados con las batas de laboratorio y con los instrumentos a cuestas, amenizamos el campus en la fiesta de San Alberto patrono de los estudiantes de Ciencias.</p>
+                            <div class="timeline-doc">
+                                <!--<img src="fotos/historia/primeros-anos.jpg" alt="Primeros años de la Tuna">-->
+                                <div class="doc-details">
+                                    <p data-i18n="historia.primeros_anos.texto3">Los seis primeros meses son de arduo trabajo en equipo, adecuación del local de ensayo (un aula cedida para nuestro uso en la facultad de medicina), elección y preparación de un repertorio.</p>
+                                    <p data-i18n="historia.primeros_anos.texto4">Culminamos ese primer periodo actuando en la conocida BBC (bodas, bautizos y comuniones), en el ya desaparecido Restaurante Casa Vasca de Bilbao.</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article id="viajes" class="timeline-item">
+                            <h2 class="timeline-year" data-i18n="historia.viajes.titulo">1984-1988 - La época viajera</h2>
+                            <p data-i18n="historia.viajes.texto1">Nuestra tuna se caracterizó por su afán viajero durante estos años, financiando los viajes con las actuaciones en bodas, comuniones, bautizos y eventos en el área del Gran Bilbao.</p>
+                            <div class="timeline-doc">
+                                <!--<img src="fotos/historia/viajes.jpg" alt="Viajes de la Tuna">-->
+                                <div class="doc-details">
+                                    <h3 data-i18n="historia.viajes.subtitulo">Algunos de los viajes más destacados:</h3>
+                                    <ul>
+                                        <li data-i18n="historia.viajes.item1"><strong>1984:</strong> Primer contacto con la Tuna de Vitoria-Gasteiz. Viajes a Salou, Bretaña, Segovia, Medina de Pomar, Santander.</li>
+                                        <li data-i18n="historia.viajes.item2"><strong>1985:</strong> Bretaña y Salou con Vitoria, Medina de Pomar, Logroño, Zaragoza, Barcelona.</li>
+                                        <li data-i18n="historia.viajes.item3"><strong>1986:</strong> Salou-Palma en Semana Santa, Lantón (Francia) en julio, Tafalla. Gran viaje por Bilbao-Niza-Mónaco-San Remo-Florencia-Venecia en agosto. Festival de Tunas de Eindhoven en septiembre.</li>
+                                        <li data-i18n="historia.viajes.item4"><strong>1987:</strong> Bruselas (Congreso de la Orden de los Monjes Perversos), Palma de Mallorca, Alicante (IX Congreso Internacional de Tunas), Lantón (Francia), gran viaje por Europa (Francia, Países Bajos, Alemania, Dinamarca, Noruega), Cáceres.</li>
+                                        <li data-i18n="historia.viajes.item5"><strong>1988:</strong> Marruecos, Cáceres, Lantón (Francia), Santiago de Compostela, Garciaz (Cáceres), Turquía, Certamen de Tunas en Cáceres.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article id="reconocimientos" class="timeline-item">
+                            <h2 class="timeline-year" data-i18n="historia.reconocimientos.titulo">1987 - Reconocimiento</h2>
+                            <p data-i18n="historia.reconocimientos.texto1">El año 87 fue especial por el reconocimiento a la labor realizada durante años al ser invitados de forma oficial a la Reunión de Jefes de Tunas Universitarias en la ciudad de Alcalá para preparar el IX Congreso Internacional de Tunas Universitarias celebrado en Alicante.</p>
+                            <div class="timeline-doc">
+                                <!--<img src="fotos/historia/congreso-alicante.jpg" alt="Congreso de Alicante 1987">-->
+                                <div class="doc-details">
+                                    <p data-i18n="historia.reconocimientos.texto2">Este reconocimiento marcó un hito en la historia de nuestra tuna, situándonos entre las agrupaciones más relevantes del panorama tunantesco nacional.</p>
+                                    <p data-i18n="historia.reconocimientos.texto3">Durante estos viajes entramos en contacto con tunos de Farmacia de Madrid, tunos de Alcalá de Henares, de La Tuniña de Eindhoven, entre otros, creando lazos que perdurarían en el tiempo.</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article id="miembros" class="timeline-item">
+                            <h2 class="timeline-year" data-i18n="historia.miembros.titulo">Miembros fundadores</h2>
+                            <p data-i18n="historia.miembros.texto1">El grupo original de 12 jóvenes alumnos universitarios que fundaron la tuna el 18 de octubre de 1981:</p>
+                            <div class="members-grid">
+                                <div class="member"><h3>Miguel</h3></div>
+                                <div class="member"><h3>Antonio "maestro"</h3></div>
+                                <div class="member"><h3>Alberto</h3></div>
+                                <div class="member"><h3>Txus</h3></div>
+                                <div class="member"><h3>Ignacio</h3></div>
+                                <div class="member"><h3>Julen</h3></div>
+                                <div class="member"><h3>Rafa</h3></div>
+                                <div class="member"><h3>Joti</h3></div>
+                                <div class="member"><h3>Jose Manuel</h3></div>
+                                <div class="member"><h3>Alex</h3></div>
+                                <div class="member"><h3>Marlén</h3></div>
+                                <div class="member"><h3>Marisa</h3></div>
+                            </div>
+                            <p data-i18n="historia.miembros.texto2">En años posteriores se incorporaron nuevos miembros que contribuyeron al crecimiento y consolidación de la tuna.</p>
+                        </article>
+                    </main>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/tunabilbao" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.youtube.com/@TunaUniversitariadelGranBilbao"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="copyright" id="copyright-text">© 1981 Tuna Universitaria UPV/EHU del Gran Bilbao y sus pueblos. Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        function updateContent() {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (key && i18next.exists(key)) {
+                    el.innerHTML = i18next.t(key);
+                }
+            });
+            // Traduce copyright si existe
+            const copyright = document.querySelector('.copyright');
+            if (copyright) {
+                copyright.innerHTML = i18next.t('copyright');
+            }
+        }
+
+        initI18n().then(() => {
+            updateContent();
+
+            // Botones de idioma
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = btn.getAttribute('data-lang');
+                    i18next.changeLanguage(lang, updateContent);
+
+                    document.querySelectorAll('.language-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+
+            // Marcar el idioma activo al cargar
+            const currentLang = i18next.language || i18next.options.fallbackLng;
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                if (btn.getAttribute('data-lang') === currentLang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
