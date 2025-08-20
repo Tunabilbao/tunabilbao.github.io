@@ -136,6 +136,40 @@ nav a.active {
 }
 
 /* Seccion de actualizaciones en index.html */
+/* Seccion grid */
+.update-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: var(--transition);
+    display: inline-block;
+    padding: 0.3rem;
+    border-radius: 50%;
+}
+
+.update-link:hover {
+    color: #E1306C; /* Color de Instagram */
+    transform: scale(1.2);
+    background: rgba(225, 48, 108, 0.1);
+}
+
+.updates-table th:last-child {
+    text-align: center;
+    width: 60px; /* Ancho fijo para la columna de iconos */
+}
+
+.updates-table th:last-child i {
+    font-size: 1.2rem;
+    color: var(--primary);
+}
+
+/* Asegúrate de que las celdas de la última columna estén centradas */
+.updates-table td:last-child {
+    text-align: center;
+    vertical-align: middle;
+}
+/* Fin de seccion grid */
+
 .updates-table {
     width: 100%;
     border-collapse: collapse;

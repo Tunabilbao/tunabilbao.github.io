@@ -137,17 +137,13 @@
                         <tr>
                             <th id="updates-date-header">Fecha</th>
                             <th id="updates-text-header">Noticia</th>
+                            <th id="updates-link-header">
+                                <i class="fas fa-link"></i>
+                            </th>
                         </tr>
                     </thead>
                     <tbody id="updates-list">
-                        <!--<tr>
-                            <td>2025 08-13</td>
-                            <td>Registramos el dominio www.tunabilbao.com</td>
-                        </tr>
-                        <tr>
-                            <td>2025 06-20</td>
-                            <td>Iniciamos el proyecto web</td>
-                        </tr>-->
+                        <!-- Las filas se generarán con JavaScript -->
                     </tbody>
                 </table>
             </div>
@@ -173,12 +169,20 @@
                 while (true) {
                     const fecha = i18next.t(`updates_${i}_fecha`);
                     const texto = i18next.t(`updates_${i}_texto`);
-                    // Si la clave no existe o es igual al identificador, paramos
+                    const enlace = i18next.t(`updates_${i}_enlace`); // Nueva propiedad
+                    
+                    
                     if (!fecha || fecha === `updates_${i}_fecha`) break;
+                    
                     rows += `
                         <tr>
                             <td>${fecha}</td>
                             <td>${texto}</td>
+                            <td>${enlace ? `
+                                <a href="${enlace}" target="_blank" class="update-link" title="Ver en Instagram">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            ` : ''}</td>
                         </tr>
                     `;
                     i++;

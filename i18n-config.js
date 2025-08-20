@@ -41,10 +41,18 @@ const i18nConfig = {
                 "updates_titulo": "Actualizaciones",
                 "updates_fecha": "Fecha",
                 "updates_noticia": "Noticia",
-                "updates_1_fecha": "2025-08-12",
-                "updates_1_texto": "Registramos el dominio www.tunabilbao.com",
-                "updates_2_fecha": "2025-06-20",
-                "updates_2_texto": "Iniciamos el proyecto web",
+
+                "updates_2_fecha": "2025-08-12",
+                "updates_2_texto": "Registramos el dominio www.tunabilbao.com",
+                "updates_2_enlace": "",
+
+                "updates_3_fecha": "2025-06-20",
+                "updates_3_texto": "Iniciamos el proyecto web",
+                "updates_3_enlace": "",
+
+                "updates_1_fecha": "2024-12-14",
+                "updates_1_texto": "¡CIENCIAS DE BARCELONA EN TIERRA VIZCAÍNA! Recibimos a nuestros hermanos de Ciencias de Barcelona",
+                "updates_1_enlace": "https://www.instagram.com/p/DNfZXVHNpLt/?img_index=1",
                 
                 // Textos para miembros.html
                 "family_title": "Nuestra familia",
@@ -547,13 +555,18 @@ const i18nConfig = {
                 "tunas_titulo": "Ahizpa Tunak",
                 "tunas_texto": "Orden alfabetikoan:",
                 // Anexo actualizaciones
-                "updates_titulo": "Eguneratzeak",
-                "updates_fecha": "Data",
-                "updates_noticia": "Albistea",
-                "updates_1_fecha": "2025-08-12",
-                "updates_1_texto": "www.tunabilbao.com domeinua erregistratu dugu",
-                "updates_2_fecha": "2025-06-20",
-                "updates_2_texto": "Web proiektua abiarazi dugu",
+                // En la sección eu -> translation  
+                "updates_2_fecha": "2025-08-12",
+                "updates_2_texto": "www.tunabilbao.com domeinua erregistratu dugu",
+                "updates_2_enlace": "",
+
+                "updates_3_fecha": "2025-06-20",
+                "updates_3_texto": "Web proiektua abiarazi dugu",
+                "updates_3_enlace": "",
+
+                "updates_1_fecha": "2024-12-14", 
+                "updates_1_texto": "BARCELONAKO ZIENTZIAK BIZKAILURREAN! Bartzelonako Zientzien anaideak hartu genituen",
+                "updates_1_enlace": "https://www.instagram.com/p/DNfZXVHNpLt/?img_index=1",
                 
                 // Textos para miembros.html
                 "family_title": "Gure familia",
