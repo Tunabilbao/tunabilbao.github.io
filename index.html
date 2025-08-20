@@ -4,44 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="site.webmanifest">
-    <!-- Favicon para navegadores antiguos -->
+    <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-    <!-- Favicon para navegadores modernos -->
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-
-    <!-- Para Apple devices -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 
-    <!-- Para Windows 8/10 -->
     <meta name="msapplication-TileColor" content="#00008B">
     <meta name="theme-color" content="#00008B">
     <title>Tuna Universitaria del Gran Bilbao</title>
+    
+    <!-- Fuentes y estilos -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <!-- Hay que pasarlos al styles.css -->
-    <style>
+    
+    <!-- Scripts de i18next -->
+    <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js"></script>
+    <script src="i18n-config.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FJMVDRMF0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-       
-    </style>
+        gtag('config', 'G-1FJMVDRMF0');
+    </script>
 </head>
 <body>
     <nav>
-        <a href="index.html" class="active">Inicio</a>
-        <a href="historia.html">Historia</a> 
-        <a href="dochistoria.html">Documentos</a>
-        <!--<a href="miembros.html">Miembros</a>-->
-        <a href="galeria.html">Galería</a>
+        <a href="index.html" class="active" id="nav-inicio">Inicio</a>
+        <a href="historia.html" id="nav-historia">Historia</a> 
+        <a href="dochistoria.html" id="nav-documentos">Documentos</a>
+        <!--<a href="miembros.html" data-i18n="nav_miembros">Miembros</a>-->
+        <a href="galeria.html" id="nav-galeria">Galería</a>
+        <div class="language-selector">
+            <button class="language-btn" data-lang="es">ES</button>
+            <button class="language-btn" data-lang="eu">EU</button>
+        </div>
     </nav>
 
     <section class="hero">
-        <h1>Tuna Universitaria del Gran Bilbao</h1>
-        <p>Desde 1981 llevando la tradición musical universitaria por el mundo</p>
+        <h1 id="main-title">Tuna Universitaria del Gran Bilbao</h1>
+        <p id="main-subtitle">Desde 1981 llevando la tradición musical universitaria por el mundo</p>
     </section>
 
-    <!-- CARRUSEL COMO ELEMENTO PRINCIPAL -->
+    <!-- CARRUSEL -->
     <div class="main-carrusel">
         <div class="carrusel-inner" id="carrusel">
             <!-- Las imágenes se insertarán con JavaScript -->
@@ -58,55 +68,57 @@
     <div class="container">
         <section class="grid">
             <div class="card">
-                <h2>Nuestra Historia</h2>
-                <p>Fundada en 1981 por estudiantes de la Facultad de Ciencia y Tecnología de la UPV/EHU</p>
-                <a href="historia.html" class="btn">Conoce más</a>
+                <h2 id="history-title">Nuestra Historia</h2>
+                <p id="history-text">Fundada en 1981 por estudiantes de la Facultad de Ciencia y Tecnología de la UPV/EHU</p>
+                <a href="historia.html" class="btn" id="history-btn">Conoce más</a>
             </div>
              <div class="card">
-                <h2>¡Únete a nuestra Tuna!</h2>
-                <p>¿Te gusta la música, los viajes y la vida universitaria? ¡Somos tu familia!</p>
+                <h2 id="join-title">¡Únete a nuestra Tuna!</h2>
+                <p id="join-text">¿Te gusta la música, los viajes y la vida universitaria? ¡Somos tu familia!</p>
     
                 <div class="recruitment-details">
                     <div class="recruitment-item">
                         <i class="fas fa-music"></i>
-                        <p>No se requiere experiencia previa</p>
+                        <p id="requirement-1">No se requiere experiencia previa</p>
                     </div>
                     <div class="recruitment-item">
                         <i class="fas fa-graduation-cap"></i>
-                        <p>Abierto a todos los estudiantes y licenciados</p>
+                        <p id="requirement-2">Abierto a todos los estudiantes y licenciados</p>
                     </div>
                     <div class="recruitment-item">
                         <i class="fas fa-globe-europe"></i>
-                        <p>Giras y eventos nacionales</p>
+                        <p id="requirement-3">Giras y eventos nacionales</p>
                     </div>
                 </div>
     
                 <div class="recruitment-buttons">
-                    <a href="mailto:tunabilbao@gmail.com?subject=Quiero unirme a la Tuna" class="btn">
-                        <i class="fas fa-envelope"></i> Escríbenos
+                    <a href="mailto:tunabilbao@gmail.com?subject=Quiero unirme a la Tuna" class="btn" id="email-btn">
+                        <i class="fas fa-envelope"></i> <span class="btn-text">Escríbenos</span>
                     </a>
-                    <a href="https://chat.whatsapp.com/JhwwdjtJSmI5XnzrxOHa9k?mode=ac_t" class="btn whatsapp-btn" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                    <a href="https://chat.whatsapp.com/JhwwdjtJSmI5XnzrxOHa9k?mode=ac_t" class="btn whatsapp-btn" target="_blank" id="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> <span class="btn-text">Contactar por WhatsApp</span>
                     </a>
                 </div>
             </div>
             <div class="card">
-                <h2>Próximos Eventos</h2>
-                <p>Soria, allá vamos!</p>
-                <a href="#" class="btn">Ver calendario</a>
+                <h2 id="events-title">Próximos Eventos</h2>
+                <p id="events-text">Soria, allá vamos!</p>
+                <a href="#" class="btn" id="events-btn">Ver calendario</a>
             </div>
             <div class="card" id="contacto">
-                <h2>Contacto</h2>
-                <p>Información, propuestas, contratos...</p>
-                <a href="mailto:tunabilbao@gmail.com?subject=Información" class="btn">
-                    <i class="fas fa-envelope"></i> Escríbenos
+                <h2 id="contact-title">Contacto</h2>
+                <p id="contact-text">Información, propuestas, contratos...</p>
+                <a href="mailto:tunabilbao@gmail.com?subject=Información" class="btn" id="contact-email">
+                    <i class="fas fa-envelope"></i> <span class="btn-text">Escríbenos</span>
                 </a>
                 
-                <a href="https://www.instagram.com/tunagranbilbao" class="btn">Instagram</a>
+                <a href="https://www.instagram.com/tunagranbilbao" class="btn" id="instagram-btn">
+                    <i class="fab fa-instagram"></i> <span class="btn-text">Instagram</span>
+                </a>
             </div>
             <div class="card">
-                <h2>Tunas hermanas</h2>
-                <p>Por orden alfabético:</p>
+                <h2 id="sister-title">Tunas hermanas</h2>
+                <p id="sister-text">Por orden alfabético:</p>
                 <div class="friend-links">
                     <a href="https://www.instagram.com/tuna_distrito_bizkaia" target="_blank" class="friend-link">
                         <img src="fotos/index/disbiz.jpeg" alt="Tuna Distrito de Bizkaia" class="friend-logo">
@@ -118,6 +130,27 @@
                     </a>
                 </div>
             </div>
+            <div class="card" id="updates-card">
+                <h2 id="updates-title">Actualizaciones</h2>
+                <table class="updates-table">
+                    <thead>
+                        <tr>
+                            <th id="updates-date-header">Fecha</th>
+                            <th id="updates-text-header">Noticia</th>
+                        </tr>
+                    </thead>
+                    <tbody id="updates-list">
+                        <!--<tr>
+                            <td>2025 08-13</td>
+                            <td>Registramos el dominio www.tunabilbao.com</td>
+                        </tr>
+                        <tr>
+                            <td>2025 06-20</td>
+                            <td>Iniciamos el proyecto web</td>
+                        </tr>-->
+                    </tbody>
+                </table>
+            </div>
         </section>
     </div>
 
@@ -127,90 +160,175 @@
             <a href="#"><i class="fab fa-facebook"></i></a>
             <a href="https://www.youtube.com/@TunaUniversitariadelGranBilbao"><i class="fab fa-youtube"></i></a>
         </div>
-        <p class="copyright">© 1981 Tuna Universitaria UPV/EHU del Gran Bilbao y sus pueblos. Todos los derechos reservados.</p>
+        <p class="copyright" id="copyright-text">© 1981 Tuna Universitaria UPV/EHU del Gran Bilbao y sus pueblos. Todos los derechos reservados.</p>
     </footer>
 
     <script>
-        // 1. CONFIGURACIÓN DE IMÁGENES - ¡MODIFICA ESTO!
-        const imagenes = [
-            'fotos/index/mainpuertosanturce.jpg',
-            'fotos/index/pasacallescongresoalicante.jpg',
-            'fotos/index/2006_1.jpg',
-            'fotos/index/2010.jpg',
-            'fotos/index/2024.jpg'
-            //'fotos/index/evento1.jpg'
-        ];
-        
-        // 2. Inicialización del carrusel
-        const carrusel = document.getElementById('carrusel');
-        const dotsContainer = document.getElementById('dots-container');
-        let currentIndex = 0;
-        let intervalId;
+        // Función para actualizar todo el contenido
+        function updateContent() {
+            // Actualizaciones
+            function renderUpdatesTable() {
+                let rows = '';
+                let i = 1;
+                while (true) {
+                    const fecha = i18next.t(`updates_${i}_fecha`);
+                    const texto = i18next.t(`updates_${i}_texto`);
+                    // Si la clave no existe o es igual al identificador, paramos
+                    if (!fecha || fecha === `updates_${i}_fecha`) break;
+                    rows += `
+                        <tr>
+                            <td>${fecha}</td>
+                            <td>${texto}</td>
+                        </tr>
+                    `;
+                    i++;
+                }
+                document.getElementById('updates-list').innerHTML = rows;
+            }
+            // En tu función updateContent, reemplaza la parte de actualizaciones por:
+            document.getElementById('updates-title').textContent = i18next.t('updates_titulo');
+            document.getElementById('updates-date-header').textContent = i18next.t('updates_fecha');
+            document.getElementById('updates-text-header').textContent = i18next.t('updates_noticia');
+            renderUpdatesTable();
 
-        // 3. Cargar imágenes y crear puntos de navegación
-        imagenes.forEach((imgSrc, index) => {
-            // Crear elemento de imagen
-            const img = document.createElement('img');
-            img.src = imgSrc;
-            img.alt = `Imagen ${index + 1} de la Tuna`;
-            carrusel.appendChild(img);
-
-            // Crear punto de navegación
-            const dot = document.createElement('div');
-            dot.classList.add('carrusel-dot');
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(index));
-            dotsContainer.appendChild(dot);
-        });
-
-        // 4. Funciones de control
-        function goToSlide(index) {
-            currentIndex = index;
-            updateCarrusel();
-            resetInterval();
+            // Hero section
+            document.getElementById('main-title').textContent = i18next.t('titulo');
+            document.getElementById('main-subtitle').textContent = i18next.t('subtitulo');
+            
+            // Cards
+            document.getElementById('history-title').textContent = i18next.t('historia_titulo');
+            document.getElementById('history-text').textContent = i18next.t('historia_texto');
+            document.getElementById('history-btn').textContent = i18next.t('historia_boton');
+            
+            document.getElementById('join-title').textContent = i18next.t('unete_titulo');
+            document.getElementById('join-text').textContent = i18next.t('unete_texto');
+            document.getElementById('requirement-1').textContent = i18next.t('requisito1');
+            document.getElementById('requirement-2').textContent = i18next.t('requisito2');
+            document.getElementById('requirement-3').textContent = i18next.t('requisito3');
+            document.querySelector('#email-btn .btn-text').textContent = i18next.t('escribenos');
+            document.querySelector('#whatsapp-btn .btn-text').textContent = i18next.t('whatsapp');
+            
+            document.getElementById('events-title').textContent = i18next.t('eventos_titulo');
+            document.getElementById('events-text').textContent = i18next.t('eventos_texto');
+            document.getElementById('events-btn').textContent = i18next.t('eventos_boton');
+            
+            document.getElementById('contact-title').textContent = i18next.t('contacto_titulo');
+            document.getElementById('contact-text').textContent = i18next.t('contacto_texto');
+            document.querySelector('#contact-email .btn-text').textContent = i18next.t('escribenos');
+            
+            document.getElementById('sister-title').textContent = i18next.t('tunas_titulo');
+            document.getElementById('sister-text').textContent = i18next.t('tunas_texto');
+            
+            // Navegación
+            document.getElementById('nav-inicio').textContent = i18next.t('nav_inicio');
+            document.getElementById('nav-historia').textContent = i18next.t('nav_historia');
+            document.getElementById('nav-documentos').textContent = i18next.t('nav_documentos');
+            document.getElementById('nav-miembros').textContent = i18next.t('nav_miembros');
+            document.getElementById('nav-galeria').textContent = i18next.t('nav_galeria');
+            
+            // Footer
+            document.getElementById('copyright-text').textContent = i18next.t('copyright');
         }
 
-        function updateCarrusel() {
-            carrusel.style.transform = `translateX(-${currentIndex * 100}%)`;
-            
-            // Actualizar puntos activos
-            document.querySelectorAll('.carrusel-dot').forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentIndex);
+        // Función para cambiar idioma
+        function changeLanguage() {
+            const lang = this.dataset.lang;
+            i18next.changeLanguage(lang, () => {
+                localStorage.setItem('i18nextLng', lang);
+                updateContent();
+                updateLanguageButtons();
             });
         }
 
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % imagenes.length;
-            updateCarrusel();
+        // Función para actualizar botones de idioma
+        function updateLanguageButtons() {
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === i18next.language);
+            });
         }
 
-        function prevSlide() {
-            currentIndex = (currentIndex - 1 + imagenes.length) % imagenes.length;
-            updateCarrusel();
-        }
+        // Inicialización
+        (async function() {
+            await initI18n();
+            
+            // Configurar botones de idioma
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.addEventListener('click', changeLanguage);
+                btn.classList.toggle('active', btn.dataset.lang === i18next.language);
+            });
+            
+            // Actualizar contenido
+            updateContent();
+            
+            // Configurar carrusel (código original)
+            const imagenes = [
+                'fotos/index/mainpuertosanturce.jpg',
+                'fotos/index/pasacallescongresoalicante.jpg',
+                'fotos/index/2006_1.jpg',
+                'fotos/index/2010.jpg',
+                'fotos/index/2024.jpg'
+            ];
+            
+            const carrusel = document.getElementById('carrusel');
+            const dotsContainer = document.getElementById('dots-container');
+            let currentIndex = 0;
+            let intervalId;
 
-        function resetInterval() {
-            clearInterval(intervalId);
-            intervalId = setInterval(nextSlide, 5000);
-        }
+            imagenes.forEach((imgSrc, index) => {
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.alt = `Imagen ${index + 1} de la Tuna`;
+                carrusel.appendChild(img);
 
-        // 5. Event listeners
-        document.getElementById('nextBtn').addEventListener('click', () => {
-            nextSlide();
+                const dot = document.createElement('div');
+                dot.classList.add('carrusel-dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+
+            function goToSlide(index) {
+                currentIndex = index;
+                updateCarrusel();
+                resetInterval();
+            }
+
+            function updateCarrusel() {
+                carrusel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                document.querySelectorAll('.carrusel-dot').forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % imagenes.length;
+                updateCarrusel();
+            }
+
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + imagenes.length) % imagenes.length;
+                updateCarrusel();
+            }
+
+            function resetInterval() {
+                clearInterval(intervalId);
+                intervalId = setInterval(nextSlide, 5000);
+            }
+
+            document.getElementById('nextBtn').addEventListener('click', () => {
+                nextSlide();
+                resetInterval();
+            });
+
+            document.getElementById('prevBtn').addEventListener('click', () => {
+                prevSlide();
+                resetInterval();
+            });
+
             resetInterval();
-        });
-
-        document.getElementById('prevBtn').addEventListener('click', () => {
-            prevSlide();
-            resetInterval();
-        });
-
-        // 6. Iniciar el carrusel automático
-        resetInterval();
-
-        // 7. Pausar al interactuar
-        carrusel.addEventListener('mouseenter', () => clearInterval(intervalId));
-        carrusel.addEventListener('mouseleave', resetInterval);
+            carrusel.addEventListener('mouseenter', () => clearInterval(intervalId));
+            carrusel.addEventListener('mouseleave', resetInterval);
+        })();
     </script>
 </body>
 </html>

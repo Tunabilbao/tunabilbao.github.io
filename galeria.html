@@ -17,10 +17,22 @@
     <!-- Para Windows 8/10 -->
     <meta name="msapplication-TileColor" content="#00008B">
     <meta name="theme-color" content="#00008B">
-    <title>Galería - Tuna de Bilbao</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <!-- Scripts de i18next -->
+    <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js"></script>
+    <script src="i18n-config.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FJMVDRMF0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-1FJMVDRMF0');
+    </script>
     <style>
         /* Estilos específicos para la galería */
         .gallery-modal {
@@ -99,37 +111,41 @@
 </head>
 <body>
     <nav>
-        <a href="index.html">Inicio</a>
-        <a href="historia.html">Historia</a>
-        <a href="dochistoria.html">Documentos</a>
-        <!--<a href="miembros.html">Miembros</a>-->
-        <a href="galeria.html" class="active">Galería</a>
+        <a href="index.html" data-i18n="nav-inicio">Inicio</a>
+        <a href="historia.html" data-i18n="nav-historia">Historia</a>
+        <a href="dochistoria.html" data-i18n="nav-documentos">Documentos</a>
+        <!--<a href="miembros.html" data-i18n="nav_miembros">Miembros</a>-->
+        <a href="galeria.html" data-i18n="nav-galeria" class="active">Galería</a>
+        <div class="language-selector">
+            <button class="language-btn" data-lang="es">ES</button>
+            <button class="language-btn" data-lang="eu">EU</button>
+        </div>
     </nav>
 
     <div class="hero">
-        <h1>Galería de Imágenes</h1>
-        <p>La tuna en imágenes: del aula al mundo</p>
+        <h1 data-i18n="galeria_titulo">Galería de Imágenes</h1>
+        <p data-i18n="galeria_subtitulo">La tuna en imágenes: del aula al mundo</p>
         
         <div class="gallery-section">
             <div class="gallery-filters">
-                <button class="gallery-filter-btn active" data-filter="all">Todas</button>
-                <!--<button class="gallery-filter-btn" data-filter="antiguas">Sin fecha</button>-->
-                <button class="gallery-filter-btn" data-filter="year-1980">1980's</button>
-                <button class="gallery-filter-btn" data-filter="year-1990">1990's</button>
-                <button class="gallery-filter-btn" data-filter="year-2000">2000</button>
-                <button class="gallery-filter-btn" data-filter="year-2020">2020</button>
-                <!--<button class="gallery-filter-btn" data-filter="year-2024">2024</button>-->
-                <button class="gallery-filter-btn" data-filter="upv">UPV/EHU</button>
-                <button class="gallery-filter-btn" data-filter="certamen">Certamenes</button>
-                <button class="gallery-filter-btn" data-filter="giras">Tuna viajera</button>
-                <button class="gallery-filter-btn" data-filter="bodas">Bodas</button>
-                <button class="gallery-filter-btn" data-filter="fiestas">Fiestas</button>
-                <button class="gallery-filter-btn" data-filter="universidad">Eventos Universitarios</button>
+                <button class="gallery-filter-btn active" data-filter="all" data-i18n="galeria_filtro_todas">Todas</button>
+                <!--<button class="gallery-filter-btn" data-filter="antiguas" data-i18n="galeria_filtro_antiguas">Sin fecha</button>-->
+                <button class="gallery-filter-btn" data-filter="year-1980" data-i18n="galeria_filtro_1980">1980's</button>
+                <button class="gallery-filter-btn" data-filter="year-1990" data-i18n="galeria_filtro_1990">1990's</button>
+                <button class="gallery-filter-btn" data-filter="year-2000" data-i18n="galeria_filtro_2000">2000</button>
+                <button class="gallery-filter-btn" data-filter="year-2020" data-i18n="galeria_filtro_2020">2020</button>
+                <!--<button class="gallery-filter-btn" data-filter="year-2024" data-i18n="galeria_filtro_2024">2024</button>-->
+                <button class="gallery-filter-btn" data-filter="upv" data-i18n="galeria_filtro_upv">UPV/EHU</button>
+                <button class="gallery-filter-btn" data-filter="certamen" data-i18n="galeria_filtro_certamenes">Certamenes</button>
+                <button class="gallery-filter-btn" data-filter="giras" data-i18n="galeria_filtro_giras">Tuna viajera</button>
+                <button class="gallery-filter-btn" data-filter="bodas" data-i18n="galeria_filtro_bodas">Bodas</button>
+                <button class="gallery-filter-btn" data-filter="fiestas" data-i18n="galeria_filtro_fiestas">Fiestas</button>
+                <button class="gallery-filter-btn" data-filter="universidad" data-i18n="galeria_filtro_universidad">Eventos Universitarios</button>
             </div>
             
             <div class="gallery-grid" id="galleryGrid">
                 <!-- Mensaje de no resultados (oculto por defecto) -->
-                <div id="noResultsMessage" class="no-results">No hay imágenes que coincidan con este filtro</div>
+                <div id="noResultsMessage" class="no-results" data-i18n="galeria_noresultados">No hay imágenes que coincidan con este filtro</div>
                 
                 <!-- Imágenes antiguas -->
                 <div class="gallery-item" data-year="1980" data-event="antiguas">
@@ -652,10 +668,69 @@
             <a href="#"><i class="fab fa-facebook"></i></a>
             <a href="https://www.youtube.com/@TunaUniversitariadelGranBilbao"><i class="fab fa-youtube"></i></a>
         </div>
-        <p class="copyright">© 1981 Tuna Universitaria UPV/EHU del Gran Bilbao y sus pueblos. Todos los derechos reservados.</p>
+        <p class="copyright" id="copyright-text">© 1981 Tuna Universitaria UPV/EHU del Gran Bilbao y sus pueblos. Todos los derechos reservados.</p>
     </footer>
 
     <script>
+        // Función para actualizar los textos traducibles
+        function updateGalleryContent() {
+             // Navegación
+            document.querySelector('[data-i18n="nav-inicio"]').textContent = i18next.t('nav_inicio');
+            document.querySelector('[data-i18n="nav-historia"]').textContent = i18next.t('nav_historia');
+            document.querySelector('[data-i18n="nav-documentos"]').textContent = i18next.t('nav_documentos');
+            document.querySelector('[data-i18n="nav-miembros"]').textContent = i18next.t('nav_miembros');
+            document.querySelector('[data-i18n="nav-galeria"]').textContent = i18next.t('nav_galeria');
+            
+            document.querySelector('[data-i18n="galeria_titulo"]').textContent = i18next.t('galeria_titulo');
+            document.querySelector('[data-i18n="galeria_subtitulo"]').textContent = i18next.t('galeria_subtitulo');
+            document.querySelector('[data-i18n="galeria_filtro_todas"]').textContent = i18next.t('galeria_filtro_todas');
+            // Si usas el filtro de antiguas, descomenta la siguiente línea:
+            // document.querySelector('[data-i18n="galeria_filtro_antiguas"]').textContent = i18next.t('galeria_filtro_antiguas');
+            document.querySelector('[data-i18n="galeria_filtro_1980"]').textContent = i18next.t('galeria_filtro_1980');
+            document.querySelector('[data-i18n="galeria_filtro_1990"]').textContent = i18next.t('galeria_filtro_1990');
+            document.querySelector('[data-i18n="galeria_filtro_2000"]').textContent = i18next.t('galeria_filtro_2000');
+            document.querySelector('[data-i18n="galeria_filtro_2020"]').textContent = i18next.t('galeria_filtro_2020');
+            // document.querySelector('[data-i18n="galeria_filtro_2024"]').textContent = i18next.t('galeria_filtro_2024');
+            document.querySelector('[data-i18n="galeria_filtro_upv"]').textContent = i18next.t('galeria_filtro_upv');
+            document.querySelector('[data-i18n="galeria_filtro_certamenes"]').textContent = i18next.t('galeria_filtro_certamenes');
+            document.querySelector('[data-i18n="galeria_filtro_giras"]').textContent = i18next.t('galeria_filtro_giras');
+            document.querySelector('[data-i18n="galeria_filtro_bodas"]').textContent = i18next.t('galeria_filtro_bodas');
+            document.querySelector('[data-i18n="galeria_filtro_fiestas"]').textContent = i18next.t('galeria_filtro_fiestas');
+            document.querySelector('[data-i18n="galeria_filtro_universidad"]').textContent = i18next.t('galeria_filtro_universidad');
+            document.querySelector('[data-i18n="galeria_noresultados"]').textContent = i18next.t('galeria_noresultados');
+        }
+
+        // Función para cambiar idioma
+        function changeLanguageGallery() {
+            const lang = this.dataset.lang;
+            i18next.changeLanguage(lang, () => {
+                localStorage.setItem('i18nextLng', lang);
+                updateGalleryContent();
+                updateLanguageButtonsGallery();
+            });
+        }
+
+        // Actualiza los botones de idioma
+        function updateLanguageButtonsGallery() {
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === i18next.language);
+            });
+        }
+
+        // Inicialización
+        (async function() {
+            await initI18n();
+
+            // Configurar botones de idioma
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.addEventListener('click', changeLanguageGallery);
+                btn.classList.toggle('active', btn.dataset.lang === i18next.language);
+            });
+
+            // Actualizar textos traducibles
+            updateGalleryContent();
+        })();
+
         document.addEventListener('DOMContentLoaded', function() {
             // Elementos del DOM
             const filterButtons = document.querySelectorAll('.gallery-filter-btn');

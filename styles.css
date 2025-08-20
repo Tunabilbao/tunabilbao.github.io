@@ -135,6 +135,65 @@ nav a.active {
     font-weight: 700;
 }
 
+/* Seccion de actualizaciones en index.html */
+.updates-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+    font-size: 0.95em; /* Fuente más pequeña y compacta */
+}
+
+.updates-table th, .updates-table td {
+    border-bottom: 1px solid #ddd;
+    padding: 0.4em 0.7em;
+    text-align: left;
+    font-size: 0.95em;
+}
+
+.updates-table th {
+    background: #f5f5f5;
+    font-weight: 600;
+}
+
+.updates-table tr:last-child td {
+    border-bottom: none;
+}
+
+.updates-table th:first-child,
+.updates-table td:first-child {
+    width: 110px;
+    min-width: 90px;
+    max-width: 140px;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 0.93em;
+    color: #333;
+}
+
+.updates-table th:last-child,
+.updates-table td:last-child {
+    width: auto;
+    word-break: break-word;
+    font-size: 0.95em;
+}
+
+@media (max-width: 600px) {
+    .updates-table {
+        font-size: 0.85em;
+    }
+    .updates-table th, .updates-table td {
+        font-size: 0.85em;
+        padding: 0.3em 0.4em;
+    }
+    .updates-table th:first-child,
+    .updates-table td:first-child {
+        width: 60px;
+        min-width: 50px;
+        font-size: 0.83em;
+    }
+}
+/* ---- Fin de seccion de actualizaciones del index ---- */
+
 /* --- Hero Section --- 
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://picsum.photos/1200/800');
@@ -968,4 +1027,23 @@ footer {
                 padding: 0.5rem;
                 font-size: 0.9rem;
             }
+        }
+
+        .language-selector {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+        }
+        .language-btn {
+            background: #00008B;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin: 0 2px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        .language-btn.active {
+            background: #1E90FF;
         }
