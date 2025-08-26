@@ -37,6 +37,9 @@
 
         gtag('config', 'G-1FJMVDRMF0');
     </script>
+    <style>
+       
+    </style>
 </head>
 <body>
     <nav>
@@ -97,6 +100,10 @@
                 </div>
     
                 <div class="recruitment-buttons">
+                    <button class="btn" id="more-info-btn">
+                        <i class="fas fa-info-circle"></i> <span class="btn-text">Más Información</span>
+                    </button>
+
                     <a href="mailto:tunabilbao@gmail.com?subject=Quiero unirme a la Tuna" class="btn" id="email-btn">
                         <i class="fas fa-envelope"></i> <span class="btn-text">Escríbenos</span>
                     </a>
@@ -163,6 +170,36 @@
         </div>
         <p class="copyright" id="copyright-text">© 1981 Tuna Universitaria UPV/EHU del Gran Bilbao y sus pueblos. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- Modal de Información de la Tuna -->
+    <div id="tuna-info-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-btn" id="close-modal-btn">&times;</button>
+            <h3 id="parrafo1">¿Buscas algo más en tu etapa universitaria? ¡La Tuna te espera!</h3>
+
+            <p id="parrafo2">En la vida universitaria, a menudo buscamos experiencias que nos definan, nos hagan crecer y nos conecten con algo más grande. La tuna no es solo una actividad extracurricular; es un **legado vivo**, una **escuela de vida** y una **fuente inagotable de recuerdos** que marcarán tu paso por la universidad.</p>
+
+            <h4 id="parrafo3">1. Desarrolla talentos únicos sin darte cuenta.</h4>
+            <p id="parrafo4">¿Siempre quisiste tocar un instrumento? ¿O tal vez cantar en público? La tuna te brinda la oportunidad de aprender a tocar el **laúd, la bandurria, la guitarra o la pandereta**, y a armonizar voces en un coro con un repertorio ancestral. Todo esto, de forma guiada y gratuita, en un ambiente de apoyo donde la diversión es tan importante como el aprendizaje. No solo adquieres habilidades musicales, sino también disciplina, ritmo y memoria.</p>
+
+            <h4 id="parrafo5">2. Descubre un mundo de hermandad y aventuras.</h4>
+            <p id="parrafo6">La tuna es sinónimo de **compañerismo inquebrantable**. Formarás lazos que van más allá del aula, con amigos que te acompañarán en innumerables **viajes**, desde certámenes nacionales e internacionales hasta rondas improvisadas bajo la luna. Imagina recorrer calles históricas, conocer nuevas culturas y compartir risas y canciones que forjarán una amistad para toda la vida. Los tunos se apoyan, se cuidan y viven juntos experiencias que se convierten en anécdotas legendarias.</p>
+
+            <h4 id="parrafo7">3. Conviértete en guardián de una tradición viva.</h4>
+            <p id="parrafo8">En un mundo que avanza rápido, la tuna te ofrece una conexión tangible con el pasado. Al vestir la capa y la beca, te unes a una **tradición centenaria** que evoca a los sopistas, aquellos estudiantes que con su arte se abrían camino. No solo interpretas música, sino que encarnas una parte de la historia y el alma de la universidad, aportando **alegría, festividad y un toque de romanticismo** a cada rincón donde actúas. Eres parte de algo auténtico y atemporal.</p>
+
+            <h4 id="parrafo9">4. Potencia tus habilidades para el futuro profesional.</h4>
+            <p id="parrafo10">Aunque parezca una actividad solo de ocio, la tuna te equipa con valiosas **habilidades blandas** que buscan las empresas: trabajo en equipo, liderazgo (al organizar viajes o ensayos), gestión de eventos y la capacidad de hablar y actuar en público. La confianza que adquieres al cantar ante una audiencia o al improvisar una ronda te servirá en cualquier ámbito de tu vida profesional.</p>
+
+            <h4 id="parrafo11">5. Amplía tu red de contactos de forma inesperada.</h4>
+            <p id="parrafo12">La tuna no es solo una comunidad estudiantil, sino una **red global de ex-tunos**. Conocerás a miembros de otras tunas y generaciones, creando un círculo social y profesional muy amplio. Esta red puede abrirte puertas, ofrecerte consejos y brindarte apoyo mucho después de que terminen tus estudios.</p>
+
+            <h4 id="parrafo13">6. Un oasis de bienestar y crecimiento personal.</h4>
+            <p id="parrafo14">La vida universitaria puede ser exigente, y la tuna ofrece un **refugio** seguro. Cantar y tocar es una forma fantástica de **liberar el estrés** y desconectar. Para quienes son más tímidos o les cuesta hacer amigos, la tuna es un entorno acogedor donde **se te cuida y se te ayuda** a encontrar tu voz y tu lugar. La camaradería y las risas en los ensayos y actuaciones son un gran impulso para el ánimo, proporcionando un espacio de alegría y expresión artística que contribuye a tu bienestar general y **hace de ti una persona más segura y hecha y derecha**.</p>
+
+            <p id="parrafo15">Unirse a la tuna es una decisión que transformará tu vida universitaria. Es la oportunidad de crecer personal y profesionalmente, de rodearte de una familia de hermanos y de dejar una huella musical y cultural que perdurará.</p>
+        </div>
+    </div>
 
     <script>
         // Función para actualizar todo el contenido
@@ -248,6 +285,24 @@
             document.getElementById('requirement-3').textContent = i18next.t('requisito3');
             document.querySelector('#email-btn .btn-text').textContent = i18next.t('escribenos');
             document.querySelector('#whatsapp-btn .btn-text').textContent = i18next.t('whatsapp');
+            document.querySelector('#more-info-btn .btn-text').textContent = i18next.t('masinformacion');
+            // modal
+            document.getElementById('parrafo1').textContent = i18next.t('parrafo1');
+            document.getElementById('parrafo2').textContent = i18next.t('parrafo2');
+            document.getElementById('parrafo3').textContent = i18next.t('parrafo3');
+            document.getElementById('parrafo4').textContent = i18next.t('parrafo4');
+            document.getElementById('parrafo5').textContent = i18next.t('parrafo5');
+            document.getElementById('parrafo6').textContent = i18next.t('parrafo6');
+            document.getElementById('parrafo7').textContent = i18next.t('parrafo7');
+            document.getElementById('parrafo8').textContent = i18next.t('parrafo8');
+            document.getElementById('parrafo9').textContent = i18next.t('parrafo9');
+            document.getElementById('parrafo10').textContent = i18next.t('parrafo10"');
+            document.getElementById('parrafo11').textContent = i18next.t('parrafo11');
+            document.getElementById('parrafo12').textContent = i18next.t('parrafo12');
+            document.getElementById('parrafo13').textContent = i18next.t('parrafo13');
+            document.getElementById('parrafo14').textContent = i18next.t('parrafo14');
+            document.getElementById('parrafo15').textContent = i18next.t('parrafo15');
+
             
             document.getElementById('events-title').textContent = i18next.t('eventos_titulo');
             document.getElementById('events-text').textContent = i18next.t('eventos_texto');
@@ -371,9 +426,32 @@
             carrusel.addEventListener('mouseleave', resetInterval);
         })();
 
+        // Funcionalidad del Modal
+        document.addEventListener('DOMContentLoaded', function() {
+            const moreInfoBtn = document.getElementById('more-info-btn');
+            const tunaInfoModal = document.getElementById('tuna-info-modal');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+
+            if (moreInfoBtn && tunaInfoModal && closeModalBtn) {
+                moreInfoBtn.addEventListener('click', () => {
+                    tunaInfoModal.classList.add('active');
+                });
+
+                closeModalBtn.addEventListener('click', () => {
+                    tunaInfoModal.classList.remove('active');
+                });
+
+                tunaInfoModal.addEventListener('click', (event) => {
+                    if (event.target === tunaInfoModal) {
+                        tunaInfoModal.classList.remove('active');
+                    }
+                });
+            }
+        });
+
         // Notificaciones de ultima version 
         // Agrega esto al final de tu JavaScript
-        const currentVersion = '2.0'; // Cambia este número cuando hagas updates
+        const currentVersion = '2.3'; // 2025/08/26 - Actualización de contenido
 
         if (localStorage.getItem('siteVersion') !== currentVersion) {
             localStorage.setItem('siteVersion', currentVersion);
@@ -381,6 +459,7 @@
             console.log('¡Novedades!');
             console.log('¡Berriak!');
         }
+
     </script>
 </body>
 </html>
