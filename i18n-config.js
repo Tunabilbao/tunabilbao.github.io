@@ -80,12 +80,17 @@ const i18nConfig = {
                 "updates_5_enlace": "https://www.instagram.com/p/DOvUrLqjUvP",
 
                 "updates_6_fecha": "2025-09-26",
-                "updates_6_texto": "I.er Certamen de Tunas en Espinosa de los Monteros (Burgos)",
-                "updates_6_enlace": "internal:foto1",
+                "updates_6_texto": "Entrevista en Radio Espinosa Merindades",
+                "updates_6_enlace": "internal:audio_entrevista1",
+                "updates_6_audio_type": "entrevista",
 
-                "updates_7_fecha": "2025-09-27",
-                "updates_7_texto": "Miembro de la Tuna del Gran Bilbao ha recibido oficialmente la veteranía en la Tuna de Magisterio de Santander.",
-                "updates_7_enlace": "",
+                "updates_7_fecha": "2025-09-26",
+                "updates_7_texto": "I.er Certamen de Tunas en Espinosa de los Monteros (Burgos)",
+                "updates_7_enlace": "internal:foto1",
+
+                "updates_8_fecha": "2025-09-27",
+                "updates_8_texto": "Miembro de la Tuna del Gran Bilbao ha recibido oficialmente la veteranía en la Tuna de Magisterio de Santander.",
+                "updates_8_enlace": "",
                 
                 // Textos para miembros.html
                 "family_title": "Nuestra familia",
@@ -630,12 +635,17 @@ const i18nConfig = {
                 "updates_5_enlace": "https://www.instagram.com/p/DOvUrLqjUvP",
 
                 "updates_6_fecha": "2025-09-26",
-                "updates_6_texto": "Espinosa de los Monteros (Burgos) Tuna Lehiaketa I.a",
-                "updates_6_enlace": "internal:foto1",
+                "updates_6_texto": "Elkarrizketa Radio Espinosa Merindades",
+                "updates_6_enlace": "internal:audio_entrevista1",
+                "updates_6_audio_type": "entrevista",
+
+                "updates_7_fecha": "2025-09-26",
+                "updates_7_texto": "Espinosa de los Monteros (Burgos) Tuna Lehiaketa I.a",
+                "updates_7_enlace": "internal:foto1",
                 
-                "updates_7_fecha": "2025-09-27",
-                "updates_7_texto": "Bilboko Tunako kide bat beterano ofizialki izendatua izan da Santanderko Magisterioko Tunan.",
-                "updates_7_enlace": "",
+                "updates_8_fecha": "2025-09-27",
+                "updates_8_texto": "Bilboko Tunako kide bat beterano ofizialki izendatua izan da Santanderko Magisterioko Tunan.",
+                "updates_8_enlace": "",
                 
                 // Textos para miembros.html
                 "family_title": "Gure familia",

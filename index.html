@@ -164,6 +164,17 @@
             <img id="modal-image" src="" alt="" style="max-width: 100%; border-radius: 8px;">
         </div>
     </div>
+    <!-- Modal para reproducir audio -->
+    <div id="audio-modal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 500px; text-align: center;">
+            <button class="modal-close-btn" id="close-audio-modal">&times;</button>
+            <h3 id="audio-title">Entrevista en la radio</h3>
+            <audio id="audio-player" controls style="width: 100%; margin: 20px 0;">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p id="audio-description">Escucha la entrevista completa</p>
+        </div>
+    </div>
 
     <footer>
         <div class="social-links">
@@ -442,10 +453,25 @@
                             const internalType = update.enlace.split(':')[1];
                             if (internalType === 'foto1') {
                                 linkHTML = `
-                            <a href="#" class="update-link show-image" data-image="fotos/index/icertesbur.jpg">
-                                <i class="fas fa-image"></i>
-                            </a>
-                        `;
+                                <a href="#" class="update-link show-image" data-image="fotos/index/icertesbur.jpg">
+                                    <i class="fas fa-image"></i>
+                                </a>
+                                `;
+                            } else if (internalType.startsWith('audio_')) {
+                                // Obtener el tipo de audio desde los datos de la actualización
+                                const audioTypeKey = `updates_${update.numero}_audio_type`;
+                                const audioType = i18next.t(audioTypeKey) || 'entrevista';
+                                
+                                // Extrae el nombre completo después de "audio_"
+                                const audioFileName = internalType.replace('audio_', '') + '.mp3';
+                                
+                                linkHTML = `
+                                    <a href="#" class="update-link play-audio" 
+                                    data-audio="audios/${audioFileName}" 
+                                    data-audio-type="${audioType}">
+                                        <i class="fas fa-play-circle"></i>
+                                    </a>
+                                `;
                             }
                         } else {
                             // Es un enlace externo normal
@@ -538,6 +564,96 @@
                     }
                 });
             }
+        });
+
+        // Funcionalidad para el modal de audio
+        document.addEventListener('DOMContentLoaded', function() {
+            const audioModal = document.getElementById('audio-modal');
+            const audioPlayer = document.getElementById('audio-player');
+            const closeAudioModal = document.getElementById('close-audio-modal');
+            const audioTitle = document.getElementById('audio-title');
+            const audioDescription = document.getElementById('audio-description');
+            
+            // Textos para el modal de audio (puedes traducirlos también)
+            const audioTexts = {
+                entrevista: {
+                    es: {
+                        title: "Entrevista en Radio Espinosa Merindades",
+                        description: "Entrevista a Pbito, uno de los jefes de la Tuna de Magisterio de Santander y veterano de la Tuna del Gran Bilbao, organizador del certamen Espinosa de los Monteros."
+                    },
+                    eu: {
+                        title: "Elkarrizketa Radio Espinosa Merindades", 
+                        description: "Pbitori elkarrizketa, Santanderreko Irakasle Eskolako buruetako bat eta Bilbo Handiko Tunako beteranoa, Espinosa de los Monteros lehiaketaren antolatzailea."
+                    }
+                },
+                cancion: {
+                    es: {
+                        title: "Canción destacada",
+                        description: "Disfruta de esta interpretación especial"
+                    },
+                    eu: {
+                        title: "Abesti nabarmena", 
+                        description: "Goza ezazu interpretazio berezi honekin"
+                    }
+                }
+            };
+            
+            // Manejar clic en enlaces de audio
+document.addEventListener('click', function(e) {
+    if (e.target.closest('.play-audio')) {
+        e.preventDefault();
+        const audioLink = e.target.closest('.play-audio');
+        const audioSrc = audioLink.dataset.audio;
+        const audioType = audioLink.dataset.audioType || 'entrevista';
+        
+        // Configurar el reproductor
+        audioPlayer.src = audioSrc;
+        
+        // Configurar textos según idioma y tipo
+        const currentLang = i18next.language;
+        const typeTexts = audioTexts[audioType] || audioTexts.entrevista;
+        const texts = typeTexts[currentLang] || typeTexts.es;
+        
+        audioTitle.textContent = texts.title;
+        audioDescription.textContent = texts.description;
+        
+        // Mostrar modal
+        audioModal.classList.add('active');
+        
+        // Reproducir automáticamente (opcional)
+        audioPlayer.play().catch(e => {
+            console.log('Reproducción automática bloqueada:', e);
+        });
+    }
+});
+            
+            // Cerrar modal de audio
+            if (closeAudioModal) {
+                closeAudioModal.addEventListener('click', () => {
+                    audioModal.classList.remove('active');
+                    audioPlayer.pause();
+                    audioPlayer.currentTime = 0;
+                });
+            }
+            
+            // Cerrar al hacer clic fuera
+            if (audioModal) {
+                audioModal.addEventListener('click', (event) => {
+                    if (event.target === audioModal) {
+                        audioModal.classList.remove('active');
+                        audioPlayer.pause();
+                        audioPlayer.currentTime = 0;
+                    }
+                });
+            }
+            
+            // Pausar audio cuando se cierra el modal
+            audioModal.addEventListener('transitionend', function() {
+                if (!audioModal.classList.contains('active')) {
+                    audioPlayer.pause();
+                    audioPlayer.currentTime = 0;
+                }
+            });
         });
 
         // Función para cambiar idioma
