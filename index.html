@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,9 +14,11 @@
     <meta name="msapplication-TileColor" content="#00008B">
     <meta name="theme-color" content="#00008B">
     <title>Tuna Universitaria del Gran Bilbao</title>
-    
+
     <!-- Fuentes y estilos -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 
@@ -23,7 +26,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    
+
     <!-- Scripts de i18next -->
     <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
     <script src="https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js"></script>
@@ -32,19 +35,20 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FJMVDRMF0"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'G-1FJMVDRMF0');
     </script>
     <style>
-       
+
     </style>
 </head>
+
 <body>
     <nav>
         <a href="index.html" class="active" id="nav-inicio">Inicio</a>
-        <a href="historia.html" id="nav-historia">Historia</a> 
+        <a href="historia.html" id="nav-historia">Historia</a>
         <a href="dochistoria.html" id="nav-documentos">Documentos</a>
         <!--<a href="miembros.html" data-i18n="nav_miembros">Miembros</a>-->
         <a href="galeria.html" id="nav-galeria">Galería</a>
@@ -77,13 +81,14 @@
         <section class="grid">
             <div class="card">
                 <h2 id="history-title">Nuestra Historia</h2>
-                <p id="history-text">Fundada en 1981 por estudiantes de la Facultad de Ciencia y Tecnología de la UPV/EHU</p>
+                <p id="history-text">Fundada en 1981 por estudiantes de la Facultad de Ciencia y Tecnología de la
+                    UPV/EHU</p>
                 <a href="historia.html" class="btn" id="history-btn">Conoce más</a>
             </div>
-             <div class="card">
+            <div class="card">
                 <h2 id="join-title">¡Únete a nuestra Tuna!</h2>
                 <p id="join-text">¿Te gusta la música, los viajes y la vida universitaria? ¡Somos tu familia!</p>
-    
+
                 <div class="recruitment-details">
                     <div class="recruitment-item">
                         <i class="fas fa-music"></i>
@@ -98,7 +103,7 @@
                         <p id="requirement-3">Giras y eventos nacionales</p>
                     </div>
                 </div>
-    
+
                 <div class="recruitment-buttons">
                     <button class="btn" id="more-info-btn">
                         <i class="fas fa-info-circle"></i> <span class="btn-text">Más Información</span>
@@ -107,7 +112,8 @@
                     <a href="mailto:tunabilbao@gmail.com?subject=Quiero unirme a la Tuna" class="btn" id="email-btn">
                         <i class="fas fa-envelope"></i> <span class="btn-text">Escríbenos</span>
                     </a>
-                    <a href="https://chat.whatsapp.com/GHtnkLlhnpELWjquZ5Uhj9?mode=ac_t" class="btn whatsapp-btn" target="_blank" id="whatsapp-btn">
+                    <a href="https://chat.whatsapp.com/GHtnkLlhnpELWjquZ5Uhj9?mode=ac_t" class="btn whatsapp-btn"
+                        target="_blank" id="whatsapp-btn">
                         <i class="fab fa-whatsapp"></i> <span class="btn-text">Contactar por WhatsApp</span>
                     </a>
                 </div>
@@ -123,7 +129,7 @@
                 <a href="mailto:tunabilbao@gmail.com?subject=Información" class="btn" id="contact-email">
                     <i class="fas fa-envelope"></i> <span class="btn-text">Escríbenos</span>
                 </a>
-                
+
                 <a href="https://www.instagram.com/tunagranbilbao" class="btn" id="instagram-btn">
                     <i class="fab fa-instagram"></i> <span class="btn-text">Instagram</span>
                 </a>
@@ -143,23 +149,20 @@
                 </div>
             </div>
             <div class="card" id="updates-card">
-                <h2 id="updates-title">Actualizaciones</h2>
-                <table class="updates-table">
-                    <thead>
-                        <tr>
-                            <th id="updates-date-header">Fecha</th>
-                            <th id="updates-text-header">Noticia</th>
-                            <th id="updates-link-header">
-                                <i class="fas fa-link"></i>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody id="updates-list">
-                        <!-- Las filas se generarán con JavaScript -->
-                    </tbody>
-                </table>
+                <h2 id="updates-title"></h2>
+                <div id="updates-accordion" class="accordion">
+                    <!-- El contenido se generará dinámicamente con JavaScript -->
+                </div>
             </div>
         </section>
+    </div>
+
+    <!-- Modal para mostrar imágenes de novedades -->
+    <div id="image-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-btn" id="close-image-modal">&times;</button>
+            <img id="modal-image" src="" alt="" style="max-width: 100%; border-radius: 8px;">
+        </div>
     </div>
 
     <footer>
@@ -168,7 +171,8 @@
             <a href="#"><i class="fab fa-facebook"></i></a>
             <a href="https://www.youtube.com/@TunaUniversitariadelGranBilbao"><i class="fab fa-youtube"></i></a>
         </div>
-        <p class="copyright" id="copyright-text">© 1981 Tuna Universitaria UPV/EHU del Gran Bilbao y sus pueblos. Todos los derechos reservados.</p>
+        <p class="copyright" id="copyright-text">© 1981 Tuna Universitaria UPV/EHU del Gran Bilbao y sus pueblos. Todos
+            los derechos reservados.</p>
     </footer>
 
     <!-- Modal de Información de la Tuna -->
@@ -177,160 +181,372 @@
             <button class="modal-close-btn" id="close-modal-btn">&times;</button>
             <h3 id="parrafo1">¿Buscas algo más en tu etapa universitaria? ¡La Tuna te espera!</h3>
 
-            <p id="parrafo2">En la vida universitaria, a menudo buscamos experiencias que nos definan, nos hagan crecer y nos conecten con algo más grande. La tuna no es solo una actividad extracurricular; es un<strong>legado vivo</strong>, una<strong>escuela de vida</strong> y una<strong>fuente inagotable de recuerdos</strong> que marcarán tu paso por la universidad.</p>
+            <p id="parrafo2">En la vida universitaria, a menudo buscamos experiencias que nos definan, nos hagan crecer
+                y nos conecten con algo más grande. La tuna no es solo una actividad extracurricular; es
+                un<strong>legado vivo</strong>, una<strong>escuela de vida</strong> y una<strong>fuente inagotable de
+                    recuerdos</strong> que marcarán tu paso por la universidad.</p>
 
             <h4 id="parrafo3">1. Desarrolla talentos únicos sin darte cuenta.</h4>
-            <p id="parrafo4">¿Siempre quisiste tocar un instrumento? ¿O tal vez cantar en público? La tuna te brinda la oportunidad de aprender a tocar el<strong>laúd, la bandurria, la guitarra o la pandereta</strong>, y a armonizar voces en un coro con un repertorio ancestral. Todo esto, de forma guiada y gratuita, en un ambiente de apoyo donde la diversión es tan importante como el aprendizaje. No solo adquieres habilidades musicales, sino también disciplina, ritmo y memoria.</p>
+            <p id="parrafo4">¿Siempre quisiste tocar un instrumento? ¿O tal vez cantar en público? La tuna te brinda la
+                oportunidad de aprender a tocar el<strong>laúd, la bandurria, la guitarra o la pandereta</strong>, y a
+                armonizar voces en un coro con un repertorio ancestral. Todo esto, de forma guiada y gratuita, en un
+                ambiente de apoyo donde la diversión es tan importante como el aprendizaje. No solo adquieres
+                habilidades musicales, sino también disciplina, ritmo y memoria.</p>
 
             <h4 id="parrafo5">2. Descubre un mundo de hermandad y aventuras.</h4>
-            <p id="parrafo6">La tuna es sinónimo de<strong>compañerismo inquebrantable</strong>. Formarás lazos que van más allá del aula, con amigos que te acompañarán en innumerables<strong>viajes</strong>, desde certámenes nacionales e internacionales hasta rondas improvisadas bajo la luna. Imagina recorrer calles históricas, conocer nuevas culturas y compartir risas y canciones que forjarán una amistad para toda la vida. Los tunos se apoyan, se cuidan y viven juntos experiencias que se convierten en anécdotas legendarias.</p>
+            <p id="parrafo6">La tuna es sinónimo de<strong>compañerismo inquebrantable</strong>. Formarás lazos que van
+                más allá del aula, con amigos que te acompañarán en innumerables<strong>viajes</strong>, desde
+                certámenes nacionales e internacionales hasta rondas improvisadas bajo la luna. Imagina recorrer calles
+                históricas, conocer nuevas culturas y compartir risas y canciones que forjarán una amistad para toda la
+                vida. Los tunos se apoyan, se cuidan y viven juntos experiencias que se convierten en anécdotas
+                legendarias.</p>
 
             <h4 id="parrafo7">3. Conviértete en guardián de una tradición viva.</h4>
-            <p id="parrafo8">En un mundo que avanza rápido, la tuna te ofrece una conexión tangible con el pasado. Al vestir la capa y la beca, te unes a una<strong>tradición centenaria</strong> que evoca a los sopistas, aquellos estudiantes que con su arte se abrían camino. No solo interpretas música, sino que encarnas una parte de la historia y el alma de la universidad, aportando<strong>alegría, festividad y un toque de romanticismo</strong> a cada rincón donde actúas. Eres parte de algo auténtico y atemporal.</p>
+            <p id="parrafo8">En un mundo que avanza rápido, la tuna te ofrece una conexión tangible con el pasado. Al
+                vestir la capa y la beca, te unes a una<strong>tradición centenaria</strong> que evoca a los sopistas,
+                aquellos estudiantes que con su arte se abrían camino. No solo interpretas música, sino que encarnas una
+                parte de la historia y el alma de la universidad, aportando<strong>alegría, festividad y un toque de
+                    romanticismo</strong> a cada rincón donde actúas. Eres parte de algo auténtico y atemporal.</p>
 
             <h4 id="parrafo9">4. Potencia tus habilidades para el futuro profesional.</h4>
-            <p id="parrafo10">Aunque parezca una actividad solo de ocio, la tuna te equipa con valiosas<strong>habilidades blandas</strong> que buscan las empresas: trabajo en equipo, liderazgo (al organizar viajes o ensayos), gestión de eventos y la capacidad de hablar y actuar en público. La confianza que adquieres al cantar ante una audiencia o al improvisar una ronda te servirá en cualquier ámbito de tu vida profesional.</p>
+            <p id="parrafo10">Aunque parezca una actividad solo de ocio, la tuna te equipa con
+                valiosas<strong>habilidades blandas</strong> que buscan las empresas: trabajo en equipo, liderazgo (al
+                organizar viajes o ensayos), gestión de eventos y la capacidad de hablar y actuar en público. La
+                confianza que adquieres al cantar ante una audiencia o al improvisar una ronda te servirá en cualquier
+                ámbito de tu vida profesional.</p>
 
             <h4 id="parrafo11">5. Amplía tu red de contactos de forma inesperada.</h4>
-            <p id="parrafo12">La tuna no es solo una comunidad estudiantil, sino una<strong>red global de ex-tunos</strong>. Conocerás a miembros de otras tunas y generaciones, creando un círculo social y profesional muy amplio. Esta red puede abrirte puertas, ofrecerte consejos y brindarte apoyo mucho después de que terminen tus estudios.</p>
+            <p id="parrafo12">La tuna no es solo una comunidad estudiantil, sino una<strong>red global de
+                    ex-tunos</strong>. Conocerás a miembros de otras tunas y generaciones, creando un círculo social y
+                profesional muy amplio. Esta red puede abrirte puertas, ofrecerte consejos y brindarte apoyo mucho
+                después de que terminen tus estudios.</p>
 
             <h4 id="parrafo13">6. Un oasis de bienestar y crecimiento personal.</h4>
-            <p id="parrafo14">La vida universitaria puede ser exigente, y la tuna ofrece un<strong>refugio</strong> seguro. Cantar y tocar es una forma fantástica de<strong>liberar el estrés</strong> y desconectar. Para quienes son más tímidos o les cuesta hacer amigos, la tuna es un entorno acogedor donde<strong>se te cuida y se te ayuda</strong> a encontrar tu voz y tu lugar. La camaradería y las risas en los ensayos y actuaciones son un gran impulso para el ánimo, proporcionando un espacio de alegría y expresión artística que contribuye a tu bienestar general y<strong>hace de ti una persona más segura y hecha y derecha</strong>.</p>
+            <p id="parrafo14">La vida universitaria puede ser exigente, y la tuna ofrece un<strong>refugio</strong>
+                seguro. Cantar y tocar es una forma fantástica de<strong>liberar el estrés</strong> y desconectar. Para
+                quienes son más tímidos o les cuesta hacer amigos, la tuna es un entorno acogedor donde<strong>se te
+                    cuida y se te ayuda</strong> a encontrar tu voz y tu lugar. La camaradería y las risas en los
+                ensayos y actuaciones son un gran impulso para el ánimo, proporcionando un espacio de alegría y
+                expresión artística que contribuye a tu bienestar general y<strong>hace de ti una persona más segura y
+                    hecha y derecha</strong>.</p>
 
-            <p id="parrafo15">Unirse a la tuna es una decisión que transformará tu vida universitaria. Es la oportunidad de crecer personal y profesionalmente, de rodearte de una familia de hermanos y de dejar una huella musical y cultural que perdurará.</p>
+            <p id="parrafo15">Unirse a la tuna es una decisión que transformará tu vida universitaria. Es la oportunidad
+                de crecer personal y profesionalmente, de rodearte de una familia de hermanos y de dejar una huella
+                musical y cultural que perdurará.</p>
         </div>
     </div>
 
     <script>
+        // Declarar miLanguage como variable global
+        let miLanguage = 'es-ES';
+
         // Función para actualizar todo el contenido
         function updateContent() {
+            // Hero section
+            safeSetTextContent('main-title', i18next.t('titulo'));
+            safeSetTextContent('main-subtitle', i18next.t('subtitulo'));
+
+            // Cards
+            safeSetTextContent('history-title', i18next.t('historia_titulo'));
+            safeSetTextContent('history-text', i18next.t('historia_texto'));
+            safeSetTextContent('history-btn', i18next.t('historia_boton'));
+
+            safeSetTextContent('join-title', i18next.t('unete_titulo'));
+            safeSetTextContent('join-text', i18next.t('unete_texto'));
+            safeSetTextContent('requirement-1', i18next.t('requisito1'));
+            safeSetTextContent('requirement-2', i18next.t('requisito2'));
+            safeSetTextContent('requirement-3', i18next.t('requisito3'));
+            safeSetButtonText('email-btn', i18next.t('escribenos'));
+            safeSetButtonText('whatsapp-btn', i18next.t('whatsapp'));
+            safeSetButtonText('more-info-btn', i18next.t('masinformacion'));
+
+            // Modal
+            safeSetInnerHTML('parrafo1', i18next.t('parrafo1'));
+            safeSetInnerHTML('parrafo2', i18next.t('parrafo2'));
+            safeSetInnerHTML('parrafo3', i18next.t('parrafo3'));
+            safeSetInnerHTML('parrafo4', i18next.t('parrafo4'));
+            safeSetInnerHTML('parrafo5', i18next.t('parrafo5'));
+            safeSetInnerHTML('parrafo6', i18next.t('parrafo6'));
+            safeSetInnerHTML('parrafo7', i18next.t('parrafo7'));
+            safeSetInnerHTML('parrafo8', i18next.t('parrafo8'));
+            safeSetInnerHTML('parrafo9', i18next.t('parrafo9'));
+            safeSetInnerHTML('parrafo10', i18next.t('parrafo10'));
+            safeSetInnerHTML('parrafo11', i18next.t('parrafo11'));
+            safeSetInnerHTML('parrafo12', i18next.t('parrafo12'));
+            safeSetInnerHTML('parrafo13', i18next.t('parrafo13'));
+            safeSetInnerHTML('parrafo14', i18next.t('parrafo14'));
+            safeSetInnerHTML('parrafo15', i18next.t('parrafo15'));
+
+            safeSetTextContent('events-title', i18next.t('eventos_titulo'));
+            safeSetTextContent('events-text', i18next.t('eventos_texto'));
+            safeSetTextContent('events-btn', i18next.t('eventos_boton'));
+
+            safeSetTextContent('contact-title', i18next.t('contacto_titulo'));
+            safeSetTextContent('contact-text', i18next.t('contacto_texto'));
+            safeSetButtonText('contact-email', i18next.t('escribenos'));
+
+            safeSetTextContent('sister-title', i18next.t('tunas_titulo'));
+            safeSetTextContent('sister-text', i18next.t('tunas_texto'));
+
             // Actualizaciones
-           function renderUpdatesTable() {
-                let updates = [];
-                let i = 1;
-                
-                // Recopilar todas las actualizaciones
-                while (true) {
-                    const fechaKey = `updates_${i}_fecha`;
-                    const textoKey = `updates_${i}_texto`;
-                    const enlaceKey = `updates_${i}_enlace`;
-                    
-                    const fecha = i18next.t(fechaKey);
-                    const texto = i18next.t(textoKey);
-                    const enlace = i18next.t(enlaceKey);
-                    
-                    // Si no hay más actualizaciones, salimos del bucle
-                    if (fecha === fechaKey || !fecha) break;
-                    
-                    // Guardamos cada actualización como objeto
-                    updates.push({
-                        fecha: fecha,
-                        texto: texto,
-                        enlace: enlace,
-                        numero: i
-                    });
-                    
-                    i++;
+            safeSetTextContent('updates-title', i18next.t('updates_titulo'));
+
+            // Navegación
+            safeSetTextContent('nav-inicio', i18next.t('nav_inicio'));
+            safeSetTextContent('nav-historia', i18next.t('nav_historia'));
+            safeSetTextContent('nav-documentos', i18next.t('nav_documentos'));
+            safeSetTextContent('nav-galeria', i18next.t('nav_galeria'));
+
+            // Footer
+            safeSetTextContent('copyright-text', i18next.t('copyright'));
+
+            // Renderizar las actualizaciones
+            renderUpdatesAccordion();
+        }
+
+        // Funciones auxiliares para manejar elementos que podrían no existir
+        function safeSetTextContent(elementId, text) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.textContent = text;
+            }
+        }
+
+        function safeSetInnerHTML(elementId, html) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.innerHTML = html;
+            }
+        }
+
+        function safeSetButtonText(buttonId, text) {
+            const button = document.getElementById(buttonId);
+            if (button) {
+                const btnText = button.querySelector('.btn-text');
+                if (btnText) {
+                    btnText.textContent = text;
                 }
-                
-                // Ordenar las actualizaciones por fecha (más reciente primero)
-                updates.sort((a, b) => {
-                    // Las fechas ya están en formato YYYY-MM-DD, podemos compararlas directamente como strings
-                    // porque este formato se ordena cronológicamente
-                    return b.fecha.localeCompare(a.fecha);
+            }
+        }
+
+        // Función para renderizar el acordeón de actualizaciones
+        function renderUpdatesAccordion() {
+            let updates = [];
+            let i = 1;
+
+            // Recopilar todas las actualizaciones
+            while (true) {
+                const fechaKey = `updates_${i}_fecha`;
+                const textoKey = `updates_${i}_texto`;
+                const enlaceKey = `updates_${i}_enlace`;
+
+                const fecha = i18next.t(fechaKey);
+                const texto = i18next.t(textoKey);
+                const enlace = i18next.t(enlaceKey);
+
+                // Si no hay más actualizaciones, salimos del bucle
+                if (fecha === fechaKey || !fecha) break;
+
+                // Guardamos cada actualización como objeto
+                updates.push({
+                    fecha: fecha,
+                    texto: texto,
+                    enlace: enlace,
+                    numero: i
                 });
 
-                // Generar las filas de la tabla
-                let rows = '';
-                updates.forEach(update => {
+                i++;
+            }
+
+            // Ordenar las actualizaciones por fecha (más reciente primero)
+            updates.sort((a, b) => {
+                return b.fecha.localeCompare(a.fecha);
+            });
+
+            // Agrupar actualizaciones por año y mes
+            const groupedUpdates = {};
+
+            // Usar el idioma actual de i18next para determinar los nombres de los meses
+            const currentLanguage = i18next.language;
+            let monthNames;
+
+            if (currentLanguage === 'eu') {
+                monthNames = [
+                    'Urtarrila', 'Otsaila', 'Martxoa', 'Apirila', 'Maiatza', 'Ekaina',
+                    'Uztaila', 'Abuztua', 'Iraila', 'Urria', 'Azaroa', 'Abendua'
+                ];
+            } else {
+                monthNames = [
+                    'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+                    'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+                ];
+            }
+
+            updates.forEach(update => {
+                const dateParts = update.fecha.split('-');
+                const year = dateParts[0];
+                const month = parseInt(dateParts[1]);
+                const monthName = monthNames[month - 1];
+
+                const key = `${year}-${month}`;
+
+                if (!groupedUpdates[key]) {
+                    groupedUpdates[key] = {
+                        year: year,
+                        month: month,
+                        monthName: monthName,
+                        updates: []
+                    };
+                }
+
+                groupedUpdates[key].updates.push(update);
+            });
+
+            // Generar HTML para los acordeones
+            let accordionHTML = '';
+
+            // Obtener las claves ordenadas por año y mes (más reciente primero)
+            const sortedKeys = Object.keys(groupedUpdates).sort((a, b) => b.localeCompare(a));
+
+            sortedKeys.forEach(key => {
+                const group = groupedUpdates[key];
+                const groupId = `accordion-${group.year}-${group.month}`;
+
+                accordionHTML += `
+            <div class="accordion-item">
+                <button class="accordion-header" id="header-${groupId}">
+                    ${group.monthName} ${group.year}
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content" id="content-${groupId}">
+                    <table class="updates-table">
+                        <thead>
+                            <tr>
+                                <th>${i18next.t('updates_fecha')}</th>
+                                <th>${i18next.t('updates_noticia')}</th>
+                                <th><i class="fas fa-link"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+        `;
+
+                group.updates.forEach(update => {
                     // Formatear la fecha para mostrar (cambiar de YYYY-MM-DD a DD-MM-YYYY)
                     const fechaParts = update.fecha.split('-');
                     const fechaFormateada = `${fechaParts[2]}-${fechaParts[1]}-${fechaParts[0]}`;
-                    
-                    rows += `
-                        <tr>
-                            <td>${fechaFormateada}</td>
-                            <td>${update.texto}</td>
-                            <td>${update.enlace ? `
-                                <a href="${update.enlace}" target="_blank" class="update-link">
-                                    <i class="fas fa-eye"></i>
-                                </a>
-                            ` : ''}</td>
-                        </tr>
+
+                    let linkHTML = '';
+                    if (update.enlace) {
+                        if (update.enlace.startsWith('internal:')) {
+                            // Es un enlace interno (para mostrar imagen)
+                            const internalType = update.enlace.split(':')[1];
+                            if (internalType === 'foto1') {
+                                linkHTML = `
+                            <a href="#" class="update-link show-image" data-image="fotos/index/icertesbur.jpg">
+                                <i class="fas fa-image"></i>
+                            </a>
+                        `;
+                            }
+                        } else {
+                            // Es un enlace externo normal
+                            linkHTML = `
+                        <a href="${update.enlace}" target="_blank" class="update-link">
+                            <i class="fas fa-eye"></i>
+                        </a>
                     `;
+                        }
+                    }
+
+                    accordionHTML += `
+                <tr>
+                    <td>${fechaFormateada}</td>
+                    <td>${update.texto}</td>
+                    <td>${linkHTML}</td>
+                </tr>
+            `;
                 });
-                
-                document.getElementById('updates-list').innerHTML = rows;
+
+                accordionHTML += `
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        `;
+            });
+
+            document.getElementById('updates-accordion').innerHTML = accordionHTML;
+
+            // Añadir funcionalidad a los acordeones
+            attachAccordionListeners();
+        }
+
+        // Función para añadir interactividad a los acordeones
+        function attachAccordionListeners() {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function () {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('.accordion-icon');
+
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        icon.textContent = '+';
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        icon.textContent = '−';
+                    }
+                });
+            });
+
+            // Abrir el primer acordeón por defecto
+            if (accordionHeaders.length > 0) {
+                accordionHeaders[0].click();
+            }
+        }
+
+        // Funcionalidad para el modal de imágenes
+        document.addEventListener('DOMContentLoaded', function () {
+            const imageModal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            const closeImageModal = document.getElementById('close-image-modal');
+
+            // Manejar clic en enlaces de imagen
+            document.addEventListener('click', function (e) {
+                if (e.target.closest('.show-image')) {
+                    e.preventDefault();
+                    const imageSrc = e.target.closest('.show-image').dataset.image;
+                    modalImage.src = imageSrc;
+                    modalImage.alt = 'Imagen';
+                    imageModal.classList.add('active');
+                }
+            });
+
+            // Cerrar modal
+            if (closeImageModal) {
+                closeImageModal.addEventListener('click', () => {
+                    imageModal.classList.remove('active');
+                });
             }
 
-            // En tu función updateContent, reemplaza la parte de actualizaciones por:
-            document.getElementById('updates-title').textContent = i18next.t('updates_titulo');
-            document.getElementById('updates-date-header').textContent = i18next.t('updates_fecha');
-            document.getElementById('updates-text-header').textContent = i18next.t('updates_noticia');
-            renderUpdatesTable();
-
-            // Hero section
-            document.getElementById('main-title').textContent = i18next.t('titulo');
-            document.getElementById('main-subtitle').textContent = i18next.t('subtitulo');
-            
-            // Cards
-            document.getElementById('history-title').textContent = i18next.t('historia_titulo');
-            document.getElementById('history-text').textContent = i18next.t('historia_texto');
-            document.getElementById('history-btn').textContent = i18next.t('historia_boton');
-            
-            document.getElementById('join-title').textContent = i18next.t('unete_titulo');
-            document.getElementById('join-text').textContent = i18next.t('unete_texto');
-            document.getElementById('requirement-1').textContent = i18next.t('requisito1');
-            document.getElementById('requirement-2').textContent = i18next.t('requisito2');
-            document.getElementById('requirement-3').textContent = i18next.t('requisito3');
-            document.querySelector('#email-btn .btn-text').textContent = i18next.t('escribenos');
-            document.querySelector('#whatsapp-btn .btn-text').textContent = i18next.t('whatsapp');
-            document.querySelector('#more-info-btn .btn-text').textContent = i18next.t('masinformacion');
-            // modal
-            document.getElementById('parrafo1').innerHTML  = i18next.t('parrafo1');
-            document.getElementById('parrafo2').innerHTML  = i18next.t('parrafo2');
-            document.getElementById('parrafo3').innerHTML  = i18next.t('parrafo3');
-            document.getElementById('parrafo4').innerHTML  = i18next.t('parrafo4');
-            document.getElementById('parrafo5').innerHTML  = i18next.t('parrafo5');
-            document.getElementById('parrafo6').innerHTML  = i18next.t('parrafo6');
-            document.getElementById('parrafo7').innerHTML  = i18next.t('parrafo7');
-            document.getElementById('parrafo8').innerHTML  = i18next.t('parrafo8');
-            document.getElementById('parrafo9').innerHTML  = i18next.t('parrafo9');
-            document.getElementById('parrafo10').innerHTML  = i18next.t('parrafo10');
-            document.getElementById('parrafo11').innerHTML  = i18next.t('parrafo11');
-            document.getElementById('parrafo12').innerHTML  = i18next.t('parrafo12');
-            document.getElementById('parrafo13').innerHTML  = i18next.t('parrafo13');
-            document.getElementById('parrafo14').innerHTML  = i18next.t('parrafo14');
-            document.getElementById('parrafo15').innerHTML  = i18next.t('parrafo15');
-
-            
-            document.getElementById('events-title').textContent = i18next.t('eventos_titulo');
-            document.getElementById('events-text').textContent = i18next.t('eventos_texto');
-            document.getElementById('events-btn').textContent = i18next.t('eventos_boton');
-            
-            document.getElementById('contact-title').textContent = i18next.t('contacto_titulo');
-            document.getElementById('contact-text').textContent = i18next.t('contacto_texto');
-            document.querySelector('#contact-email .btn-text').textContent = i18next.t('escribenos');
-            
-            document.getElementById('sister-title').textContent = i18next.t('tunas_titulo');
-            document.getElementById('sister-text').textContent = i18next.t('tunas_texto');
-            
-            // Navegación
-            document.getElementById('nav-inicio').textContent = i18next.t('nav_inicio');
-            document.getElementById('nav-historia').textContent = i18next.t('nav_historia');
-            document.getElementById('nav-documentos').textContent = i18next.t('nav_documentos');
-            //document.getElementById('nav-miembros').textContent = i18next.t('nav_miembros');
-            document.getElementById('nav-galeria').textContent = i18next.t('nav_galeria');
-            
-            // Footer
-            document.getElementById('copyright-text').textContent = i18next.t('copyright');
-        }
+            // Cerrar al hacer clic fuera
+            if (imageModal) {
+                imageModal.addEventListener('click', (event) => {
+                    if (event.target === imageModal) {
+                        imageModal.classList.remove('active');
+                    }
+                });
+            }
+        });
 
         // Función para cambiar idioma
         function changeLanguage() {
             const lang = this.dataset.lang;
             i18next.changeLanguage(lang, () => {
                 localStorage.setItem('i18nextLng', lang);
+                // Actualizar miLanguage basado en el idioma seleccionado
+                miLanguage = lang === 'eu' ? 'eu-EU' : 'es-ES';
                 updateContent();
                 updateLanguageButtons();
             });
@@ -341,21 +557,27 @@
             document.querySelectorAll('.language-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.lang === i18next.language);
             });
+
+            // Actualizar miLanguage basado en el idioma actual de i18next
+            miLanguage = i18next.language === 'eu' ? 'eu-EU' : 'es-ES';
         }
 
         // Inicialización
-        (async function() {
+        (async function () {
             await initI18n();
-            
+
+            // Inicializar miLanguage basado en el idioma detectado
+            miLanguage = i18next.language === 'eu' ? 'eu-EU' : 'es-ES';
+
             // Configurar botones de idioma
             document.querySelectorAll('.language-btn').forEach(btn => {
                 btn.addEventListener('click', changeLanguage);
                 btn.classList.toggle('active', btn.dataset.lang === i18next.language);
             });
-            
+
             // Actualizar contenido
             updateContent();
-            
+
             // Configurar carrusel (código original)
             const imagenes = [
                 'fotos/index/mainpuertosanturce.jpg',
@@ -364,7 +586,7 @@
                 'fotos/index/2010.jpg',
                 'fotos/index/2024.jpg'
             ];
-            
+
             const carrusel = document.getElementById('carrusel');
             const dotsContainer = document.getElementById('dots-container');
             let currentIndex = 0;
@@ -427,7 +649,7 @@
         })();
 
         // Funcionalidad del Modal
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const moreInfoBtn = document.getElementById('more-info-btn');
             const tunaInfoModal = document.getElementById('tuna-info-modal');
             const closeModalBtn = document.getElementById('close-modal-btn');
@@ -459,7 +681,7 @@
             console.log('¡Novedades!');
             console.log('¡Berriak!');
         }
-
     </script>
 </body>
+
 </html>

@@ -70,6 +70,22 @@ const i18nConfig = {
                 "updates_3_fecha": "2025-08-17",
                 "updates_3_texto": "¡CIENCIAS DE BARCELONA EN TIERRA VIZCAÍNA! Recibimos a nuestros hermanos de Ciencias de Barcelona",
                 "updates_3_enlace": "https://www.instagram.com/p/DNfZXVHNpLt/?img_index=1",
+
+                "updates_4_fecha": "2025-09-11",
+                "updates_4_texto": "Este jueves 11 de septiembre hicimos la primera cartelada en la UPV/EHU.",
+                "updates_4_enlace": "https://www.instagram.com/p/DOoIQyUjYud",
+
+                "updates_5_fecha": "2025-09-15",
+                "updates_5_texto": "Bienvenidos futuros tunantes! hoy aprovechamos el ensayo para acoger a nuevos miembros.",
+                "updates_5_enlace": "https://www.instagram.com/p/DOvUrLqjUvP",
+
+                "updates_6_fecha": "2025-09-26",
+                "updates_6_texto": "I.er Certamen de Tunas en Espinosa de los Monteros (Burgos)",
+                "updates_6_enlace": "internal:foto1",
+
+                "updates_7_fecha": "2025-09-27",
+                "updates_7_texto": "Miembro de la Tuna del Gran Bilbao ha recibido oficialmente la veteranía en la Tuna de Magisterio de Santander.",
+                "updates_7_enlace": "",
                 
                 // Textos para miembros.html
                 "family_title": "Nuestra familia",
@@ -591,6 +607,8 @@ const i18nConfig = {
 
                 // Anexo actualizaciones
                 // En la sección eu -> translation  
+                "updates_titulo": "Berriak",
+
                 "updates_1_fecha": "2025-06-20",
                 "updates_1_texto": "Web proiektua abiarazi dugu",
                 "updates_1_enlace": "",
@@ -602,6 +620,22 @@ const i18nConfig = {
                 "updates_3_fecha": "2025-08-17", 
                 "updates_3_texto": "BARCELONAKO ZIENTZIAK BIZKAILURREAN! Bartzelonako Zientzien anaideak hartu genituen",
                 "updates_3_enlace": "https://www.instagram.com/p/DNfZXVHNpLt/?img_index=1",
+
+                "updates_4_fecha": "2025-09-11",
+                "updates_4_texto": "Irailaren 11, ostegun honetan, EHU/UPVn egindako lehen kartelatzea burutu genuen.",
+                "updates_4_enlace": "https://www.instagram.com/p/DOoIQyUjYud",
+
+                "updates_5_fecha": "2025-09-15",
+                "updates_5_texto": "Ongi etorri, etorkizuneko tunanteak! Gaur, saio aprobetxatu eta kide berriak hartzen ditugu.",
+                "updates_5_enlace": "https://www.instagram.com/p/DOvUrLqjUvP",
+
+                "updates_6_fecha": "2025-09-26",
+                "updates_6_texto": "Espinosa de los Monteros (Burgos) Tuna Lehiaketa I.a",
+                "updates_6_enlace": "internal:foto1",
+                
+                "updates_7_fecha": "2025-09-27",
+                "updates_7_texto": "Bilboko Tunako kide bat beterano ofizialki izendatua izan da Santanderko Magisterioko Tunan.",
+                "updates_7_enlace": "",
                 
                 // Textos para miembros.html
                 "family_title": "Gure familia",
