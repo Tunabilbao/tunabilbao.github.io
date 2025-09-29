@@ -55,7 +55,7 @@ const i18nConfig = {
                 "parrafo14":"La vida universitaria puede ser exigente, y la tuna ofrece un<strong> refugio</strong> seguro. Cantar y tocar es una forma fantástica de<strong> liberar el estrés</strong> y desconectar. Para quienes son más tímidos o les cuesta hacer amigos, la tuna es un entorno acogedor donde<strong> se te cuida y se te ayuda</strong> a encontrar tu voz y tu lugar. La camaradería y las risas en los ensayos y actuaciones son un gran impulso para el ánimo, proporcionando un espacio de alegría y expresión artística que contribuye a tu bienestar general y<strong> hace de ti una persona más segura y hecha y derecha</strong> .",
                 "parrafo15":"Unirse a la tuna es una decisión que transformará tu vida universitaria. Es la oportunidad de crecer personal y profesionalmente, de rodearte de una familia de hermanos y de dejar una huella musical y cultural que perdurará.",
                 // Anexo Actualizaciones
-                "updates_titulo": "Actualizaciones",
+                "updates_titulo": "Novedades",
                 "updates_fecha": "Fecha",
                 "updates_noticia": "Noticia",
 
@@ -91,6 +91,12 @@ const i18nConfig = {
                 "updates_8_fecha": "2025-09-27",
                 "updates_8_texto": "Miembro de la Tuna del Gran Bilbao ha recibido oficialmente la veteranía en la Tuna de Magisterio de Santander.",
                 "updates_8_enlace": "",
+
+                //Anexo index-Calendario
+                //"calendar_title": "Próximos Eventos",
+                "event_soria_title": "Visita a Soria",
+                "event_soria_desc": "Invitados por  ",
+                "event_soria_location": "Soria, España",
                 
                 // Textos para miembros.html
                 "family_title": "Nuestra familia",
