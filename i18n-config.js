@@ -32,7 +32,7 @@ const i18nConfig = {
                 "whatsapp": "Contactar por WhatsApp",
                 "masinformacion" : "Mas información",
                 "eventos_titulo": "Próximos Eventos",
-                "eventos_texto": "Soria, allá vamos!",
+                //"eventos_texto": "Soria, allá vamos!",
                 "eventos_boton": "Ver calendario",
                 "contacto_titulo": "Contacto",
                 "contacto_texto": "Información, propuestas, contratos...",
@@ -95,7 +95,7 @@ const i18nConfig = {
                 //Anexo index-Calendario
                 //"calendar_title": "Próximos Eventos",
                 "event_soria_title": "Visita a Soria",
-                "event_soria_desc": "Invitados por  ",
+                "event_soria_desc": "¡Nos vamos a Soria! Para celebrar la jubilación de nuestro compañero Javi y Pilar, llevaremos nuestra música y alegría tunantil para compartir este momento especial con sus familiares, colaboradores y amigos.",
                 "event_soria_location": "Soria, España",
                 
                 // Textos para miembros.html
@@ -593,7 +593,7 @@ const i18nConfig = {
                 "whatsapp": "WhatsApp bidez kontaktatu",
                 "masinformacion" : "Informazio gehiago",
                 "eventos_titulo": "Hurrengo Ekitaldiak",
-                "eventos_texto": "Soria, goaz hara!",
+                //"eventos_texto": "Soria, goaz hara!",
                 "eventos_boton": "Egutegia ikusi",
                 "contacto_titulo": "Kontaktua",
                 "contacto_texto": "Informazioa, proposamenak, kontratuak...",
@@ -652,6 +652,12 @@ const i18nConfig = {
                 "updates_8_fecha": "2025-09-27",
                 "updates_8_texto": "Bilboko Tunako kide bat beterano ofizialki izendatua izan da Santanderko Magisterioko Tunan.",
                 "updates_8_enlace": "",
+
+                 //Anexo index-Calendario
+                //"calendar_title": "Próximos Eventos",
+                "event_soria_title": "Soriako bisita",
+                "event_soria_desc": "Sorira goaz! Gure kide Javi eta Pilarren erretiroa ospatzeko, gure musika eta tuna pozak eramanako ditugu, une berezi hau haien familiarekin, kide eta lagunekin partekatzeko.",
+                "event_soria_location": "Soria, España",
                 
                 // Textos para miembros.html
                 "family_title": "Gure familia",

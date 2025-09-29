@@ -120,7 +120,7 @@
             </div>
             <div class="card">
                 <h2 id="events-title">Próximos Eventos</h2>
-                <p id="events-text">Soria, allá vamos!</p>
+                <p id="events-text"></p>
                 <a href="#" class="btn" id="events-btn">Ver calendario</a>
             </div>
             <div class="card" id="contacto">
@@ -164,6 +164,67 @@
             <img id="modal-image" src="" alt="" style="max-width: 100%; border-radius: 8px;">
         </div>
     </div>
+
+    <!-- Añade este modal al final de tu HTML -->
+    <!-- Modal para el calendario de eventos -->
+    <div id="calendar-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-btn" id="close-calendar-modal">&times;</button>
+            <h3 id="calendar-title"></h3>
+
+            <div class="calendar-events">
+                <div class="calendar-event">
+                    <div class="event-date">
+                        <span class="event-day">17</span>
+                        <span class="event-month">OCT</span>
+                    </div>
+                    <div class="event-details">
+                        <h4 id="event-soria-title"></h4>
+                        <p id="event-soria-desc"></p>
+                        <span class="event-location" id="event-soria-location"></span>
+                    </div>
+                </div>
+
+                <!--<div class="calendar-event">
+                    <div class="event-date">
+                        <span class="event-day">28</span>
+                        <span class="event-month">OCT</span>
+                    </div>
+                    <div class="event-details">
+                        <h4 id="event-ronda-title"></h4>
+                        <p id="event-ronda-desc"></p>
+                        <span class="event-location" id="event-ronda-location"></span>
+                    </div>
+                </div>
+
+                <div class="calendar-event">
+                    <div class="event-date">
+                        <span class="event-day">10</span>
+                        <span class="event-month">NOV</span>
+                    </div>
+                    <div class="event-details">
+                        <h4 id="event-encuentro-title"></h4>
+                        <p id="event-encuentro-desc"></p>
+                        <span class="event-location" id="event-encuentro-location"></span>
+                    </div>
+                </div>
+
+                <div class="calendar-event">
+                    <div class="event-date">
+                        <span class="event-day">25</span>
+                        <span class="event-month">NOV</span>
+                    </div>
+                    <div class="event-details">
+                        <h4 id="event-navidad-title"></h4>
+                        <p id="event-navidad-desc"></p>
+                        <span class="event-location" id="event-navidad-location"></span>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+
+
     <!-- Modal para reproducir audio -->
     <div id="audio-modal" class="modal-overlay">
         <div class="modal-content" style="max-width: 500px; text-align: center;">
@@ -289,7 +350,7 @@
             safeSetInnerHTML('parrafo15', i18next.t('parrafo15'));
 
             safeSetTextContent('events-title', i18next.t('eventos_titulo'));
-            safeSetTextContent('events-text', i18next.t('eventos_texto'));
+            //safeSetTextContent('events-text', i18next.t('eventos_texto'));
             safeSetTextContent('events-btn', i18next.t('eventos_boton'));
 
             safeSetTextContent('contact-title', i18next.t('contacto_titulo'));
@@ -298,6 +359,17 @@
 
             safeSetTextContent('sister-title', i18next.t('tunas_titulo'));
             safeSetTextContent('sister-text', i18next.t('tunas_texto'));
+
+            //Calendario
+            // Evento Soria
+            safeSetTextContent('event-soria-title', i18next.t('event_soria_title'));
+            safeSetTextContent('event-soria-desc', i18next.t('event_soria_desc'));
+            safeSetTextContent('event-soria-location', i18next.t('event_soria_location'));
+            
+            // Evento Ronda
+            /*safeSetTextContent('event-ronda-title', i18next.t('event_ronda_title'));
+            safeSetTextContent('event-ronda-desc', i18next.t('event_ronda_desc'));
+            safeSetTextContent('event-ronda-location', i18next.t('event_ronda_location'));*/
 
             // Actualizaciones
             safeSetTextContent('updates-title', i18next.t('updates_titulo'));
@@ -311,9 +383,67 @@
             // Footer
             safeSetTextContent('copyright-text', i18next.t('copyright'));
 
-            // Renderizar las actualizaciones
+            // Renderizar los modales
             renderUpdatesAccordion();
+            updateCalendarTexts();
         }
+
+        // Función para actualizar los textos del calendario
+        function updateCalendarTexts() {
+            safeSetTextContent('calendar-title', i18next.t('calendar_title'));
+            
+            // Evento Soria
+            safeSetTextContent('event-soria-title', i18next.t('event_soria_title'));
+            safeSetTextContent('event-soria-desc', i18next.t('event_soria_desc'));
+            safeSetTextContent('event-soria-location', i18next.t('event_soria_location'));
+            
+            // Evento Ronda
+            /*safeSetTextContent('event-ronda-title', i18next.t('event_ronda_title'));
+            safeSetTextContent('event-ronda-desc', i18next.t('event_ronda_desc'));
+            safeSetTextContent('event-ronda-location', i18next.t('event_ronda_location'));
+            
+            // Evento Encuentro
+            safeSetTextContent('event-encuentro-title', i18next.t('event_encuentro_title'));
+            safeSetTextContent('event-encuentro-desc', i18next.t('event_encuentro_desc'));
+            safeSetTextContent('event-encuentro-location', i18next.t('event_encuentro_location'));
+            
+            // Evento Navidad
+            safeSetTextContent('event-navidad-title', i18next.t('event_navidad_title'));
+            safeSetTextContent('event-navidad-desc', i18next.t('event_navidad_desc'));
+            safeSetTextContent('event-navidad-location', i18next.t('event_navidad_location'));*/
+        }
+
+        // Funcionalidad para el modal del calendario
+        document.addEventListener('DOMContentLoaded', function() {
+            const calendarModal = document.getElementById('calendar-modal');
+            const closeCalendarModal = document.getElementById('close-calendar-modal');
+            const calendarBtn = document.getElementById('events-btn');
+
+            if (calendarBtn && calendarModal) {
+                calendarBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Actualizar todos los textos del calendario
+                    updateCalendarTexts();
+                    
+                    calendarModal.classList.add('active');
+                });
+            }
+
+            if (closeCalendarModal) {
+                closeCalendarModal.addEventListener('click', () => {
+                    calendarModal.classList.remove('active');
+                });
+            }
+
+            if (calendarModal) {
+                calendarModal.addEventListener('click', (event) => {
+                    if (event.target === calendarModal) {
+                        calendarModal.classList.remove('active');
+                    }
+                });
+            }
+        });
 
         // Funciones auxiliares para manejar elementos que podrían no existir
         function safeSetTextContent(elementId, text) {
@@ -461,10 +591,10 @@
                                 // Obtener el tipo de audio desde los datos de la actualización
                                 const audioTypeKey = `updates_${update.numero}_audio_type`;
                                 const audioType = i18next.t(audioTypeKey) || 'entrevista';
-                                
+
                                 // Extrae el nombre completo después de "audio_"
                                 const audioFileName = internalType.replace('audio_', '') + '.mp3';
-                                
+
                                 linkHTML = `
                                     <a href="#" class="update-link play-audio" 
                                     data-audio="audios/${audioFileName}" 
@@ -567,13 +697,13 @@
         });
 
         // Funcionalidad para el modal de audio
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const audioModal = document.getElementById('audio-modal');
             const audioPlayer = document.getElementById('audio-player');
             const closeAudioModal = document.getElementById('close-audio-modal');
             const audioTitle = document.getElementById('audio-title');
             const audioDescription = document.getElementById('audio-description');
-            
+
             // Textos para el modal de audio (puedes traducirlos también)
             const audioTexts = {
                 entrevista: {
@@ -582,7 +712,7 @@
                         description: "Entrevista a Pbito, uno de los jefes de la Tuna de Magisterio de Santander y veterano de la Tuna del Gran Bilbao, organizador del certamen Espinosa de los Monteros."
                     },
                     eu: {
-                        title: "Elkarrizketa Radio Espinosa Merindades", 
+                        title: "Elkarrizketa Radio Espinosa Merindades",
                         description: "Pbitori elkarrizketa, Santanderreko Irakasle Eskolako buruetako bat eta Bilbo Handiko Tunako beteranoa, Espinosa de los Monteros lehiaketaren antolatzailea."
                     }
                 },
@@ -592,41 +722,41 @@
                         description: "Disfruta de esta interpretación especial"
                     },
                     eu: {
-                        title: "Abesti nabarmena", 
+                        title: "Abesti nabarmena",
                         description: "Goza ezazu interpretazio berezi honekin"
                     }
                 }
             };
-            
+
             // Manejar clic en enlaces de audio
-document.addEventListener('click', function(e) {
-    if (e.target.closest('.play-audio')) {
-        e.preventDefault();
-        const audioLink = e.target.closest('.play-audio');
-        const audioSrc = audioLink.dataset.audio;
-        const audioType = audioLink.dataset.audioType || 'entrevista';
-        
-        // Configurar el reproductor
-        audioPlayer.src = audioSrc;
-        
-        // Configurar textos según idioma y tipo
-        const currentLang = i18next.language;
-        const typeTexts = audioTexts[audioType] || audioTexts.entrevista;
-        const texts = typeTexts[currentLang] || typeTexts.es;
-        
-        audioTitle.textContent = texts.title;
-        audioDescription.textContent = texts.description;
-        
-        // Mostrar modal
-        audioModal.classList.add('active');
-        
-        // Reproducir automáticamente (opcional)
-        audioPlayer.play().catch(e => {
-            console.log('Reproducción automática bloqueada:', e);
-        });
-    }
-});
-            
+            document.addEventListener('click', function (e) {
+                if (e.target.closest('.play-audio')) {
+                    e.preventDefault();
+                    const audioLink = e.target.closest('.play-audio');
+                    const audioSrc = audioLink.dataset.audio;
+                    const audioType = audioLink.dataset.audioType || 'entrevista';
+
+                    // Configurar el reproductor
+                    audioPlayer.src = audioSrc;
+
+                    // Configurar textos según idioma y tipo
+                    const currentLang = i18next.language;
+                    const typeTexts = audioTexts[audioType] || audioTexts.entrevista;
+                    const texts = typeTexts[currentLang] || typeTexts.es;
+
+                    audioTitle.textContent = texts.title;
+                    audioDescription.textContent = texts.description;
+
+                    // Mostrar modal
+                    audioModal.classList.add('active');
+
+                    // Reproducir automáticamente (opcional)
+                    audioPlayer.play().catch(e => {
+                        console.log('Reproducción automática bloqueada:', e);
+                    });
+                }
+            });
+
             // Cerrar modal de audio
             if (closeAudioModal) {
                 closeAudioModal.addEventListener('click', () => {
@@ -635,7 +765,7 @@ document.addEventListener('click', function(e) {
                     audioPlayer.currentTime = 0;
                 });
             }
-            
+
             // Cerrar al hacer clic fuera
             if (audioModal) {
                 audioModal.addEventListener('click', (event) => {
@@ -646,14 +776,49 @@ document.addEventListener('click', function(e) {
                     }
                 });
             }
-            
+
             // Pausar audio cuando se cierra el modal
-            audioModal.addEventListener('transitionend', function() {
+            audioModal.addEventListener('transitionend', function () {
                 if (!audioModal.classList.contains('active')) {
                     audioPlayer.pause();
                     audioPlayer.currentTime = 0;
                 }
             });
+        });
+
+        // Funcionalidad para el modal del calendario
+        document.addEventListener('DOMContentLoaded', function () {
+            const calendarModal = document.getElementById('calendar-modal');
+            const closeCalendarModal = document.getElementById('close-calendar-modal');
+            const calendarBtn = document.getElementById('events-btn');
+            const calendarTitle = document.getElementById('calendar-title');
+
+            if (calendarBtn && calendarModal) {
+                calendarBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    // Actualizar título según idioma
+                    calendarTitle.textContent = i18next.language === 'eu'
+                        ? 'Hurrengo Ekitaldiak'
+                        : 'Próximos Eventos';
+
+                    calendarModal.classList.add('active');
+                });
+            }
+
+            if (closeCalendarModal) {
+                closeCalendarModal.addEventListener('click', () => {
+                    calendarModal.classList.remove('active');
+                });
+            }
+
+            if (calendarModal) {
+                calendarModal.addEventListener('click', (event) => {
+                    if (event.target === calendarModal) {
+                        calendarModal.classList.remove('active');
+                    }
+                });
+            }
         });
 
         // Función para cambiar idioma

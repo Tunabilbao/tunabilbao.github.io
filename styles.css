@@ -284,6 +284,130 @@ nav a.active {
     padding: 2rem;
 }
 
+/* Estilos para el calendario de eventos */
+.calendar-events {
+    margin-top: 1.5rem;
+}
+
+.calendar-event {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: var(--transition);
+}
+
+.calendar-event:hover {
+    background-color: #f8f9fa;
+    transform: translateX(5px);
+}
+
+.event-date {
+    background: var(--primary);
+    color: white;
+    padding: 0.8rem;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 60px;
+}
+
+.event-day {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.event-month {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.event-details h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--primary);
+}
+
+.event-details p {
+    margin: 0 0 0.5rem 0;
+    color: var(--dark);
+}
+
+.event-location {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+#calendar-modal .modal-content {
+    max-width: 600px;
+}
+
+/* Estilos para el calendario de eventos */
+.calendar-events {
+    margin-top: 1.5rem;
+}
+
+.calendar-event {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: var(--transition);
+}
+
+.calendar-event:hover {
+    background-color: #f8f9fa;
+    transform: translateX(5px);
+}
+
+.event-date {
+    background: var(--primary);
+    color: white;
+    padding: 0.8rem;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 60px;
+}
+
+.event-day {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.event-month {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.event-details h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--primary);
+}
+
+.event-details p {
+    margin: 0 0 0.5rem 0;
+    color: var(--dark);
+}
+
+.event-location {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+#calendar-modal .modal-content {
+    max-width: 600px;
+}
+
 /* Estilos para el modal */
 .modal-overlay {
     position: fixed;
