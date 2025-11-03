@@ -175,8 +175,8 @@
             <div class="calendar-events">
                 <div class="calendar-event">
                     <div class="event-date">
-                        <span class="event-day">17</span>
-                        <span class="event-month">OCT</span>
+                        <span class="event-day">15</span>
+                        <span class="event-month">NOV</span>
                     </div>
                     <div class="event-details">
                         <h4 id="event-soria-title"></h4>
@@ -501,7 +501,8 @@
 
             // Ordenar las actualizaciones por fecha (más reciente primero)
             updates.sort((a, b) => {
-                return b.fecha.localeCompare(a.fecha);
+                // Convertir fechas a objetos Date para comparación correcta
+                return new Date(b.fecha) - new Date(a.fecha);
             });
 
             // Agrupar actualizaciones por año y mes
@@ -529,7 +530,7 @@
                 const month = parseInt(dateParts[1]);
                 const monthName = monthNames[month - 1];
 
-                const key = `${year}-${month}`;
+                const key = `${year}-${month.toString().padStart(2, '0')}`;
 
                 if (!groupedUpdates[key]) {
                     groupedUpdates[key] = {
@@ -547,29 +548,32 @@
             let accordionHTML = '';
 
             // Obtener las claves ordenadas por año y mes (más reciente primero)
-            const sortedKeys = Object.keys(groupedUpdates).sort((a, b) => b.localeCompare(a));
+            const sortedKeys = Object.keys(groupedUpdates).sort((a, b) => {
+                // Ordenar por año y mes de forma descendente
+                return b.localeCompare(a);
+            });
 
             sortedKeys.forEach(key => {
                 const group = groupedUpdates[key];
                 const groupId = `accordion-${group.year}-${group.month}`;
 
                 accordionHTML += `
-            <div class="accordion-item">
-                <button class="accordion-header" id="header-${groupId}">
-                    ${group.monthName} ${group.year}
-                    <span class="accordion-icon">+</span>
-                </button>
-                <div class="accordion-content" id="content-${groupId}">
-                    <table class="updates-table">
-                        <thead>
-                            <tr>
-                                <th>${i18next.t('updates_fecha')}</th>
-                                <th>${i18next.t('updates_noticia')}</th>
-                                <th><i class="fas fa-link"></i></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-        `;
+                    <div class="accordion-item">
+                        <button class="accordion-header" id="header-${groupId}">
+                            ${group.monthName} ${group.year}
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content" id="content-${groupId}">
+                            <table class="updates-table">
+                                <thead>
+                                    <tr>
+                                        <th>${i18next.t('updates_fecha')}</th>
+                                        <th>${i18next.t('updates_noticia')}</th>
+                                        <th><i class="fas fa-link"></i></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                `;
 
                 group.updates.forEach(update => {
                     // Formatear la fecha para mostrar (cambiar de YYYY-MM-DD a DD-MM-YYYY)
@@ -583,10 +587,10 @@
                             const internalType = update.enlace.split(':')[1];
                             if (internalType === 'foto1') {
                                 linkHTML = `
-                                <a href="#" class="update-link show-image" data-image="fotos/index/icertesbur.jpg">
-                                    <i class="fas fa-image"></i>
-                                </a>
-                                `;
+                                        <a href="#" class="update-link show-image" data-image="fotos/index/icertesbur.jpg">
+                                            <i class="fas fa-image"></i>
+                                        </a>
+                                        `;
                             } else if (internalType.startsWith('audio_')) {
                                 // Obtener el tipo de audio desde los datos de la actualización
                                 const audioTypeKey = `updates_${update.numero}_audio_type`;
@@ -596,38 +600,38 @@
                                 const audioFileName = internalType.replace('audio_', '') + '.mp3';
 
                                 linkHTML = `
-                                    <a href="#" class="update-link play-audio" 
-                                    data-audio="audios/${audioFileName}" 
-                                    data-audio-type="${audioType}">
-                                        <i class="fas fa-play-circle"></i>
-                                    </a>
-                                `;
+                                            <a href="#" class="update-link play-audio" 
+                                            data-audio="audios/${audioFileName}" 
+                                            data-audio-type="${audioType}">
+                                                <i class="fas fa-play-circle"></i>
+                                            </a>
+                                        `;
                             }
                         } else {
                             // Es un enlace externo normal
                             linkHTML = `
-                        <a href="${update.enlace}" target="_blank" class="update-link">
-                            <i class="fas fa-eye"></i>
-                        </a>
-                    `;
+                                <a href="${update.enlace}" target="_blank" class="update-link">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            `;
                         }
                     }
 
                     accordionHTML += `
-                <tr>
-                    <td>${fechaFormateada}</td>
-                    <td>${update.texto}</td>
-                    <td>${linkHTML}</td>
-                </tr>
-            `;
+                        <tr>
+                            <td>${fechaFormateada}</td>
+                            <td>${update.texto}</td>
+                            <td>${linkHTML}</td>
+                        </tr>
+                    `;
                 });
 
                 accordionHTML += `
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        `;
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
             });
 
             document.getElementById('updates-accordion').innerHTML = accordionHTML;
@@ -635,7 +639,6 @@
             // Añadir funcionalidad a los acordeones
             attachAccordionListeners();
         }
-
         // Función para añadir interactividad a los acordeones
         function attachAccordionListeners() {
             const accordionHeaders = document.querySelectorAll('.accordion-header');
@@ -954,7 +957,7 @@
 
         // Notificaciones de ultima version 
         // Agrega esto al final de tu JavaScript
-        const currentVersion = '2.4'; // 2025/08/27 - Corrección de contenido
+        const currentVersion = '2.5'; // 2025/11/03 - Correcciones de textos y nuevo articulo en dochistoria
 
         if (localStorage.getItem('siteVersion') !== currentVersion) {
             localStorage.setItem('siteVersion', currentVersion);
